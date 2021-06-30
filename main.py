@@ -1,6 +1,6 @@
 import sys
 
-#그리디 알고리즘 1번
+#그리디 알고리즘 1번 큰수의 법칙
 #
 # a, b, c = map(int, sys.stdin.readline().rstrip().split())
 # num_list = list(map(int, sys.stdin.readline().rstrip().split()))
@@ -17,7 +17,7 @@ import sys
 #
 # print(total)
 
-#그리디 알고리즘 2번
+#그리디 알고리즘 2번 숫자 카드 게임
 #
 # a, b = map(int, sys.stdin.readline().rstrip().split())
 # num_list = list()
