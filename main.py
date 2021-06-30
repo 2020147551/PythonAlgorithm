@@ -26,7 +26,7 @@ import sys
 #
 # print(max(num_list))
 
-#그리디 알고리즘 3번
+#그리디 알고리즘 3번 1이 될 때까지
 #
 # n, k = map(int, sys.stdin.readline().rstrip().split())
 # count = 0
