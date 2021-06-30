@@ -27,18 +27,18 @@ import sys
 # print(max(num_list))
 
 #그리디 알고리즘 3번
-
-n, k = map(int, sys.stdin.readline().rstrip().split())
-count = 0
-while True:
-    if n % k == 0:
-        if n != 1:
-            n = int(n / k)
-            count += 1
-    else:
-        n -= 1
-        count += 1
-    if n == 1:
-        break
-
-print(count)
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+# count = 0
+# while True:
+#     if n % k == 0:
+#         if n != 1:
+#             n = int(n / k)
+#             count += 1
+#     else:
+#         n -= 1
+#         count += 1
+#     if n == 1:
+#         break
+#
+# print(count)
