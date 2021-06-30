@@ -43,4 +43,31 @@ import sys
 #
 # print(count)
 
-# 구현 알고리즘 1번
+# 구현 알고리즘 예제 4-1번
+#
+# def move(input):
+#     global a, x, y
+#     if input == "R":
+#         if x < a:
+#             x += 1
+#     elif input == "L":
+#         if x > 1:
+#             x -= 1
+#     elif input == "U":
+#         if y > 1:
+#             y -= 1
+#     elif input == "D":
+#         if y < a:
+#             y += 1
+#
+# a = int(sys.stdin.readline().rstrip())
+# move_list = list(sys.stdin.readline().rstrip().split())
+# size = len(move_list)
+# x = 1
+# y = 1
+#
+# for i in range(size):
+#     move(move_list[i])
+#
+# print(y, x)
+
