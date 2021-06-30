@@ -42,3 +42,5 @@ import sys
 #         break
 #
 # print(count)
+
+# 구현 알고리즘 1번
