@@ -43,6 +43,36 @@ import sys
 #
 # print(count)
 
+#그리디 알고리즘 기출문제 1번 모험가 길드
+#
+# num_of_people = int(sys.stdin.readline().rstrip())
+# list_of_fear = list(map(int, sys.stdin.readline().rstrip().split()))
+# group = 0
+# count = 0
+#
+# list_of_fear.sort()
+#
+# for i in list_of_fear:
+#     count += 1
+#     if i <= count:
+#         group += 1
+#         count = 0
+#
+# print(group)
+
+#그리디 알고리즘 기출문제 2번 곱하기 혹은 더하기
+#
+# num_list = list(sys.stdin.readline().rstrip())
+# for i in range(len(num_list)-1):
+#     if int(num_list[i]) == 0 or int(num_list[i]) == 1:
+#         num_list[i+1] = int(num_list[i+1]) + int(num_list[i])
+#     else:
+#         num_list[i+1] = int(num_list[i+1]) * int(num_list[i])
+#     i += 1
+#
+# print(num_list[len(num_list)-1])
+
+
 # 구현 알고리즘 예제 4-1번
 #
 # def move(input):
