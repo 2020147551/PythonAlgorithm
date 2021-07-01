@@ -73,7 +73,7 @@ import sys
 # print(num_list[len(num_list)-1])
 
 #그리디 알고리즘 기출문제 3번 문자열 뒤집기
-#
+
 # num_list = list(map(int, sys.stdin.readline().rstrip()))
 # count_zero = 0
 # count_one = 0
