@@ -72,6 +72,23 @@ import sys
 #
 # print(num_list[len(num_list)-1])
 
+#그리디 알고리즘 기출문제 3번 문자열 뒤집기
+#
+# num_list = list(map(int, sys.stdin.readline().rstrip()))
+# count_zero = 0
+# count_one = 0
+# i = 0
+# while i < len(num_list):
+#     count_cons = 0
+#     while i + count_cons < len(num_list) and num_list[i] == num_list[i + count_cons]:
+#         count_cons += 1
+#     if num_list[i] == 1:
+#         count_one += 1
+#     else:
+#         count_zero += 1
+#     i += count_cons
+#
+# print(min(count_zero, count_one))
 
 # 구현 알고리즘 예제 4-1번
 #
