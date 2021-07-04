@@ -90,6 +90,25 @@ import sys
 #
 # print(min(count_zero, count_one))
 
+#그리디 알고리즘 기출문제 4번 만들 수 없는 금액
+#############################################################7-4-2021 거의 한시간동안 풀지 못해서 답안 보고 풂##############################################################################
+# num = int(sys.stdin.readline().rstrip())
+#
+# coin_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# coin_list.sort()
+# target = 1
+# for coin in coin_list:
+#     if target < coin:
+#         break
+#     else:
+#         target += coin
+#
+# print(target)
+
+#그리디 알고리즘 기출문제 5번 볼링공 고르기
+
+
+
 # 구현 알고리즘 예제 4-1번
 #
 # def move(input):
