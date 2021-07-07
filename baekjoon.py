@@ -31,3 +31,38 @@
 #         max_weight = temp
 #
 # print(max_weight)
+#백준 2869번 달팽이는 올라가고 싶다
+#
+# import sys
+#
+# a, b, v = map(int, sys.stdin.readline().rstrip().split())
+# if (v - a) % (a - b) != 0:
+#     print(((v - a) // (a - b)) + 2)
+# else:
+#     print(((v - a) // (a - b)) + 1)
+
+#백준 1929번 소수 구하기
+# import sys
+#
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# prime = [False] * (b+1)
+#
+# for i in range(2, b+1):
+#     if prime[i] == False:
+#         j = i * 2
+#         while j <= b:
+#             prime[j] = True
+#             j += i
+#
+# for i in range(a, b+1):
+#     prime[i] = not prime[i]
+#
+# if a > 2:
+#     for i in range(a, b+1):
+#         if prime[i]:
+#             print(i)
+# else:
+#     for i in range(2, b+1):
+#         if prime[i]:
+#             print(i)
