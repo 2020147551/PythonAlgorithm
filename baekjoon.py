@@ -66,3 +66,127 @@
 #     for i in range(2, b+1):
 #         if prime[i]:
 #             print(i)
+
+#백준 2609번 최대공약수와 최소공배수
+# import sys
+#
+# def gcd(a, b):
+#     while b > 0:
+#         a, b = b, a % b
+#     return a
+#
+# def lcm(a,b):
+#     return a*b / gcd(a, b)
+#
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# print(int(gcd(a, b)))
+# print(int(lcm(a, b)))
+
+# 백준 10845번 큐
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# queue = []
+# queue_size = 0
+#
+# def push(x):
+#     global queue_size
+#     global queue
+#
+#     queue.append(x)
+#     queue_size += 1
+#
+#
+# def pop():
+#     global queue_size
+#     global queue
+#
+#     if queue_size > 0:
+#         queue_size -= 1
+#         temp = queue[0]
+#         queue.remove(queue[0])
+#         return temp
+#     else:
+#         return -1
+#
+#
+# step = ""
+#
+# for i in range(num):
+#     step = sys.stdin.readline().rstrip()
+#     if step[0:2] == "pu":
+#         push(int(step[5:]))
+#     elif step[0:2] == "po":
+#         print(pop())
+#     elif step[0:2] == "si":
+#         print(queue_size)
+#     elif step[0:2] == "em":
+#         if queue_size == 0:
+#             print(1)
+#         else:
+#             print(0)
+#     elif step[0:2] == "fr":
+#         if queue_size == 0:
+#             print(-1)
+#         else:
+#             print(queue[0])
+#     elif step[0:2] == "ba":
+#         if queue_size == 0:
+#             print(-1)
+#         else:
+#             print(queue[-1])
+
+#백준 11650번 좌표 정렬하기
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# x_y_list = []
+#
+# for i in range(num):
+#     x_y_list.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+# x_y_list.sort(key=lambda x:(x[0], x[1]))
+#
+# for x, y in x_y_list:
+#     print(x, y)
+
+#백준 11651번 좌표 정렬하기2
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# x_y_list = []
+#
+# for i in range(num):
+#     x_y_list.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+# x_y_list.sort(key=lambda x:(x[1], x[0]))
+#
+# for x, y in x_y_list:
+#     print(x, y)
+
+#백준 2164 카드2 미해결
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+card_list = []
+list_num = num
+for i in range(num):
+    card_list.append(i+1)
+
+while True:
+    if list_num == 1:
+        break
+    card_list.remove(card_list[0])
+    list_num -= 1
+    temp = []
+    for i in range(list_num-1):
+        temp.append(card_list[i+1])
+    temp.append(card_list[0])
+    card_list = temp[:]
+
+print(card_list[0])
