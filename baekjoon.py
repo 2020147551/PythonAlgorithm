@@ -169,24 +169,22 @@
 #     print(x, y)
 
 #백준 2164 카드2 미해결
-# import sys
-#
-# num = int(sys.stdin.readline().rstrip())
-#
-# card_list = []
-# list_num = num
-# for i in range(num):
-#     card_list.append(i+1)
-#
-# while True:
-#     if list_num == 1:
-#         break
-#     card_list.remove(card_list[0])
-#     list_num -= 1
-#     temp = []
-#     for i in range(list_num-1):
-#         temp.append(card_list[i+1])
-#     temp.append(card_list[0])
-#     card_list = temp[:]
-#
-# print(card_list[0])
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+card_list = []
+list_num = num
+for i in range(num):
+    card_list.append(i+1)
+
+while True:
+    if list_num == 1:
+        break
+    card_list.pop(0)
+    list_num -= 1
+    temp = card_list[1:]
+    temp.append(card_list[0])
+    card_list = temp[:]
+
+print(card_list[0])
