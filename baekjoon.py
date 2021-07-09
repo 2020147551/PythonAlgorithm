@@ -168,23 +168,118 @@
 # for x, y in x_y_list:
 #     print(x, y)
 
-#백준 2164 카드2 미해결
-import sys
+#백준 2164 카드2
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# card_list = deque()
+# list_num = num
+# for i in range(num):
+#     card_list.append(i+1)
+#
+# while True:
+#     if list_num == 1:
+#         break
+#     card_list.popleft()
+#     list_num -= 1
+#     card_list.append(card_list[0])
+#     card_list.popleft()
+#
+# print(card_list[0])
 
-num = int(sys.stdin.readline().rstrip())
+#백준 1920번 수찾기
+# import sys
+# from bisect import bisect_left, bisect_right
+#
+# def count_by_range(a, l, r):
+#     right_index = bisect_right(a, r)
+#     left_index = bisect_left(a, l)
+#     return right_index - left_index
+#
+# size = int(sys.stdin.readline().rstrip())
+#
+# num_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# find_size = int(sys.stdin.readline().rstrip())
+#
+# find_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# num_list.sort()
+#
+# for i in find_list:
+#     temp = count_by_range(num_list, i, i)
+#     if temp > 0:
+#         print(1)
+#     else:
+#         print(0)
 
-card_list = []
-list_num = num
-for i in range(num):
-    card_list.append(i+1)
+#백준 7568번 덩치 미해결 ################################################################
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# pre_list = []
+# people_list = []
+# final_list = []
+# for i in range(num):
+#     x, y = map(int, sys.stdin.readline().rstrip().split())
+#     people_list.append([x, y])
+#
+# pre_list = people_list[:]
+#
+# people_list.sort(key = lambda x : x[0], reverse=True)
+# i = 0
+# while i < num:
+#     temp = [people_list[i]]
+#     for j in range(i+1, num):
+#         if people_list[i][1] < people_list[j][1]:
+#             temp.append(people_list[j])
+#             i += 1
+#     i += 1
+#     final_list.append(temp)
+#
+#
+# for i in pre_list:
+#     for j in range(len(final_list)):
+#         if i in final_list[j]:
+#             if j == 0:
+#                 print(1, end = " ")
+#             else:
+#                 print((j+1) + (len(final_list[j-1])-1), end=" ")
 
-while True:
-    if list_num == 1:
-        break
-    card_list.pop(0)
-    list_num -= 1
-    temp = card_list[1:]
-    temp.append(card_list[0])
-    card_list = temp[:]
+#백준 10816번 숫자카드 2
 
-print(card_list[0])
+# import sys
+# from bisect import bisect_left, bisect_right
+#
+# a_num = int(sys.stdin.readline().rstrip())
+# a_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# a_list.sort()
+# b_num = int(sys.stdin.readline().rstrip())
+# b_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# def count_by_range(a_list, l, r):
+#     right_index = bisect_right(a_list, r)
+#     left_index = bisect_left(a_list, l)
+#     return right_index - left_index
+#
+# for i in b_list:
+#     print(count_by_range(a_list, i, i), end=" ")
+
+#백준 1357 뒤집힌 덧셈
+# import sys
+#
+# def reverse(a):
+#     a = a[::-1]
+#     return int(a)
+#
+# a, b = sys.stdin.readline().rstrip().split()
+#
+# a = reverse(a)
+# b = reverse(b)
+#
+# final = reverse(str(a+b))
+#
+# print(final)
