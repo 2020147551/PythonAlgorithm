@@ -283,3 +283,33 @@
 # final = reverse(str(a+b))
 #
 # print(final)
+
+#백준 4949번 균형잡힌 세상
+# import sys
+#
+# while True:
+#     complete = True
+#     stack = []
+#     line = sys.stdin.readline().rstrip()
+#     if line == ".":
+#         break
+#     for i in range(len(line)):
+#         if line[i] == "(":
+#             stack.append("(")
+#         elif line[i] == "[":
+#             stack.append("[")
+#         elif line[i] == ")":
+#             if len(stack) == 0:
+#                 complete = False
+#             elif stack.pop() != "(":
+#                 complete = False
+#         elif line[i] == "]":
+#             if len(stack) == 0:
+#                 complete = False
+#             elif stack.pop() != "[":
+#                 complete = False
+#
+#     if not complete or len(stack) != 0:
+#         print("no")
+#     else:
+#         print("yes")
