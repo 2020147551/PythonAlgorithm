@@ -216,38 +216,38 @@
 #         print(0)
 
 #백준 7568번 덩치 미해결 ################################################################
-import sys
-
-num = int(sys.stdin.readline().rstrip())
-
-pre_list = []
-people_list = []
-final_list = []
-for i in range(num):
-    x, y = map(int, sys.stdin.readline().rstrip().split())
-    people_list.append([x, y])
-
-pre_list = people_list[:]
-
-people_list.sort(key = lambda x : x[0], reverse=True)
-i = 0
-while i < num:
-    temp = [people_list[i]]
-    for j in range(i+1, num):
-        if people_list[i][1] < people_list[j][1]:
-            temp.append(people_list[j])
-            i += 1
-    i += 1
-    final_list.append(temp)
-
-
-for i in pre_list:
-    for j in range(len(final_list)):
-        if i in final_list[j]:
-            if j == 0:
-                print(1, end = " ")
-            else:
-                print((j+1) + (len(final_list[j-1])-1), end=" ")
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# pre_list = []
+# people_list = []
+# final_list = []
+# for i in range(num):
+#     x, y = map(int, sys.stdin.readline().rstrip().split())
+#     people_list.append([x, y])
+#
+# pre_list = people_list[:]
+#
+# people_list.sort(key = lambda x : x[0], reverse=True)
+# i = 0
+# while i < num:
+#     temp = [people_list[i]]
+#     for j in range(i+1, num):
+#         if people_list[i][1] < people_list[j][1]:
+#             temp.append(people_list[j])
+#             i += 1
+#     i += 1
+#     final_list.append(temp)
+#
+#
+# for i in pre_list:
+#     for j in range(len(final_list)):
+#         if i in final_list[j]:
+#             if j == 0:
+#                 print(1, end = " ")
+#             else:
+#                 print((j+1) + (len(final_list[j-1])-1), end=" ")
 
 #백준 10816번 숫자카드 2
 
@@ -421,3 +421,47 @@ for i in pre_list:
 #         mini.append(idx2)
 #
 # print(min(mini))
+
+#백준 2108번 통계학
+# import sys
+# from collections import Counter
+# num = int(sys.stdin.readline().rstrip())
+# num_list = []
+#
+# for i in range(num):
+#     num_list.append(int(sys.stdin.readline().rstrip()))
+#
+# mean = 0
+# for i in range(num):
+#     mean += num_list[i]
+#
+# mean /= num
+# print(round(mean))
+#
+# num_list.sort()
+#
+# if num % 2 == 1:
+#     print(num_list[int((num+1)/2)-1])
+# else:
+#     print((num_list[int(num/2)-1] + num_list[int(num/2)])//2)
+#
+# def modefinder(num_list):
+#     counter = Counter(num_list)
+#     order = counter.most_common()
+#     max = order[0][1]
+#
+#     mode = []
+#     for i in order:
+#         if i[1] == max:
+#             mode.append(i[0])
+#
+#     return mode
+#
+# mode_list = modefinder(num_list)
+#
+# if len(mode_list) == 1:
+#     print(mode_list[0])
+# else:
+#     print(mode_list[1])
+#
+# print(max(num_list) - min(num_list))
