@@ -564,3 +564,66 @@
 # for i in range(len(seq)-1):
 #     print(seq[i], end = ", ")
 # print(str(seq[len(seq)-1]) + ">")
+
+#백준 1874번 스택 수열 틀림##############################################################
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# num_stack = []
+# for i in range(num):
+#     num_stack.append(i+1)
+#
+# num_stack.sort(reverse=True)
+#
+# wanted_list = []
+#
+# for i in range(num):
+#     wanted_list.append(int(sys.stdin.readline().rstrip()))
+#
+# temp_stack = []
+# result_stack = []
+# oper_list = []
+#
+# for i in range(wanted_list[0]):
+#         temp_stack.append(num_stack.pop())
+#         oper_list.append("+")
+#
+# for i in wanted_list:
+#     if len(num_stack) and i >= num_stack[-1]:
+#         for j in range(i - num_stack[-1] + 1):
+#             temp_stack.append(num_stack.pop())
+#             oper_list.append("+")
+#     if len(temp_stack) and i <= temp_stack[-1]:
+#         for j in range(temp_stack[-1] - i + 1):
+#             result_stack.append(temp_stack.pop())
+#             oper_list.append("-")
+#
+# if result_stack == wanted_list:
+#     for i in range(len(oper_list)):
+#         print(oper_list[i])
+# else:
+#     print("NO")
+
+#백준 1874번 다른 방법
+#
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# temp_stack = []
+# oper_list = []
+# count = 0
+# for i in range(num):
+#     a = int(sys.stdin.readline().rstrip())
+#     while count < a:
+#         count += 1
+#         temp_stack.append(count)
+#         oper_list.append("+")
+#
+#     if temp_stack[-1] == a:
+#         temp_stack.pop()
+#         oper_list.append("-")
+#     else:
+#         print("NO")
+#         oper_list = []
+#         break
+#
+# for i in range(len(oper_list)):
+#     print(oper_list[i])
