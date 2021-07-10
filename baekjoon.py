@@ -216,38 +216,38 @@
 #         print(0)
 
 #백준 7568번 덩치 미해결 ################################################################
-# import sys
-#
-# num = int(sys.stdin.readline().rstrip())
-#
-# pre_list = []
-# people_list = []
-# final_list = []
-# for i in range(num):
-#     x, y = map(int, sys.stdin.readline().rstrip().split())
-#     people_list.append([x, y])
-#
-# pre_list = people_list[:]
-#
-# people_list.sort(key = lambda x : x[0], reverse=True)
-# i = 0
-# while i < num:
-#     temp = [people_list[i]]
-#     for j in range(i+1, num):
-#         if people_list[i][1] < people_list[j][1]:
-#             temp.append(people_list[j])
-#             i += 1
-#     i += 1
-#     final_list.append(temp)
-#
-#
-# for i in pre_list:
-#     for j in range(len(final_list)):
-#         if i in final_list[j]:
-#             if j == 0:
-#                 print(1, end = " ")
-#             else:
-#                 print((j+1) + (len(final_list[j-1])-1), end=" ")
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+pre_list = []
+people_list = []
+final_list = []
+for i in range(num):
+    x, y = map(int, sys.stdin.readline().rstrip().split())
+    people_list.append([x, y])
+
+pre_list = people_list[:]
+
+people_list.sort(key = lambda x : x[0], reverse=True)
+i = 0
+while i < num:
+    temp = [people_list[i]]
+    for j in range(i+1, num):
+        if people_list[i][1] < people_list[j][1]:
+            temp.append(people_list[j])
+            i += 1
+    i += 1
+    final_list.append(temp)
+
+
+for i in pre_list:
+    for j in range(len(final_list)):
+        if i in final_list[j]:
+            if j == 0:
+                print(1, end = " ")
+            else:
+                print((j+1) + (len(final_list[j-1])-1), end=" ")
 
 #백준 10816번 숫자카드 2
 
@@ -355,13 +355,69 @@
 # print(total)
 
 #백준 1436번 영화감독 숌
+#
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# arr = []
+# i = 0
+# while len(arr) < num:
+#     i += 1
+#     if "666" in str(i):
+#         arr.append(i)
+#
+# print(arr[-1])
 
-import sys
+#백준 10866번 덱
+# import sys
+# from collections import deque
+# dq = deque()
+# num = int(sys.stdin.readline().rstrip())
+#
+# for i in range(num):
+#     oper = sys.stdin.readline().rstrip()
+#     if oper[:2] == "pu":
+#         operation, number = oper.split()
+#         if operation == "push_front": dq.appendleft(number)
+#         else: dq.append(number)
+#     elif oper[:2] == "po":
+#         if len(dq) == 0: print(-1)
+#         else:
+#             if oper == "pop_front": print(dq.popleft())
+#             elif oper == "pop_back": print(dq.pop())
+#     elif oper[:2] == "si": print(len(dq))
+#     elif oper[:2] == "em":
+#         if dq: print(0)
+#         else: print(1)
+#     elif oper[:2] == "fr":
+#         if dq: print(dq[0])
+#         else: print(-1)
+#     elif oper[:2] == "ba":
+#         if dq: print(dq[-1])
+#         else: print(-1)
 
-num = int(sys.stdin.readline().rstrip())
-
-nth = str(num-1)
-if nth == "0":
-    print("666")
-else:
-    print(str(num-1) + "666")
+# 1018번 체스판 다시 칠하기 구글링####################################
+# import sys
+# n, m = map(int, sys.stdin.readline().rstrip().split())
+# l = []
+# mini = []
+#
+# for i in range(n):
+#     l.append(sys.stdin.readline().rstrip())
+#
+# for a in range(n - 7):
+#     for i in range(m - 7):
+#         idx1 = 0
+#         idx2 = 0
+#         for b in range(a, a + 8):
+#             for j in range(i, i + 8):
+#                 if (j + b)%2 == 0:
+#                     if l[b][j] != 'W': idx1 += 1
+#                     if l[b][j] != 'B': idx2 += 1
+#                 else :
+#                     if l[b][j] != 'B': idx1 += 1
+#                     if l[b][j] != 'W': idx2 += 1
+#         mini.append(idx1)
+#         mini.append(idx2)
+#
+# print(min(mini))
