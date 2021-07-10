@@ -543,3 +543,24 @@
 #     elif i == num:
 #         print(0)
 #         break
+#백준 11866번 요세푸스 문제 0
+# import sys
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+# seq = []
+# circle = []
+# for i in range(1, n + 1):
+#     circle.append(i)
+#
+# i = 0
+# while True:
+#     i += k-1
+#     i %= len(circle)
+#     seq.append(circle[i])
+#     del circle[i]
+#     if not circle: break
+#
+# print("<", end = "")
+# for i in range(len(seq)-1):
+#     print(seq[i], end = ", ")
+# print(str(seq[len(seq)-1]) + ">")
