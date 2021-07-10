@@ -313,3 +313,55 @@
 #         print("no")
 #     else:
 #         print("yes")
+
+#백준 10814번 나이순 정렬
+#
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# people_list = []
+#
+# for i in range(num):
+#     x, y = sys.stdin.readline().rstrip().split()
+#     people_list.append([int(x), y])
+#
+# people_list.sort(key = lambda x : x[0])
+#
+# for i in range(num):
+#     print(people_list[i][0], end = " ")
+#     print(people_list[i][1])
+
+#백준 10773번 제로
+#
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# stack = []
+#
+# total = 0
+#
+# for i in range(num):
+#     temp = int(sys.stdin.readline().rstrip())
+#     if temp != 0:
+#         stack.append(temp)
+#     else:
+#         stack.pop()
+#
+# for i in range(len(stack)):
+#     total += stack[i]
+#
+# print(total)
+
+#백준 1436번 영화감독 숌
+
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+nth = str(num-1)
+if nth == "0":
+    print("666")
+else:
+    print(str(num-1) + "666")
