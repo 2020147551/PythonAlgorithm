@@ -627,3 +627,12 @@
 #
 # for i in range(len(oper_list)):
 #     print(oper_list[i])
+
+#백준 18111번 마인크래프트
+import sys
+a, b, c = map(int, sys.stdin.readline().rstrip().split())
+world = []
+for i in range(a):
+    world.append(list(map(int, sys.stdin.readline().rstrip().split())))
+
+print(world)
