@@ -216,38 +216,38 @@
 #         print(0)
 
 #백준 7568번 덩치 미해결 ################################################################
-# import sys
-#
-# num = int(sys.stdin.readline().rstrip())
-#
-# pre_list = []
-# people_list = []
-# final_list = []
-# for i in range(num):
-#     x, y = map(int, sys.stdin.readline().rstrip().split())
-#     people_list.append([x, y])
-#
-# pre_list = people_list[:]
-#
-# people_list.sort(key = lambda x : x[0], reverse=True)
-# i = 0
-# while i < num:
-#     temp = [people_list[i]]
-#     for j in range(i+1, num):
-#         if people_list[i][1] < people_list[j][1]:
-#             temp.append(people_list[j])
-#             i += 1
-#     i += 1
-#     final_list.append(temp)
-#
-#
-# for i in pre_list:
-#     for j in range(len(final_list)):
-#         if i in final_list[j]:
-#             if j == 0:
-#                 print(1, end = " ")
-#             else:
-#                 print((j+1) + (len(final_list[j-1])-1), end=" ")
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+pre_list = []
+people_list = []
+final_list = []
+for i in range(num):
+    x, y = map(int, sys.stdin.readline().rstrip().split())
+    people_list.append([x, y])
+
+pre_list = people_list[:]
+
+people_list.sort(key = lambda x : x[0], reverse=True)
+i = 0
+while i < num:
+    temp = [people_list[i]]
+    for j in range(i+1, num):
+        if people_list[i][1] < people_list[j][1]:
+            temp.append(people_list[j])
+            i += 1
+    i += 1
+    final_list.append(temp)
+
+
+for i in pre_list:
+    for j in range(len(final_list)):
+        if i in final_list[j]:
+            if j == 0:
+                print(1, end = " ")
+            else:
+                print((j+1) + (len(final_list[j-1])-1), end=" ")
 
 #백준 10816번 숫자카드 2
 
@@ -465,3 +465,85 @@
 #     print(mode_list[1])
 #
 # print(max(num_list) - min(num_list))
+
+#백준 15829번 Hashing
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# word_list = list(sys.stdin.readline().rstrip())
+# total = 0
+# for i in range(num):
+#     total += (ord(word_list[i])-96) * (pow(31, i))
+#
+# print(total % 1234567891)
+
+#백준 2775번 부녀회장이 될테야
+# import sys
+#
+# test = int(sys.stdin.readline().rstrip())
+#
+# for i in range(test):
+#     n = int(sys.stdin.readline().rstrip())
+#     k = int(sys.stdin.readline().rstrip())
+#     house = [[0] * k for _ in range(n+1)]
+#     for i in range(k):
+#         house[0][i] = i+1
+#     for i in range(1, n+1):
+#         house[i][0] = 1
+#
+#     for i in range(1, n+1):
+#         for j in range(1, k):
+#             house[i][j] = house[i-1][j] + house[i][j-1]
+#     print(house[n][k-1])
+
+#백준 1966번 프린터 큐
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+# for i in range(num):
+#     doc_num, doc_req = map(int, sys.stdin.readline().rstrip().split())
+#     doc_index = deque()
+#     order = 0
+#     for i in range(doc_num):
+#         doc_index.append(i)
+#     if doc_num == 1:
+#         pri = deque()
+#         pri.append(int(sys.stdin.readline().rstrip()))
+#     else:
+#         pri = deque(map(int, sys.stdin.readline().rstrip().split()))
+#
+#     while True:
+#         if len(pri) == 1:
+#             pri.pop()
+#             doc_index.pop()
+#             order += 1
+#             break
+#
+#         if pri[0] == max(pri):
+#             temp_pri = pri.popleft()
+#             temp_doc = doc_index.popleft()
+#             order += 1
+#             if temp_doc == doc_req:
+#                 break
+#
+#         else:
+#             pri.append(pri.popleft())
+#             doc_index.append(doc_index.popleft())
+#
+#     print(order)
+
+#백준 2231번 분해합
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# total = 0
+# for i in range(1, num + 1):
+#     list_num = list(map(int, str(i)))
+#     total = i + sum(list_num)
+#
+#     if total == num:
+#         print(i)
+#         break
+#     elif i == num:
+#         print(0)
+#         break
