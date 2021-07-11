@@ -672,3 +672,61 @@
 #         highest = i
 #
 # print(time, highest)
+#백준 1654번 랜선 자르기 이분탐색 매개변수탐색 구글링
+# import sys
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# line_list = []
+#
+# for i in range(a):
+#     line_list.append(int(sys.stdin.readline().rstrip()))
+#
+# def search(start, end):
+#     global line_list
+#     line_num = 0
+#     aver = int((start + end) / 2)
+#     for i in range(len(line_list)):
+#         line_num += int(line_list[i] // aver)
+#
+#     return line_num, aver
+#
+# start = 0
+# end = max(line_list) + 1
+# max_line = 0
+# while True:
+#     found_line, found_height = search(start, end)
+#
+#     if found_line < b:
+#         end = found_height
+#     elif found_line >= b:
+#         if found_height > max_line:
+#             max_line = found_height
+#             start = found_height
+#         else:
+#             print(found_height)
+#             break
+#백준 2805번 나무 자르기 이분탐색 매개변수탐색 구글링
+# import sys
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# tree_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+#
+# def search(aver):
+#     length = sum(i - aver if i > aver else 0 for i in tree_list)
+#
+#     return length
+#
+#
+# start = 0
+# end = max(tree_list)
+#
+# while start <= end:
+#     aver = (start + end)//2
+#     found_length = search(aver)
+#
+#     if found_length >= b:
+#         start = aver + 1
+#     else:
+#         end = aver - 1
+#
+# print(end)
