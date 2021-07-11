@@ -603,7 +603,7 @@
 # else:
 #     print("NO")
 
-#백준 1874번 다른 방법
+#백준 1874번 스택 수열 다른 방법
 #
 # import sys
 # num = int(sys.stdin.readline().rstrip())
@@ -628,11 +628,47 @@
 # for i in range(len(oper_list)):
 #     print(oper_list[i])
 
-#백준 18111번 마인크래프트
-import sys
-a, b, c = map(int, sys.stdin.readline().rstrip().split())
-world = []
-for i in range(a):
-    world.append(list(map(int, sys.stdin.readline().rstrip().split())))
-
-print(world)
+#백준 18111번 마인크래프트 시간 초과 구글링
+#원래 했던 방식은 3중 for loop으로 n^3 시간 복잡도인데, counter를 사용해서 같은 블럭 높이를
+#가지는 블럭들끼리 모아서 세고, 그걸 곱해서 forloop을 하나 빼는 방식을 사용하기 시간 초과가 안났다
+# import sys
+# from collections import Counter
+#
+# height, width, left_block = map(int, sys.stdin.readline().rstrip().split())
+# world = []
+# min_block = []
+# max_block = []
+# time = 999999999999999999999
+# highest = 0
+# for i in range(height):
+#     line = map(int, sys.stdin.readline().rstrip().split())
+#     world += line
+#
+# lowest = min(world)
+# highest = max(world)
+# land = dict(Counter(world))
+#
+# if highest > 256:
+#     highest = 256
+# for i in range(lowest, highest + 1):
+#     time_taken = 0
+#     usable_block = left_block
+#     for key in land: #깎는거
+#         if i < key:
+#             install = (key - i) * land[key]
+#             time_taken += 2 * install
+#             usable_block += install
+#     for key in land: #설치하는거
+#         if i > key:
+#             if usable_block >= (i - key) * land[key]:
+#                 install = (i - key) * land[key]
+#                 time_taken += install
+#                 usable_block -= install
+#             else:
+#                 time_taken = 999999999999999999999
+#                 break
+#     if time_taken <= time:
+#         time = time_taken
+#         highest = i
+#
+# print(time, highest)
