@@ -147,3 +147,5 @@ import sys
 #                 count+=1
 #
 # print(count)
+
+# 구현 알고리즘 실전 문제 2번 왕실의 나이트
