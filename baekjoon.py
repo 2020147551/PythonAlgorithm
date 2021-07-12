@@ -730,3 +730,21 @@
 #         end = aver - 1
 #
 # print(end)
+
+#백준 1463번 1로 만들기 바텀업
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# num_arr = [0] * 1000001
+#
+# for i in range(2, num+1):
+#     num_arr[i] = num_arr[i-1] + 1
+#
+#     if i % 2 == 0:
+#         num_arr[i] = min(num_arr[i], num_arr[i//2] + 1)
+#     if i % 3 == 0:
+#         num_arr[i] = min(num_arr[i], num_arr[i//3] + 1)
+#     if i % 6 == 0:
+#         num_arr[i] = min(min(num_arr[i//3] + 1, num_arr[i//2] + 1) + 1, num_arr[i])
+# print(num_arr[num])
