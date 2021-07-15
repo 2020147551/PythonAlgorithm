@@ -749,42 +749,44 @@
 #         num_arr[i] = min(min(num_arr[i//3] + 1, num_arr[i//2] + 1) + 1, num_arr[i])
 # print(num_arr[num])
 
-#백준 2579번 계단 오르기
-import sys
+#백준 2579번 계단 오르기 미해결
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# stairs = [0]
+#
+# cons = 0
+# for i in range(num):
+#     stairs.append(int(sys.stdin.readline().rstrip()))
+#
+# i = num
+# stairs_point = stairs[num]
+#
+# while i != 0:
+#     if i == 1:
+#         i -= 1
+#         break
+#     if i == 2:
+#         if cons == 1:
+#             i -= 2
+#         else:
+#             i -= 2
+#             stairs_point += stairs[i+1]
+#     else:
+#         if cons == 1:
+#             i -= 2
+#             stairs_point += stairs[i+2]
+#             cons = 0
+#         else:
+#             if stairs[i-1] > stairs[i-2]:
+#                 i -= 1
+#                 stairs_point += stairs[i]
+#                 cons = 1
+#             else:
+#                 i -= 2
+#                 stairs_point += stairs[i]
+#                 cons = 0
+#
+# print(stairs_point)
 
-num = int(sys.stdin.readline().rstrip())
-
-stairs = [0]
-
-cons = 0
-for i in range(num):
-    stairs.append(int(sys.stdin.readline().rstrip()))
-
-i = num
-stairs_point = stairs[num]
-
-while i != 0:
-    if i == 1:
-        break
-    if i == 2:
-        if cons == 1:
-            i -= 2
-        else:
-            i -= 2
-            stairs_point += stairs[i+1]
-    else:
-        if cons == 1:
-            i -= 2
-            stairs_point += stairs[i+2]
-            cons = 0
-        else:
-            if stairs[i-1] > stairs[i-2]:
-                i -= 1
-                stairs_point += stairs[i]
-                cons = 1
-            else:
-                i -= 2
-                stairs_point += stairs[i]
-                cons = 0
-
-print(stairs_point)
