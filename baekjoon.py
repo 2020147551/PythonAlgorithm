@@ -904,6 +904,26 @@
 #         else:
 #             print(heapq.heappop(max_heap))
 
+#백준 11286번 절댓값 힙
+# import sys, heapq
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# max_heap = []
+# result = []
+# for i in range(num):
+#     temp = int(sys.stdin.readline().rstrip())
+#     if temp != 0:
+#         if temp < 0:
+#             heapq.heappush(max_heap, (-temp, temp))
+#         else:
+#             heapq.heappush(max_heap, (temp, temp))
+#     else:
+#         if len(max_heap) == 0:
+#             print(0)
+#         else:
+#             print(heapq.heappop(max_heap)[1])
+
 #백준 1427번 소트인사이드
 # import sys
 #
