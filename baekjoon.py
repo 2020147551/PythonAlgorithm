@@ -790,3 +790,89 @@
 #
 # print(stairs_point)
 
+#백준 1260번 DFS와 BFS
+#
+# import sys
+# from collections import deque
+#
+# ver, edge, start = map(int, sys.stdin.readline().rstrip().split())
+#
+# graph = [[] for _ in range(ver + 1)]
+#
+# for i in range(edge):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     graph[a].append(b)
+#     graph[b].append(a)
+#
+# for i in range(ver + 1):
+#     graph[i].sort()
+#
+#
+# stack_dfs = deque()
+# stack_bfs = deque()
+# visited_dfs = [False] * (ver + 1)
+# visited_bfs = [False] * (ver + 1)
+# order_dfs = []
+# order_bfs = []
+#
+# def dfs(start):
+#     stack_dfs.append(start)
+#     visited_dfs[start] = True
+#     print(start, end = " ")
+#     for i in graph[start]:
+#         if visited_dfs[i] == False:
+#             dfs(i)
+#
+#     stack_dfs.pop()
+#
+# def bfs(start):
+#     stack_bfs.append(start)
+#     visited_bfs[start] = True
+#     while stack_bfs:
+#         temp = stack_bfs.popleft()
+#         print(temp, end = " ")
+#         for i in graph[temp]:
+#             if visited_bfs[i] == False:
+#                 stack_bfs.append(i)
+#                 visited_bfs[i] = True
+#
+#
+# dfs(start)
+# print()
+# bfs(start)
+
+#백준 1003번 피보나치 함수
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# num_list = []
+# fib_list = [[0, -1, -1] for _ in range(41)]
+# fib_list[0] = [0, 1, 0]
+# fib_list[1] = [1, 0, 1]
+# for i in range(num):
+#     num_list.append(int(sys.stdin.readline().rstrip()))
+#
+# def fibonacci(n):
+#     global zero, one
+#     if n == 0:
+#         return fib_list[0]
+#     if n == 1:
+#         return fib_list[1]
+#     if fib_list[n][0] != 0:
+#         return fib_list[n]
+#     nmin1 = fibonacci(n-1)
+#     nmin2 = fibonacci(n-2)
+#     fib_list[n][0] = nmin1[0] + nmin2[0]
+#     fib_list[n][1] = nmin1[1] + nmin2[1]
+#     fib_list[n][2] = nmin1[2] + nmin2[2]
+#     return fib_list[n]
+#
+# for i in num_list:
+#     fibonacci(i)
+#     print(fib_list[i][1], fib_list[i][2])
+
+
+
+
+
+
+
