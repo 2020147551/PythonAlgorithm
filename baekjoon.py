@@ -870,9 +870,46 @@
 #     fibonacci(i)
 #     print(fib_list[i][1], fib_list[i][2])
 
+#백준 11279번 최대 힙
+# import sys, heapq
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# max_heap = []
+# result = []
+# for i in range(num):
+#     temp = int(sys.stdin.readline().rstrip())
+#     if temp != 0:
+#         heapq.heappush(max_heap, -temp)
+#     else:
+#         if len(max_heap) == 0:
+#             print(0)
+#         else:
+#             print(-heapq.heappop(max_heap))
 
+#백준 1927번 최소 힙
+# import sys, heapq
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# max_heap = []
+# result = []
+# for i in range(num):
+#     temp = int(sys.stdin.readline().rstrip())
+#     if temp != 0:
+#         heapq.heappush(max_heap, temp)
+#     else:
+#         if len(max_heap) == 0:
+#             print(0)
+#         else:
+#             print(heapq.heappop(max_heap))
 
-
-
-
-
+#백준 1427번 소트인사이드
+# import sys
+#
+# num = list(map(int, sys.stdin.readline().rstrip()))
+#
+# num.sort(reverse=True)
+#
+# for i in range(len(num)):
+#     print(num[i], end = "")
