@@ -913,3 +913,15 @@
 #
 # for i in range(len(num)):
 #     print(num[i], end = "")
+
+#백준 17219번 비밀번호 찾기
+# import sys
+# num, find = map(int, sys.stdin.readline().rstrip().split())
+# pass_list = {}
+# for i in range(num):
+#     a, b = sys.stdin.readline().rstrip().split()
+#     pass_list[a] = b
+#
+# for i in range(find):
+#     link = sys.stdin.readline().rstrip()
+#     print(pass_list[link])
