@@ -118,3 +118,73 @@
 #
 # for i in range(num):
 #     print(seq[i], end=" ")
+
+#ICPC 신촌 캠프 Lecture 2 출석 문제 및 연습 문제
+
+#10825 국영수
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# grade_list = []
+#
+# for i in range(num):
+#     name, lang, eng, math = sys.stdin.readline().rstrip().split()
+#     grade_list.append([int(lang), int(eng), int(math), name])
+#
+# grade_list.sort(key = lambda x : (-x[0], x[1], -x[2], x[3]))
+#
+# for i in range(num):
+#     print(grade_list[i][3])
+#
+#10610 30
+# import sys
+# num = list(sys.stdin.readline().rstrip())
+# num.sort(reverse=True)
+# string = [str(a) for a in num]
+# num_string = "".join(string)
+# integer = int(num_string)
+#
+# if integer % 30 == 0:
+#     print(integer)
+# else:
+#     print(-1)
+
+#2437 저울
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# weight_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# weight_list.sort()
+#
+# total = 1
+#
+# for i in weight_list:
+#     if total < i:
+#         break
+#     total += i
+#
+# print(total)
+
+#1448 삼각형 만들기
+# import sys
+# # num = int(sys.stdin.readline().rstrip())
+# #
+# # straw_list = []
+# #
+# # for i in range(num):
+# #     straw_list.append(int(sys.stdin.readline().rstrip()))
+# #
+# # straw_list.sort(reverse=True)
+# #
+# # i = 0
+# # found = -1
+# # while i <= len(straw_list)-3:
+# #     if straw_list[i] < straw_list[i+1] + straw_list[i+2]:
+# #         if found < straw_list[i] + straw_list[i+1] + straw_list[i+2]:
+# #             found = straw_list[i] + straw_list[i+1] + straw_list[i+2]
+# #     i += 1
+# #
+# # print(found)
+
+
+
+
