@@ -945,3 +945,17 @@
 # for i in range(find):
 #     link = sys.stdin.readline().rstrip()
 #     print(pass_list[link])
+
+#백준 9095번 1, 2, 3 더하기 다이나믹 프로그래밍 바텀업
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+dp = [0, 1, 2, 3]
+
+def find():
+    #갯수찾기
+
+for i in range(num):
+    number = int(sys.stdin.readline().rstrip())
+
