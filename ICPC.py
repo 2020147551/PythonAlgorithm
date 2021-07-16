@@ -166,25 +166,25 @@
 
 #1448 삼각형 만들기
 # import sys
-# # num = int(sys.stdin.readline().rstrip())
-# #
-# # straw_list = []
-# #
-# # for i in range(num):
-# #     straw_list.append(int(sys.stdin.readline().rstrip()))
-# #
-# # straw_list.sort(reverse=True)
-# #
-# # i = 0
-# # found = -1
-# # while i <= len(straw_list)-3:
-# #     if straw_list[i] < straw_list[i+1] + straw_list[i+2]:
-# #         if found < straw_list[i] + straw_list[i+1] + straw_list[i+2]:
-# #             found = straw_list[i] + straw_list[i+1] + straw_list[i+2]
-# #     i += 1
-# #
-# # print(found)
+# num = int(sys.stdin.readline().rstrip())
 #
+# straw_list = []
+#
+# for i in range(num):
+#     straw_list.append(int(sys.stdin.readline().rstrip()))
+#
+# straw_list.sort(reverse=True)
+#
+# i = 0
+# found = -1
+# while i <= len(straw_list)-3:
+#     if straw_list[i] < straw_list[i+1] + straw_list[i+2]:
+#         if found < straw_list[i] + straw_list[i+1] + straw_list[i+2]:
+#             found = straw_list[i] + straw_list[i+1] + straw_list[i+2]
+#     i += 1
+#
+# print(found)
+
 
 
 
