@@ -184,7 +184,30 @@
 #     i += 1
 #
 # print(found)
+#1377 버블 소트
+#이건 버블소트로 구현을 한건데, 머지소트로 해야지 시간 초과가 안나기 때문에, 머지소트를 통해서
+#버블소트를 실행했을 때 버블소트가 실행 될 횟수를 구하는 문제
+import sys
+num = int(sys.stdin.readline().rstrip())
+num_arr = []
+for i in range(num):
+    num_arr.append(int(sys.stdin.readline().rstrip()))
 
+change = False
+
+i = 1
+while i <= num+1:
+    change = False
+    j = 0
+    while j < num-i:
+        if num_arr[j] > num_arr[j+1]:
+            change = True
+            num_arr[j], num_arr[j+1] = num_arr[j+1], num_arr[j]
+        j += 1
+    if change == False:
+        print(i)
+        break
+    i += 1
 
 
 
