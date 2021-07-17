@@ -946,16 +946,69 @@
 #     link = sys.stdin.readline().rstrip()
 #     print(pass_list[link])
 
-#백준 9095번 1, 2, 3 더하기 다이나믹 프로그래밍 바텀업
+#백준 9095번 1, 2, 3 더하기 다이나믹 프로그래밍 바텀업 미해결##################################
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# dp = [0, 1, 2, 3]
+#
+# def find():
+#     #갯수찾기
+#
+# for i in range(num):
+#     number = int(sys.stdin.readline().rstrip())
+
+#백준 11659번 구간 합 구하기 4
+# import sys
+# num_size, num = map(int, sys.stdin.readline().rstrip().split())
+#
+# temp_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# num_list = [0]
+# for i in range(num_size):
+#     num_list.append(num_list[i] + temp_list[i])
+#
+#
+# order_list = []
+#
+# for i in range(num):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     a -= 1
+#     total = num_list[b] - num_list[a]
+#     print(total)
+
+#백준 7662번 이중 우선순위 큐
+
 import sys
+import heapq
 
-num = int(sys.stdin.readline().rstrip())
+number = int(sys.stdin.readline().rstrip())
 
-dp = [0, 1, 2, 3]
+for i in range(number):
+    order_size = int(sys.stdin.readline().rstrip())
+    heap_size = 0
 
-def find():
-    #갯수찾기
+    heap = []
+    for i in range(order_size):
+        order, num = sys.stdin.readline().rstrip().split()
+        num = int(num)
+        if order == "I":
+            heap_size += 1
+            heapq.heappush(heap, (num, -num))
+        elif order == "D":
+            if num < 0:
+                if heap_size > 0:
+                    heapq.heappop(heap)[0]
+                    heap_size -= 1
+            else:
+                if heap_size > 0:
+                    heapq.heappop(heap)[1]
+                    heap_size -= 1
+    if heap_size == 0:
+        print("EMPTY")
+    else:
+        print(-heapq.heappop(heap)[1], end = " ")
+        print(heapq.heappop(heap)[0])
 
-for i in range(num):
-    number = int(sys.stdin.readline().rstrip())
+
 
