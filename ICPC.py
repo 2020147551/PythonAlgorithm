@@ -193,19 +193,19 @@
 #배열의 뒤에서 앞으로 간 값들 중에 가장 많이 옮겨진 값을 구하고, 옮겨진 만큼을 구하고,
 #1을 더하면 버블소트가 실행된 횟수를 구할 수가 있다.
 
-import sys
-num = int(sys.stdin.readline().rstrip())
-num_arr = []
-for i in range(num):
-    num_arr.append([int(sys.stdin.readline().rstrip()), i])
-
-num_arr.sort()
-
-ans = 0
-
-for i in range(num):
-    ans = max(ans, num_arr[i][1] - i + 1)
-
-print(ans)
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# num_arr = []
+# for i in range(num):
+#     num_arr.append([int(sys.stdin.readline().rstrip()), i])
+#
+# num_arr.sort()
+#
+# ans = 0
+#
+# for i in range(num):
+#     ans = max(ans, num_arr[i][1] - i + 1)
+#
+# print(ans)
 
 
