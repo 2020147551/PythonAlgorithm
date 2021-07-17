@@ -208,4 +208,21 @@
 #
 # print(ans)
 
-
+#11582 치킨 TOP N
+# import sys
+#
+# num_size = int(sys.stdin.readline().rstrip())
+#
+# num_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# final = []
+# people = int(sys.stdin.readline().rstrip())
+#
+# a = num_size // people
+# i = 0
+# while i <= num_size - a:
+#     final.append(sorted(num_list[i:i+a]))
+#     i += a
+#
+# for i in range(people):
+#     for j in range(len(final[i])):
+#         print(final[i][j], end = " ")
