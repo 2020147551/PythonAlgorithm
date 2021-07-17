@@ -187,27 +187,25 @@
 #1377 버블 소트
 #이건 버블소트로 구현을 한건데, 머지소트로 해야지 시간 초과가 안나기 때문에, 머지소트를 통해서
 #버블소트를 실행했을 때 버블소트가 실행 될 횟수를 구하는 문제
+
+#알고보니 파이썬 내장 정렬 함수가 팀정렬인데, 팀정렬은 머지소트를 최적화 시킨 정렬 방식으로
+#똑같이 stable sort이기 때문에 내장 정렬 함수를 사용해도 된다.
+#배열의 뒤에서 앞으로 간 값들 중에 가장 많이 옮겨진 값을 구하고, 옮겨진 만큼을 구하고,
+#1을 더하면 버블소트가 실행된 횟수를 구할 수가 있다.
+
 import sys
 num = int(sys.stdin.readline().rstrip())
 num_arr = []
 for i in range(num):
-    num_arr.append(int(sys.stdin.readline().rstrip()))
+    num_arr.append([int(sys.stdin.readline().rstrip()), i])
 
-change = False
+num_arr.sort()
 
-i = 1
-while i <= num+1:
-    change = False
-    j = 0
-    while j < num-i:
-        if num_arr[j] > num_arr[j+1]:
-            change = True
-            num_arr[j], num_arr[j+1] = num_arr[j+1], num_arr[j]
-        j += 1
-    if change == False:
-        print(i)
-        break
-    i += 1
+ans = 0
 
+for i in range(num):
+    ans = max(ans, num_arr[i][1] - i + 1)
+
+print(ans)
 
 
