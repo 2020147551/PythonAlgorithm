@@ -1031,4 +1031,53 @@
 #     else:
 #         print(-max_heap[0][0], min_heap[0][0])
 
+#백준 1676번 팩토리얼 0의 개수
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+#
+# total = 1
+#
+# for i in range(2, num+1):
+#     total *= i
+#
+# total_str = list(str(total))
+# count = 0
+# while total_str[-1] == "0":
+#     total_str.pop()
+#     count += 1
+#
+# print(count)
+
+#백준 11723번 집합
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# stack = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0, 13:0, 14:0, 15:0, 16:0, 17:0, 18:0, 19:0, 20:0}
+#
+# for i in range(num):
+#     order = sys.stdin.readline().rstrip()
+#     if order[0:3] == "all":
+#         for j in range(1, 21):
+#             stack[j] = 1
+#     elif order[0:3] == "emp":
+#         for j in range(1, 21):
+#             stack[j] = 0
+#     else:
+#         order, value = order.split()
+#         value = int(value)
+#
+#         if order == "add":
+#             stack[value] = 1
+#         elif order == "remove":
+#             stack[value] = 0
+#         elif order == "check":
+#             print(stack[value])
+#         elif order == "toggle":
+#             if stack[value] == 0:
+#                 stack[value] = 1
+#             else:
+#                 stack[value] = 0
+
+
 
