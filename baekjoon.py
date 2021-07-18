@@ -1095,3 +1095,32 @@
 #         print(pokedex_id[temp-1])
 #     else:
 #         print(pokedex_name[temp]+1)
+
+#백준 1764번 듣보잡
+# import sys
+# heard, seen = map(int, sys.stdin.readline().rstrip().split())
+# people_list = {}
+# count = 0
+# for i in range(heard):
+#     temp = sys.stdin.readline().rstrip()
+#     people_list[temp] = 1
+#
+# for i in range(seen):
+#     temp = sys.stdin.readline().rstrip()
+#     try:
+#         if people_list[temp] == 1:
+#             people_list[temp] += 1
+#             count += 1
+#     except:
+#         people_list[temp] = 1
+#
+# temp_list = {}
+# for i in people_list.keys():
+#     if people_list.get(i) == 2:
+#         temp_list[i] = i
+#
+# sorted_list = sorted(temp_list)
+# print(count)
+# for i in range(count):
+#     print(sorted_list[i])
+
