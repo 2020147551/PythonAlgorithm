@@ -1124,3 +1124,9 @@
 # for i in range(count):
 #     print(sorted_list[i])
 
+#백준 17626번 Four Squares
+import sys
+num = int(sys.stdin.readline().rstrip())
+dp = [0] * 50001
+for i in range(1, 50001):
+    dp[i] = i*i
