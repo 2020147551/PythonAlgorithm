@@ -1079,5 +1079,19 @@
 #             else:
 #                 stack[value] = 0
 
-
-
+#백준 1620번 나는야 포켓몬 마스터 이다솜
+# import sys
+# pokemon_num, find_num = map(int, sys.stdin.readline().rstrip().split())
+# pokedex_id = {}
+# pokedex_name = {}
+# for i in range(pokemon_num):
+#     temp = sys.stdin.readline().rstrip()
+#     pokedex_id[i] = temp
+#     pokedex_name[temp] = i
+# for i in range(find_num):
+#     temp = sys.stdin.readline().rstrip()
+#     if temp.isnumeric():
+#         temp = int(temp)
+#         print(pokedex_id[temp-1])
+#     else:
+#         print(pokedex_name[temp]+1)
