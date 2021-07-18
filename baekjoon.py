@@ -977,38 +977,81 @@
 #     total = num_list[b] - num_list[a]
 #     print(total)
 
-#백준 7662번 이중 우선순위 큐
-
+#백준 7662번 이중 우선순위 큐 구글링
+#
+# import sys
+# import heapq
+#
+# number = int(sys.stdin.readline().rstrip())
+#
+# for i in range(number):
+#     order_size = int(sys.stdin.readline().rstrip())
+#     heap_size = 0
+#
+#     heap = []
+#     for i in range(order_size):
+#         order, num = sys.stdin.readline().rstrip().split()
+#         num = int(num)
+#         if order == "I":
+#             heap_size += 1
+#             heapq.heappush(heap, num)
+#             print(heap)
+#         elif order == "D":
+#             if num < 0:
+#                 if heap_size > 0:
+#                     heapq.heappop(heap)
+#                     heap_size -= 1
+#                     print(heap)
+#             else:
+#                 if heap_size > 0:
+#                     heap.pop()
+#                     heap_size -= 1
+#                     print(heap)
+#     print(heap)
+#     if heap_size == 0:
+#         print("EMPTY")
+#     elif heap_size == 1:
+#         a = heap.pop()
+#         print(a, end = " ")
+#         print(a)
 import sys
 import heapq
 
-number = int(sys.stdin.readline().rstrip())
 
-for i in range(number):
-    order_size = int(sys.stdin.readline().rstrip())
-    heap_size = 0
+test = int(input())
+for _ in range(test):
+	max_heap, min_heap = [], []
+	visit = [False] * 1000001
 
-    heap = []
-    for i in range(order_size):
-        order, num = sys.stdin.readline().rstrip().split()
-        num = int(num)
-        if order == "I":
-            heap_size += 1
-            heapq.heappush(heap, (num, -num))
-        elif order == "D":
-            if num < 0:
-                if heap_size > 0:
-                    heapq.heappop(heap)[0]
-                    heap_size -= 1
-            else:
-                if heap_size > 0:
-                    heapq.heappop(heap)[1]
-                    heap_size -= 1
-    if heap_size == 0:
-        print("EMPTY")
-    else:
-        print(-heapq.heappop(heap)[1], end = " ")
-        print(heapq.heappop(heap)[0])
+	order_num = int(input())
+	for key in range(order_num):
+		order = sys.stdin.readline().rsplit()
+		if order[0] == 'I':
+			heapq.heappush(min_heap, (int(order[1]), key))
+			heapq.heappush(max_heap, (int(order[1]) * -1, key))
+			visit[key] = True
 
+		elif order[0] == 'D':
+			if order[1] == '-1':
+				while min_heap and not visit[min_heap[0][1]]:
+					heapq.heappop(min_heap)
+				if min_heap:
+					visit[min_heap[0][1]] = False
+					heapq.heappop(min_heap)
+			elif order[1] == '1':
+				while max_heap and not visit[max_heap[0][1]]:
+					heapq.heappop(max_heap)
+				if max_heap:
+					visit[max_heap[0][1]] = False
+					heapq.heappop(max_heap)
 
+	while min_heap and not visit[min_heap[0][1]]:
+		heapq.heappop(min_heap)
+	while max_heap and not visit[max_heap[0][1]]:
+		heapq.heappop(max_heap)
+
+	if min_heap and max_heap:
+		print(max_heap[0][0] * -1, min_heap[0][0])
+	else:
+		print('EMPTY')
 
