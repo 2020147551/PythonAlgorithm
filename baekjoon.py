@@ -946,7 +946,7 @@
 #     link = sys.stdin.readline().rstrip()
 #     print(pass_list[link])
 
-#백준 9095번 1, 2, 3 더하기 다이나믹 프로그래밍 바텀업 미해결##################################
+#백준 9095번 1, 2, 3 더하기
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -1135,12 +1135,32 @@
 #     print(sorted_list[i])
 
 # 백준 17626번 Four Squares 미해결
+# 가장 큰 값으로 하는게 답이 아닐수도 있다... 어떻게 값을 구해야 하는지를 감을 못잡겠다
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # dp = [0] * 50001
-# for i in range(1, 50001):
-#     dp[i] = i*i
-
+# count = 0
+#
+#
+# def find(x):
+#     i = 1
+#     global count
+#     while True:
+#         if i * i > x:
+#             x -= ((i-1)*(i-1))
+#             count += 1
+#             break
+#         elif i * i == x:
+#             x -= i*i
+#             count += 1
+#             break
+#         i += 1
+#     if x == 0:
+#         return
+#     else:
+#         find(x)
+# find(num)
+# print(count)
 #백준 5525번 IOIOI
 # import sys
 # num = int(sys.stdin.readline().rstrip())
@@ -1180,3 +1200,58 @@
 #     n = int(sys.stdin.readline().rstrip())
 #     print(findTri(n))
 
+#백준 5430번 AC
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# for i in range(num):
+#
+#     order = list(sys.stdin.readline().rstrip())
+#     size = int(sys.stdin.readline().rstrip())
+#     num_arr = deque(list(sys.stdin.readline().rstrip().split(",")))
+#
+#     if size > 1:
+#         num_arr[0] = num_arr[0][1:]
+#         num_arr[-1] = num_arr[-1][:-1]
+#
+#     elif size == 1:
+#         num_arr[0] = num_arr[0][1:-1]
+#
+#     else:
+#         num_arr.pop()
+#
+#     try:
+#         count = 0
+#         for j in order:
+#
+#             if j == "R":
+#                 count += 1
+#
+#             elif j == "D":
+#                 if count % 2 == 0:
+#                     num_arr.popleft()
+#                     size -= 1
+#                 else:
+#                     num_arr.pop()
+#                     size -= 1
+#         if count % 2 == 0:
+#             if size > 0:
+#                 print("[", end="")
+#                 for j in range(len(num_arr)-1):
+#                     print(num_arr.popleft(), end = ",")
+#                 print(num_arr.popleft() + "]")
+#             else:
+#                 print("[]")
+#         else:
+#             if size > 0:
+#                 print("[", end="")
+#                 for j in range(len(num_arr)-1):
+#                     print(num_arr.pop(), end=",")
+#                 print(num_arr.pop() + "]")
+#             else:
+#                 print("[]")
+#
+#     except:
+#         print("error")
