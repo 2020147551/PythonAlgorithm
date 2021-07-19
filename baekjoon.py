@@ -1153,3 +1153,19 @@
 #
 #     i += 1
 # print(count)
+
+#백준 9461번 파도반 수열
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# dp = [0, 1, 1, 1, 2, 2, 3, 4] + [0] * 95
+#
+# def findTri(x):
+#     if dp[x] != 0:
+#         return dp[x]
+#     else:
+#         dp[x] = findTri(x-1) + findTri(x-5)
+#         return dp[x]
+# for i in range(num):
+#     n = int(sys.stdin.readline().rstrip())
+#     print(findTri(n))
