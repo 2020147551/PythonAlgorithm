@@ -951,13 +951,23 @@
 #
 # num = int(sys.stdin.readline().rstrip())
 #
-# dp = [0, 1, 2, 3]
+# dp = [0, 1, 2, 4] + [0] * 7
 #
-# def find():
-#     #갯수찾기
-#
+# def find(x):
+#     if dp[x] != 0:
+#         return dp[x]
+#     else:
+#         if x == 1:
+#             return find(1)
+#         elif x == 2:
+#             return find(2)
+#         elif x == 3:
+#             return find(3)
+#         else:
+#             return find(x-1) + find(x-2) + find(x-3)
 # for i in range(num):
 #     number = int(sys.stdin.readline().rstrip())
+#     print(find(number))
 
 #백준 11659번 구간 합 구하기 4
 # import sys
@@ -1169,3 +1179,4 @@
 # for i in range(num):
 #     n = int(sys.stdin.readline().rstrip())
 #     print(findTri(n))
+
