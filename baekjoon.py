@@ -1124,9 +1124,32 @@
 # for i in range(count):
 #     print(sorted_list[i])
 
-#백준 17626번 Four Squares
-import sys
-num = int(sys.stdin.readline().rstrip())
-dp = [0] * 50001
-for i in range(1, 50001):
-    dp[i] = i*i
+# 백준 17626번 Four Squares 미해결
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# dp = [0] * 50001
+# for i in range(1, 50001):
+#     dp[i] = i*i
+
+#백준 5525번 IOIOI
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# length = int(sys.stdin.readline().rstrip())
+#
+# string = sys.stdin.readline().rstrip()
+#
+# count = 0
+# cons = 0
+# i = 1
+# while i < length-1:
+#     if string[i-1] == "I" and string[i] == "O" and string[i+1] == "I":
+#         cons += 1
+#         i += 1
+#     else:
+#         cons = 0
+#     if cons == num:
+#         count += 1
+#         cons -= 1
+#
+#     i += 1
+# print(count)
