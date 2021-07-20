@@ -227,7 +227,7 @@
 #     for j in range(len(final[i])):
 #         print(final[i][j], end = " ")
 
-#ICPC 신촌 캠프 Lecture 3 출석 문제 및 연습 문제
+#ICPC 신촌 캠프 Lecture 3 출석 문제 및 연습 문제.
 
 #2504 괄호의 값
 # import sys
