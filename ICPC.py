@@ -226,3 +226,157 @@
 # for i in range(people):
 #     for j in range(len(final[i])):
 #         print(final[i][j], end = " ")
+
+#ICPC 신촌 캠프 Lecture 3 출석 문제 및 연습 문제
+
+#2504 괄호의 값
+# import sys
+#
+# parent = list(sys.stdin.readline().rstrip())
+# stack = []
+# another_stack = []
+# final_stack = []
+# calc = -1
+# for i in range(len(parent)):
+#     if parent[i] == "(":
+#         stack.append("(")
+#         another_stack.append("2")
+#         another_stack.append("(")
+#     elif parent[i] == "[":
+#         stack.append("[")
+#         another_stack.append("3")
+#         another_stack.append("(")
+#     elif parent[i] == ")":
+#         if len(stack) == 0 or stack.pop() != "(":
+#             calc = 0
+#             break
+#         else:
+#             if another_stack[-1] == "+":
+#                 another_stack.pop()
+#             another_stack.append(")")
+#             if another_stack[-2] == "(":
+#                 another_stack.pop()
+#                 another_stack.pop()
+#             another_stack.append("+")
+#
+#     elif parent[i] == "]":
+#         if len(stack) == 0 or stack.pop() != "[":
+#             calc = 0
+#             break
+#         else:
+#             if another_stack[-1] == "+":
+#                 another_stack.pop()
+#             another_stack.append(")")
+#             if another_stack[-2] == "(":
+#                 another_stack.pop()
+#                 another_stack.pop()
+#             another_stack.append("+")
+#     else:
+#         calc = 0
+#         break
+# if len(stack) != 0:
+#     calc = 0
+#
+#
+# if calc == 0:
+#     print(calc)
+# else:
+#     while another_stack[-1] == "+" or another_stack[-1] == "(":
+#         another_stack.pop()
+#
+#     for i in another_stack:
+#         if i == "(":
+#             final_stack.append("*")
+#         final_stack.append(i)
+#
+#     final = ''.join(final_stack)
+#     calc = eval(final)
+#     print(calc)
+#
+#10828 스택
+# import sys
+#
+# def push(string):
+#     global stack, stack_size
+#     a, b = string.split()
+#     b = int(b)
+#     stack.append(b)
+#     stack_size += 1
+#
+# def pop():
+#     global stack, stack_size
+#     if stack_size != 0:
+#         print(stack.pop(-1))
+#         stack_size -= 1
+#     else:
+#         print(-1)
+#
+# def size():
+#     global stack_size
+#     print(stack_size)
+#
+# def empty():
+#     global stack_size
+#     if stack_size != 0:
+#         print(0)
+#     else:
+#         print(1)
+#
+# def top():
+#     global stack, stack_size
+#     if stack_size != 0:
+#         print(stack[-1])
+#     else:
+#         print("-1")
+#
+#
+# oper_num = int(sys.stdin.readline().rstrip())
+# stack = []
+# stack_size = 0
+# for i in range(oper_num):
+#     operation = sys.stdin.readline().rstrip()
+#     if operation[0:3] == "pus":
+#         push(operation)
+#     elif operation[0:3] == "pop":
+#         pop()
+#     elif operation[0:3] == "siz":
+#         size()
+#     elif operation[0:3] == "emp":
+#         empty()
+#     elif operation[0:3] == "top":
+#         top()
+
+#18115 카드 놓기 한시간 반 뒤에 구글링
+# import sys
+# from collections import deque
+# num = int(sys.stdin.readline().rstrip())
+# card_list = deque()
+#
+# for i in range(1, num+1):
+#     card_list.append(i)
+#
+# skill_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# skill_list = skill_list[::-1]
+# final_list = deque()
+#
+# for i in skill_list:
+#
+#     if i == 1:
+#         final_list.appendleft(card_list.popleft())
+#     elif i == 2:
+#         final_list.insert(1, card_list.popleft())
+#     elif i == 3:
+#         final_list.append(card_list.popleft())
+#
+# print(*final_list)
+
+
+
+
+
+
+
+
+
+
+
