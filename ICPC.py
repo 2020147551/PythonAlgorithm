@@ -457,4 +457,24 @@
 # else:
 #     print("dosu")
 #
-#3078 좋은 친구
+#3078 좋은 친구 미해결
+import sys
+from collections import deque
+
+n, k = map(int, sys.stdin.readline().rstrip().split())
+student_list = deque()
+length_list = deque()
+queue = deque()
+for i in range(n):
+    student_list.append(sys.stdin.readline().rstrip())
+    length_list.append(len(student_list[-1]))
+count = 0
+
+try:
+    for i in range(n):
+
+
+
+except:
+    print(count)
+
