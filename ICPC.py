@@ -371,42 +371,90 @@
 # print(*final_list)
 
 # 2304 창고 다각형
-import sys
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# height_list = []
+# stack = []
+# for i in range(num):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     height_list.append([a, b])
+#
+# height_list.sort(key=lambda x: x[0])
+# tallest_list = sorted(height_list, key=lambda  x: x[1], reverse=True)
+# tallest = tallest_list[0][1]
+# area = tallest
+#
+# start_index = height_list.index(tallest_list[0])
+#
+# i = start_index
+# j = 0
+# k = len(height_list) - 1
+#
+# a = 1
+# while j < i:
+#     if height_list[j][1] <= height_list[j+a][1]:
+#         area += height_list[j][1] * (height_list[j+a][0] - height_list[j][0])
+#         j += a
+#         a = 1
+#     else:
+#         a += 1
+# a = 1
+# while k > i:
+#     if height_list[k][1] <= height_list[k-a][1]:
+#         area += height_list[k][1] * (height_list[k][0] - height_list[k-a][0])
+#         k -= a
+#         a = 1
+#     else:
+#         a += 1
+#
+# print(area)
 
-num = int(sys.stdin.readline().rstrip())
-
-height_list = []
-stack = []
-for i in range(num):
-    a, b = map(int, sys.stdin.readline().rstrip().split())
-    height_list.append([a, b])
-
-height_list.sort(key=lambda x: x[0])
-tallest_list = sorted(height_list, key=lambda  x: x[1], reverse=True)
-tallest = tallest_list[0][1]
-area = tallest
-
-start_index = height_list.index(tallest_list[0])
-
-i = start_index
-j = 0
-k = len(height_list) - 1
-
-a = 1
-while j < i:
-    if height_list[j][1] <= height_list[j+a][1]:
-        area += height_list[j][1] * (height_list[j+a][0] - height_list[j][0])
-        j += a
-        a = 1
-    else:
-        a += 1
-a = 1
-while k > i:
-    if height_list[k][1] <= height_list[k-a][1]:
-        area += height_list[k][1] * (height_list[k][0] - height_list[k-a][0])
-        k -= a
-        a = 1
-    else:
-        a += 1
-
-print(area)
+#20923 숫자 할리갈리 게임
+# import sys
+# from collections import deque
+# card_num, turn_num = map(int, sys.stdin.readline().rstrip().split())
+# do_deck = deque()
+# su_deck = deque()
+# do_board = deque()
+# su_board = deque()
+# for i in range(card_num):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     do_deck.appendleft(a)
+#     su_deck.appendleft(b)
+#
+# for i in range(turn_num):
+#     if i % 2 == 0:
+#         do_board.append(do_deck.popleft())
+#     else:
+#         su_board.append(su_deck.popleft())
+#
+#     if len(do_deck) == 0:
+#         break
+#     elif len(su_deck) == 0:
+#         break
+#
+#     if (len(do_board) + len(su_board) > 1) and (do_board[-1] + su_board[-1] == 5):
+#         if len(do_board) > 0:
+#             su_deck += do_board
+#         if len(su_board) > 0:
+#             su_deck += su_board
+#         do_board = deque()
+#         su_board = deque()
+#     elif (len(do_board) > 0 and do_board[-1] == 5) or (len(su_board) > 0 and su_board[-1] == 5):
+#         if len(su_board) > 0:
+#             do_deck += su_board
+#         if len(do_board) > 0:
+#             do_deck += do_board
+#         do_board = deque()
+#         su_board = deque()
+#
+# if len(do_deck) > len(su_deck):
+#     print("do")
+# elif len(do_deck) < len(su_deck):
+#     print("su")
+# else:
+#     print("dosu")
+#
+#3078 좋은 친구
