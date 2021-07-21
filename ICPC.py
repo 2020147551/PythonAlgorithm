@@ -119,9 +119,9 @@
 # for i in range(num):
 #     print(seq[i], end=" ")
 
-#ICPC 신촌 캠프 Lecture 2 출석 문제 및 연습 문제
+# ICPC 신촌 캠프 Lecture 2 출석 문제 및 연습 문제
 
-#10825 국영수
+# 10825 국영수
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -136,7 +136,7 @@
 # for i in range(num):
 #     print(grade_list[i][3])
 #
-#10610 30
+# 10610 30
 # import sys
 # num = list(sys.stdin.readline().rstrip())
 # num.sort(reverse=True)
@@ -149,7 +149,7 @@
 # else:
 #     print(-1)
 
-#2437 저울
+# 2437 저울
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # weight_list = list(map(int, sys.stdin.readline().rstrip().split()))
@@ -164,7 +164,7 @@
 #
 # print(total)
 
-#1448 삼각형 만들기
+# 1448 삼각형 만들기
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 #
@@ -184,14 +184,14 @@
 #     i += 1
 #
 # print(found)
-#1377 버블 소트
-#이건 버블소트로 구현을 한건데, 머지소트로 해야지 시간 초과가 안나기 때문에, 머지소트를 통해서
-#버블소트를 실행했을 때 버블소트가 실행 될 횟수를 구하는 문제
+# 1377 버블 소트
+# 이건 버블소트로 구현을 한건데, 머지소트로 해야지 시간 초과가 안나기 때문에, 머지소트를 통해서
+# 버블소트를 실행했을 때 버블소트가 실행 될 횟수를 구하는 문제
 
-#알고보니 파이썬 내장 정렬 함수가 팀정렬인데, 팀정렬은 머지소트를 최적화 시킨 정렬 방식으로
-#똑같이 stable sort이기 때문에 내장 정렬 함수를 사용해도 된다.
-#배열의 뒤에서 앞으로 간 값들 중에 가장 많이 옮겨진 값을 구하고, 옮겨진 만큼을 구하고,
-#1을 더하면 버블소트가 실행된 횟수를 구할 수가 있다.
+# 알고보니 파이썬 내장 정렬 함수가 팀정렬인데, 팀정렬은 머지소트를 최적화 시킨 정렬 방식으로
+# 똑같이 stable sort이기 때문에 내장 정렬 함수를 사용해도 된다.
+# 배열의 뒤에서 앞으로 간 값들 중에 가장 많이 옮겨진 값을 구하고, 옮겨진 만큼을 구하고,
+# 1을 더하면 버블소트가 실행된 횟수를 구할 수가 있다.
 
 # import sys
 # num = int(sys.stdin.readline().rstrip())
@@ -208,7 +208,7 @@
 #
 # print(ans)
 
-#11582 치킨 TOP N
+# 11582 치킨 TOP N
 # import sys
 #
 # num_size = int(sys.stdin.readline().rstrip())
@@ -227,9 +227,9 @@
 #     for j in range(len(final[i])):
 #         print(final[i][j], end = " ")
 
-#ICPC 신촌 캠프 Lecture 3 출석 문제 및 연습 문제.
+# ICPC 신촌 캠프 Lecture 3 출석 문제 및 연습 문제.
 
-#2504 괄호의 값
+# 2504 괄호의 값
 # import sys
 #
 # parent = list(sys.stdin.readline().rstrip())
@@ -293,7 +293,7 @@
 #     calc = eval(final)
 #     print(calc)
 #
-#10828 스택
+# 10828 스택
 # import sys
 #
 # def push(string):
@@ -346,7 +346,7 @@
 #     elif operation[0:3] == "top":
 #         top()
 
-#18115 카드 놓기 한시간 반 뒤에 구글링
+# 18115 카드 놓기 한시간 반 뒤에 구글링
 # import sys
 # from collections import deque
 # num = int(sys.stdin.readline().rstrip())
@@ -370,13 +370,43 @@
 #
 # print(*final_list)
 
+# 2304 창고 다각형
+import sys
 
+num = int(sys.stdin.readline().rstrip())
 
+height_list = []
+stack = []
+for i in range(num):
+    a, b = map(int, sys.stdin.readline().rstrip().split())
+    height_list.append([a, b])
 
+height_list.sort(key=lambda x: x[0])
+tallest_list = sorted(height_list, key=lambda  x: x[1], reverse=True)
+tallest = tallest_list[0][1]
+area = tallest
 
+start_index = height_list.index(tallest_list[0])
 
+i = start_index
+j = 0
+k = len(height_list) - 1
 
+a = 1
+while j < i:
+    if height_list[j][1] <= height_list[j+a][1]:
+        area += height_list[j][1] * (height_list[j+a][0] - height_list[j][0])
+        j += a
+        a = 1
+    else:
+        a += 1
+a = 1
+while k > i:
+    if height_list[k][1] <= height_list[k-a][1]:
+        area += height_list[k][1] * (height_list[k][0] - height_list[k-a][0])
+        k -= a
+        a = 1
+    else:
+        a += 1
 
-
-
-
+print(area)
