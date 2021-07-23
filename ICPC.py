@@ -503,37 +503,18 @@
 #             count += 1
 #
 # print(count)
-#
-# import sys
-#
-# from collections import deque
-#
-# n, k = map(int, sys.stdin.readline().rstrip().split())
-#
-# total_list = []
-#
-# for i in range(21):
-#     total_list.append(deque())
-#
-# for i in range(n):
-#     total_list[len(sys.stdin.readline().rstrip())].append(i)
-#
-# for i in range(21):
-#     for j in range(len(total_list[i])):
+import sys
+from collections import deque
 
-N, K = map(int, input().split())
-students = [0]*N
-dp = [0]*21
-cnt = 0
-for rank in range(N):
-    l = len(input().strip())
-    students[rank] = l
-    if rank > K:
-        dp[students[rank-K-1]] -= 1
-    cnt += dp[l]
-    dp[l] += 1
-print(cnt)
+n, k = map(int, sys.stdin.readline().rstrip().split())
+size_list = []
+for i in range(n):
+    size_list.append(len(sys.stdin.readline().rstrip()))
 
+each_count = [] * 21
 
+queue = deque()
+
+for i in range(n):
 
 
