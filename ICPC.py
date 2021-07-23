@@ -458,23 +458,82 @@
 #     print("dosu")
 #
 #3078 좋은 친구 미해결
-import sys
-from collections import deque
+# import sys
+# from collections import deque
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+# deque_list = []
+# for i in range(21):
+#     deque_list.append(deque())
+#
+# count = 0
+# for i in range(n):
+#     name = sys.stdin.readline().rstrip()
+#     if deque_list[len(name)]:
+#         j = len(deque_list[len(name)]) - 1
+#         while j >= 0:
+#             if i - deque_list[len(name)][j] <= k:
+#                 count += 1
+#                 j -= 1
+#             else:
+#                 break
+#     deque_list[len(name)].append(i)
+#
+# print(count)
+#
+# import sys
+# from collections import deque
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+# size_list = []
+# count = 0
+# for i in range(n):
+#     size_list.append(len(sys.stdin.readline().rstrip()))
+# queue = deque(size_list[:1+k])
+# for i in range(1, len(queue)):
+#     if queue[i] == queue[0]:
+#         count += 1
+#
+# for i in range(1, n):
+#     queue.popleft()
+#     if i + k < n:
+#         queue.append(size_list[i+k])
+#     for i in range(1, len(queue)):
+#         if queue[i] == queue[0]:
+#             count += 1
+#
+# print(count)
+#
+# import sys
+#
+# from collections import deque
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+#
+# total_list = []
+#
+# for i in range(21):
+#     total_list.append(deque())
+#
+# for i in range(n):
+#     total_list[len(sys.stdin.readline().rstrip())].append(i)
+#
+# for i in range(21):
+#     for j in range(len(total_list[i])):
 
-n, k = map(int, sys.stdin.readline().rstrip().split())
-student_list = deque()
-length_list = deque()
-queue = deque()
-for i in range(n):
-    student_list.append(sys.stdin.readline().rstrip())
-    length_list.append(len(student_list[-1]))
-count = 0
+N, K = map(int, input().split())
+students = [0]*N
+dp = [0]*21
+cnt = 0
+for rank in range(N):
+    l = len(input().strip())
+    students[rank] = l
+    if rank > K:
+        dp[students[rank-K-1]] -= 1
+    cnt += dp[l]
+    dp[l] += 1
+print(cnt)
 
-try:
-    for i in range(n):
 
 
-
-except:
-    print(count)
 
