@@ -528,3 +528,16 @@
 #         count += (each_count[temp1] - 1)
 #
 # print(count)
+
+#14889 스타트와 링크
+
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+array = []
+for i in range(num):
+    array.append(list(map(int, sys.stdin.readline().rstrip().split())))
+
+
+
+print(array[0][1])
