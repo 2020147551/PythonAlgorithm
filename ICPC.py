@@ -503,18 +503,28 @@
 #             count += 1
 #
 # print(count)
-import sys
-from collections import deque
-
-n, k = map(int, sys.stdin.readline().rstrip().split())
-size_list = []
-for i in range(n):
-    size_list.append(len(sys.stdin.readline().rstrip()))
-
-each_count = [] * 21
-
-queue = deque()
-
-for i in range(n):
-
-
+#좋은 친구 해결 (이틀걸림)
+# import sys
+# from collections import deque
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+# size_list = deque()
+# for i in range(n):
+#     size_list.append(len(sys.stdin.readline().rstrip()))
+#
+# each_count = [0] * 21
+#
+# queue = deque()
+# count = 0
+# while size_list:
+#
+#     temp1 = size_list.popleft()
+#     queue.append(temp1)
+#     each_count[temp1] += 1
+#     if len(queue) > 1 + k:
+#         temp2 = queue.popleft()
+#         each_count[temp2] -= 1
+#     if each_count[temp1] > 1:
+#         count += (each_count[temp1] - 1)
+#
+# print(count)
