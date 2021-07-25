@@ -585,3 +585,15 @@
 #             count += 1
 #
 # print(count)
+
+#2239 Sudoku
+
+import sys
+from itertools import combinations
+
+board = []
+
+for i in range(9):
+    board.append(list(map(int, sys.stdin.readline().rstrip())))
+
+print(board)
