@@ -530,14 +530,34 @@
 # print(count)
 
 #14889 스타트와 링크
-
-import sys
-
-num = int(sys.stdin.readline().rstrip())
-array = []
-for i in range(num):
-    array.append(list(map(int, sys.stdin.readline().rstrip().split())))
-
-
-
-print(array[0][1])
+#
+# import sys
+# from itertools import combinations, permutations
+# num = int(sys.stdin.readline().rstrip())
+# array = []
+# temp = []
+# for i in range(num):
+#     array.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#     temp.append(i)
+# list1 = list(combinations(temp, num//2))
+# min_diff = 1000000000
+# for i in list1:
+#     alt_list = list(set(temp) - set(i))
+#     list_temp = list(combinations(i, 2))
+#     list_temp2 = list(combinations(alt_list, 2))
+#     addition = 0
+#     addition2 = 0
+#     diff = 0
+#     #print(i)
+#     for j in list_temp:
+#         #print(j)
+#         addition += array[j[0]][j[1]] + array[j[1]][j[0]]
+#     for j in list_temp2:
+#         #print(j)
+#         addition2 += array[j[0]][j[1]] + array[j[1]][j[0]]
+#     diff = abs(addition - addition2)
+#
+#     #print(diff)
+#     min_diff = min(diff, min_diff)
+#
+# print(min_diff)
