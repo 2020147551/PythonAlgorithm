@@ -561,3 +561,27 @@
 #     min_diff = min(diff, min_diff)
 #
 # print(min_diff)
+
+#1182 부분수열의 합
+#처음에 한 방법은 연속된 수열로 생각을 해서 틀렸다. 구글링을 통해 comb를 사용하면 된다는 걸
+#찾았다
+# import sys
+# from itertools import combinations
+# #a, b 값을 받는다
+# a, b = map(int,sys.stdin.readline().rstrip().split())
+# #숫자 배열을 받는다
+# num_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# #숫자 배열을 정렬한다
+# num_list.sort()
+#
+# #부분수열의 개수
+# count = 0
+#
+# #combination을 통해서 각 길이의 경우의수들을 다 시도
+# for i in range(1, a + 1):
+#     comb = combinations(num_list, i)
+#     for j in comb:
+#         if sum(j) == b:
+#             count += 1
+#
+# print(count)
