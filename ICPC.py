@@ -608,28 +608,30 @@
 # count = []
 # able = []
 # student_count = [0] * (num_student+1)
-# #
+# # 학생 각각 친구를 위한 배열을 만든다
 # for i in range(1, num_student + 1):
 #     arr.append([i])
-#
+# #INFO를 받고, 서로 친구가 되기 때문에, 각각의 배열에 서로를 추가한다
 # for i in range(num_info):
 #     a, b = map(int, sys.stdin.readline().rstrip().split())
 #     arr[a].append(b)
 #     arr[b].append(a)
-#
+# #겹치는 숫자들을 제거한다
 # for i in range(len(arr)):
 #     arr[i] = list(set(arr[i]))
-#
+# #그 학생이 친구가 몇명인지를 구한다
 # for i in arr:
 #     for j in range(len(i)):
 #         student_count[i[j]] += 1
-#
+# #그 학생의 친구가 만약 필요한 학생의 수보다 적으면, 계산할 필요가 없기 때문에,
+# #그걸 구분하기 위해서 학생의 친구의 수가 충분하면 다른 배열에 그 학생을 추가한다
 # for i in range(len(student_count)):
 #     if student_count[i] >= num_needed:
 #         count.append(i)
-#
+# #친구의 수가 충분한 학생들을 모아서 모든 경우의 수를 구한다
 # avail = combinations(count, num_needed)
-#
+# #각 경우의 수들을 다 시도를 해보고, 만약 가능한 경우를 찾으면
+# #이미 오름차순이기 떄문에 가장 작은 경우일 수밖에 없어서 멈춘다
 # for i in avail:
 #     i = list(i)
 #     doable = 0
@@ -646,6 +648,7 @@
 # # print(*avail)
 # # print(able)
 # #
+# #프린트
 # if len(able) > 0:
 #     for i in range(len(able[0])):
 #         print(able[0][i])
