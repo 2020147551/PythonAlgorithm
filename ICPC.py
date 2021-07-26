@@ -586,14 +586,68 @@
 #
 # print(count)
 
-#2239 Sudoku
+#2239 Sudoku 미해결
+#
+# import sys
+# from itertools import combinations
+#
+# board = []
+#
+# for i in range(9):
+#     board.append(list(map(int, sys.stdin.readline().rstrip())))
+#
+# print(board)
 
-import sys
-from itertools import combinations
-
-board = []
-
-for i in range(9):
-    board.append(list(map(int, sys.stdin.readline().rstrip())))
-
-print(board)
+#2026 소풍
+# import sys
+# from itertools import combinations
+#
+# num_needed, num_student, num_info = map(int, sys.stdin.readline().rstrip().split())
+#
+# arr = [[0]]
+# count = []
+# able = []
+# student_count = [0] * (num_student+1)
+# #
+# for i in range(1, num_student + 1):
+#     arr.append([i])
+#
+# for i in range(num_info):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     arr[a].append(b)
+#     arr[b].append(a)
+#
+# for i in range(len(arr)):
+#     arr[i] = list(set(arr[i]))
+#
+# for i in arr:
+#     for j in range(len(i)):
+#         student_count[i[j]] += 1
+#
+# for i in range(len(student_count)):
+#     if student_count[i] >= num_needed:
+#         count.append(i)
+#
+# avail = combinations(count, num_needed)
+#
+# for i in avail:
+#     i = list(i)
+#     doable = 0
+#     for j in arr:
+#         check = all(item in j for item in i)
+#         if check:
+#             doable += 1
+#     if doable >= num_needed:
+#         able.append(i)
+#         break
+#
+# # print(arr)
+# # print(count)
+# # print(*avail)
+# # print(able)
+# #
+# if len(able) > 0:
+#     for i in range(len(able[0])):
+#         print(able[0][i])
+# else:
+#     print(-1)
