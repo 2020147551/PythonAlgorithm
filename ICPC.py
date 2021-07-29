@@ -586,17 +586,104 @@
 #
 # print(count)
 
-#2239 Sudoku 미해결
-#
+#2239 Sudoku 미해결 구글링 한거 이해중
 # import sys
-# from itertools import combinations
+# from itertools import combinations, permutations
 #
 # board = []
-#
+# empty_board = []
 # for i in range(9):
 #     board.append(list(map(int, sys.stdin.readline().rstrip())))
 #
-# print(board)
+# temp1 = []
+# temp2 = []
+# temp3 = []
+# for i in range(1, 10):
+#     temp1 += board[i-1][0:3]
+#     temp2 += board[i-1][3:6]
+#     temp3 += board[i-1][6:9]
+#     if i % 3 == 0:
+#         board[i-3] = temp1[:]
+#         board[i-2] = temp2[:]
+#         board[i-1] = temp3[:]
+#         temp1 = []
+#         temp2 = []
+#         temp3 = []
+#
+# def check(arr):
+#     valid = True
+#     val = arr[0] + arr[1] + arr[2]
+#     #가로 줄 확인
+#     for a in range(3):
+#         if val != arr[a+0] + arr[a+1] + arr[a+2]:
+#             valid = False
+#             return valid
+#     #세로 줄 확인
+#     for a in range(3):
+#         if val != arr[a+0] + arr[a+3] + arr[a+6]:
+#             valid = False
+#             return valid
+#     #대각선 확인
+#     if val != arr[0] + arr[4] + arr[8]:
+#         valid = False
+#     if val != arr[2] + arr[4] + arr[6]:
+#         valid = False
+#     print(arr)
+#     return valid
+#
+# for i in range(len(board)):
+#     temp = []
+#     default = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+#     for j in range(len(board[i])):
+#         if board[i][j] == 0:
+#             temp.append(j)
+#         else:
+#             default.remove(board[i][j])
+#     empty_board.append(temp)
+#     avail = permutations(default)
+#     for j in avail:
+#         j = list(j)
+#         k = 0
+#         while k < len(j):
+#             board[i][empty_board[i][k]] = j[k]
+#             k += 1
+#         if check(board[i]) == True:
+#             break
+# for i in range(9):
+#     print(board[i])
+
+def cal(x, y):
+    return (x//3)*3 + (y//3)
+
+def sol(n):
+    if n == 81:
+        for i in B:
+            print(''.join(map(str, i)))
+        return True
+    x = n // 9
+    y = n % 9
+    if B[x][y]: return sol(n+1)
+    else:
+        for i in range(1, 10):
+            if not c1[x][i] and not c2[y][i] and not c3[cal(x,y)][i]:
+                c1[x][i] = c2[y][i] = c3[cal(x,y)][i] = True
+                B[x][y] = i
+                if sol(n+1): return True
+                c1[x][i] = c2[y][i] = c3[cal(x,y)][i] = False
+                B[x][y] = 0
+    return False
+
+B = [list(map(int, input())) for _ in range(9)]
+c1 = [[False]*10 for _ in range(9)] #행
+c2 = [[False]*10 for _ in range(9)] #열
+c3 = [[False]*10 for _ in range(9)] #사각형
+for i in range(9):
+    for j in range(9):
+        if B[i][j]:
+            c1[i][B[i][j]] = True
+            c2[j][B[i][j]] = True
+            c3[cal(i, j)][B[i][j]] = True
+sol(0)
 
 #2026 소풍
 # import sys
