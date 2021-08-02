@@ -690,3 +690,32 @@
 #
 #
 # print(max(dp[num-1]))
+
+#11048 이동하기
+# import sys
+#
+# y,x = map(int, sys.stdin.readline().rstrip().split())
+#
+# maze = []
+# dp = []
+# for i in range(y):
+#     temp = list(map(int, sys.stdin.readline().rstrip().split()))
+#     maze.append(temp)
+#     dp.append([0] * len(temp))
+#
+# dp[0][0] = maze[0][0]
+#
+# move = [[1, 0], [0, 1], [1, 1]]
+#
+# i = 0
+# while i < y:
+#     j = 0
+#     while j < x:
+#         if i+1 < y and dp[i][j] + maze[i+1][j] >= dp[i+1][j]:
+#             dp[i+1][j] = dp[i][j] + maze[i+1][j]
+#         if j+1 < x and dp[i][j] + maze[i][j+1] >= dp[i][j+1]:
+#             dp[i][j+1] = dp[i][j] + maze[i][j+1]
+#         j += 1
+#     i += 1
+#
+# print(dp[y-1][x-1])
