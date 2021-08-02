@@ -719,3 +719,28 @@
 #     i += 1
 #
 # print(dp[y-1][x-1])
+#11568 민균이의 계략
+# import sys, bisect
+#
+# num = int(sys.stdin.readline().rstrip())
+# arr = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# dp = [arr[0]]
+#
+# for i in range(num):
+#     if arr[i] > dp[-1]:
+#         dp.append(arr[i])
+#     else:
+#         index = bisect.bisect_left(dp, arr[i])
+#         dp[index] = arr[i]
+#
+# print(len(dp))
+
+
+
+
+
+
+
+
+
