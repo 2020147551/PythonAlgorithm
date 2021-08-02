@@ -411,7 +411,7 @@
 #
 # print(area)
 
-#20923 숫자 할리갈리 게임
+# 20923 숫자 할리갈리 게임
 # import sys
 # from collections import deque
 # card_num, turn_num = map(int, sys.stdin.readline().rstrip().split())
@@ -457,7 +457,7 @@
 # else:
 #     print("dosu")
 #
-#3078 좋은 친구 미해결
+# 3078 좋은 친구 미해결
 # import sys
 # from collections import deque
 #
@@ -503,7 +503,7 @@
 #             count += 1
 #
 # print(count)
-#좋은 친구 해결 (이틀걸림)
+# 좋은 친구 해결 (이틀걸림)
 # import sys
 # from collections import deque
 #
@@ -529,7 +529,7 @@
 #
 # print(count)
 
-#14889 스타트와 링크
+# 14889 스타트와 링크
 #
 # import sys
 # from itertools import combinations, permutations
@@ -562,9 +562,9 @@
 #
 # print(min_diff)
 
-#1182 부분수열의 합
-#처음에 한 방법은 연속된 수열로 생각을 해서 틀렸다. 구글링을 통해 comb를 사용하면 된다는 걸
-#찾았다
+# 1182 부분수열의 합
+# 처음에 한 방법은 연속된 수열로 생각을 해서 틀렸다. 구글링을 통해 comb를 사용하면 된다는 걸
+# 찾았다
 # import sys
 # from itertools import combinations
 # #a, b 값을 받는다
@@ -586,7 +586,7 @@
 #
 # print(count)
 
-#2239 Sudoku 미해결
+# 2239 Sudoku 미해결
 #
 # import sys
 # from itertools import combinations
@@ -598,7 +598,7 @@
 #
 # print(board)
 
-#2026 소풍
+# 2026 소풍
 # import sys
 # from itertools import combinations
 #
@@ -648,9 +648,45 @@
 # # print(*avail)
 # # print(able)
 # #
-# #프린트
+# # 프린트
 # if len(able) > 0:
 #     for i in range(len(able[0])):
 #         print(able[0][i])
 # else:
 #     print(-1)
+
+
+# 1932 The Triangle
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# first = int(sys.stdin.readline().rstrip())
+# # first step is always the same number
+# dp = [[first]]
+# # append all numbers in the triangle in the form of an array into a big array
+# triangle = [[first]]
+# for i in range(num - 1):
+#     temp = list(map(int, sys.stdin.readline().rstrip().split()))
+#     triangle.append(temp)
+#     dp.append([0]*len(temp))
+#
+# i = 1
+#
+#
+# while i < num:
+#     j = 0
+#     while j < i:
+#         if dp[i][j] == 0:
+#             dp[i][j] = dp[i-1][j] + triangle[i][j]
+#         else:
+#             dp[i][j] = max(dp[i - 1][j] + triangle[i][j], dp[i][j])
+#         if dp[i][j+1] == 0:
+#             dp[i][j + 1] = dp[i - 1][j] + triangle[i][j + 1]
+#         else:
+#             dp[i][j + 1] = max(dp[i - 1][j] + triangle[i][j + 1], dp[i][j+1])
+#         j += 1
+#     i += 1
+#
+#
+# print(max(dp[num-1]))
