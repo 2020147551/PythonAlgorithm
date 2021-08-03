@@ -760,10 +760,19 @@
 #
 # total_cost += temp_dist * current_node
 # print(total_cost)
+#2180 소방서의 고민
 
+import sys
 
+num = int(sys.stdin.readline().rstrip())
+arr = []
+for _ in range(num):
+    a, b = map(int, sys.stdin.readline().rstrip().split())
+    arr.append([a, b])
 
+arr.sort()
 
+print(*arr)
 
 
 
