@@ -735,6 +735,31 @@
 #         dp[index] = arr[i]
 #
 # print(len(dp))
+#13305번 주유소
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# edge = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# node = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# i = 0
+# total_cost = 0
+# current_node = node[0]
+# temp_dist = 0
+# while i < num-1:
+#
+#     if current_node <= node[i] and i < num:
+#         temp_dist += edge[i]
+#     else:
+#         total_cost += temp_dist * current_node
+#         current_node = node[i]
+#         temp_dist = edge[i]
+#     i += 1
+#
+# total_cost += temp_dist * current_node
+# print(total_cost)
 
 
 
