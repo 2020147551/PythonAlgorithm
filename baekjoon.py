@@ -1255,3 +1255,57 @@
 #
 #     except:
 #         print("error")
+#1475번 방번호
+# import sys
+#
+# num = list(sys.stdin.readline().rstrip())
+#
+# single_set = [0] * 10
+#
+# for i in num:
+#     if i == '0':
+#         single_set[0] += 1
+#     if i == '1':
+#         single_set[1] += 1
+#     if i == '2':
+#         single_set[2] += 1
+#     if i == '3':
+#         single_set[3] += 1
+#     if i == '4':
+#         single_set[4] += 1
+#     if i == '5':
+#         single_set[5] += 1
+#     if i == '6' or i == '9':
+#         if single_set[6] > single_set[9]:
+#             single_set[9] += 1
+#         else:
+#             single_set[6] += 1
+#     if i == '7':
+#         single_set[7] += 1
+#     if i == '8':
+#         single_set[8] += 1
+#
+#
+#
+# print(max(single_set))
+#1912번 연속합
+#
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# num_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# dp = [0] * num
+# dp[0] = num_list[0]
+# i = 1
+# while i < num:
+#     if dp[i-1] > 0:
+#         dp[i] = dp[i-1] + num_list[i]
+#     else:
+#         dp[i] = num_list[i]
+#     i += 1
+#
+#
+# print(max(dp))
+#
