@@ -1309,3 +1309,31 @@
 #
 # print(max(dp))
 #
+#11728번 배열 합치기
+# import sys
+#
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# if a > 1:
+#     a_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# else:
+#     a_list = [int(sys.stdin.readline().rstrip())]
+#
+# if b > 1:
+#     b_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# else:
+#     b_list = [int(sys.stdin.readline().rstrip())]
+#
+# total_list = a_list + b_list
+#
+# total_list.sort()
+# print(*total_list, end=" ")
+#10867 중복 뺴고 정렬하기
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# arr = sorted(list(set(list(map(int, sys.stdin.readline().rstrip().split())))))
+# print(*arr, end = " ")
+#11004 k번째 수
+# import sys
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# num = sorted(list(map(int, sys.stdin.readline().rstrip().split())))[b-1]
+# print(num)
