@@ -1337,3 +1337,18 @@
 # a, b = map(int, sys.stdin.readline().rstrip().split())
 # num = sorted(list(map(int, sys.stdin.readline().rstrip().split())))[b-1]
 # print(num)
+#10815번 숫자카드
+# import sys, bisect
+# a_num = int(sys.stdin.readline().rstrip())
+# a_list = list(map(int, sys.stdin.readline().rstrip().split()))
+# b_num = int(sys.stdin.readline().rstrip())
+# b_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# a_list.sort()
+#
+# for i in b_list:
+#     if bisect.bisect_left(a_list, i) == bisect.bisect_right(a_list, i):
+#         print(0)
+#     else:
+#         print(1)
+
