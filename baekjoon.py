@@ -1353,18 +1353,12 @@
 #         print(1)
 
 #10826 피보나치 수 4
-import sys
-num = int(sys.stdin.readline().rstrip())
-
-dp = [-1] * (num+3)
-dp[0] = 0
-dp[1] = 1
-dp[2] = 1
-
-def findNum(n):
-    if dp[n] != -1:
-        return dp[n]
-    dp[n] = findNum(n-1) + findNum(n-2)
-    return dp[n]
-findNum(num)
-print(*dp)
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+#
+# dp = [0, 1, 1]
+#
+# for i in range(3, num+1):
+#     dp.append(dp[i-1] + dp[i-2])
+#
+# print(dp[num])
