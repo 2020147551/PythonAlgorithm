@@ -655,7 +655,7 @@
 # else:
 #     print(-1)
 
-
+#ICPC 신촌 캠프 Lecture 4 출석 문제 및 연습 문제.
 # 1932 The Triangle
 # import sys
 #
@@ -735,6 +735,7 @@
 #         dp[index] = arr[i]
 #
 # print(len(dp))
+# ICPC 신촌 캠프 Lecture 5 출석 문제 및 연습 문제.
 #13305번 주유소
 # import sys
 #
@@ -761,18 +762,18 @@
 # total_cost += temp_dist * current_node
 # print(total_cost)
 #2180 소방서의 고민
-
-import sys
-
-num = int(sys.stdin.readline().rstrip())
-arr = []
-for _ in range(num):
-    a, b = map(int, sys.stdin.readline().rstrip().split())
-    arr.append([a, b])
-
-arr.sort()
-
-print(*arr)
+#
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# arr = []
+# for _ in range(num):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     arr.append([a, b])
+#
+# arr.sort()
+#
+# print(*arr)
 
 
 
