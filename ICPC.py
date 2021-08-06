@@ -896,3 +896,5 @@
 # for i in range(1, m + 1):
 #     if check[i] > 0:
 #         print(i, end=" ")
+#18113 그르다 김가놈
+import sys
