@@ -14,7 +14,7 @@
 #     total -= num_list[i]
 #
 # print(total)
-#백준 2217번
+# 백준 2217번
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -31,7 +31,7 @@
 #         max_weight = temp
 #
 # print(max_weight)
-#백준 2869번 달팽이는 올라가고 싶다
+# 백준 2869번 달팽이는 올라가고 싶다
 #
 # import sys
 #
@@ -41,7 +41,7 @@
 # else:
 #     print(((v - a) // (a - b)) + 1)
 
-#백준 1929번 소수 구하기
+# 백준 1929번 소수 구하기
 # import sys
 #
 # a, b = map(int, sys.stdin.readline().rstrip().split())
@@ -67,7 +67,7 @@
 #         if prime[i]:
 #             print(i)
 
-#백준 2609번 최대공약수와 최소공배수
+# 백준 2609번 최대공약수와 최소공배수
 # import sys
 #
 # def gcd(a, b):
@@ -138,7 +138,7 @@
 #         else:
 #             print(queue[-1])
 
-#백준 11650번 좌표 정렬하기
+# 백준 11650번 좌표 정렬하기
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -153,7 +153,7 @@
 # for x, y in x_y_list:
 #     print(x, y)
 
-#백준 11651번 좌표 정렬하기2
+# 백준 11651번 좌표 정렬하기2
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -168,7 +168,7 @@
 # for x, y in x_y_list:
 #     print(x, y)
 
-#백준 2164 카드2
+# 백준 2164 카드2
 # import sys
 # from collections import deque
 #
@@ -189,7 +189,7 @@
 #
 # print(card_list[0])
 
-#백준 1920번 수찾기
+# 백준 1920번 수찾기
 # import sys
 # from bisect import bisect_left, bisect_right
 #
@@ -215,7 +215,7 @@
 #     else:
 #         print(0)
 
-#백준 7568번 덩치
+# 백준 7568번 덩치
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -245,7 +245,7 @@
 # for i in range(num):
 #     print(list_bigger[i], end = " ")
 
-#백준 10816번 숫자카드 2
+# 백준 10816번 숫자카드 2
 
 # import sys
 # from bisect import bisect_left, bisect_right
@@ -264,7 +264,7 @@
 # for i in b_list:
 #     print(count_by_range(a_list, i, i), end=" ")
 
-#백준 1357 뒤집힌 덧셈
+# 백준 1357 뒤집힌 덧셈
 # import sys
 #
 # def reverse(a):
@@ -280,7 +280,7 @@
 #
 # print(final)
 
-#백준 4949번 균형잡힌 세상
+# 백준 4949번 균형잡힌 세상
 # import sys
 #
 # while True:
@@ -310,7 +310,7 @@
 #     else:
 #         print("yes")
 
-#백준 10814번 나이순 정렬
+# 백준 10814번 나이순 정렬
 #
 # import sys
 #
@@ -328,7 +328,7 @@
 #     print(people_list[i][0], end = " ")
 #     print(people_list[i][1])
 
-#백준 10773번 제로
+# 백준 10773번 제로
 #
 # import sys
 #
@@ -350,7 +350,7 @@
 #
 # print(total)
 
-#백준 1436번 영화감독 숌
+# 백준 1436번 영화감독 숌
 #
 # import sys
 #
@@ -364,7 +364,7 @@
 #
 # print(arr[-1])
 
-#백준 10866번 덱
+# 백준 10866번 덱
 # import sys
 # from collections import deque
 # dq = deque()
@@ -418,7 +418,7 @@
 #
 # print(min(mini))
 
-#백준 2108번 통계학
+# 백준 2108번 통계학
 # import sys
 # from collections import Counter
 # num = int(sys.stdin.readline().rstrip())
@@ -462,7 +462,7 @@
 #
 # print(max(num_list) - min(num_list))
 
-#백준 15829번 Hashing
+# 백준 15829번 Hashing
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # word_list = list(sys.stdin.readline().rstrip())
@@ -472,7 +472,7 @@
 #
 # print(total % 1234567891)
 
-#백준 2775번 부녀회장이 될테야
+# 백준 2775번 부녀회장이 될테야
 # import sys
 #
 # test = int(sys.stdin.readline().rstrip())
@@ -491,7 +491,7 @@
 #             house[i][j] = house[i-1][j] + house[i][j-1]
 #     print(house[n][k-1])
 
-#백준 1966번 프린터 큐
+# 백준 1966번 프린터 큐
 # import sys
 # from collections import deque
 #
@@ -528,7 +528,7 @@
 #
 #     print(order)
 
-#백준 2231번 분해합
+# 백준 2231번 분해합
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -543,7 +543,7 @@
 #     elif i == num:
 #         print(0)
 #         break
-#백준 11866번 요세푸스 문제 0
+# 백준 11866번 요세푸스 문제 0
 # import sys
 #
 # n, k = map(int, sys.stdin.readline().rstrip().split())
@@ -565,7 +565,7 @@
 #     print(seq[i], end = ", ")
 # print(str(seq[len(seq)-1]) + ">")
 
-#백준 1874번 스택 수열 틀림##############################################################
+# 백준 1874번 스택 수열 틀림##############################################################
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # num_stack = []
@@ -603,7 +603,7 @@
 # else:
 #     print("NO")
 
-#백준 1874번 스택 수열 다른 방법
+# 백준 1874번 스택 수열 다른 방법
 #
 # import sys
 # num = int(sys.stdin.readline().rstrip())
@@ -628,9 +628,9 @@
 # for i in range(len(oper_list)):
 #     print(oper_list[i])
 
-#백준 18111번 마인크래프트 시간 초과 구글링
-#원래 했던 방식은 3중 for loop으로 n^3 시간 복잡도인데, counter를 사용해서 같은 블럭 높이를
-#가지는 블럭들끼리 모아서 세고, 그걸 곱해서 forloop을 하나 빼는 방식을 사용하기 시간 초과가 안났다
+# 백준 18111번 마인크래프트 시간 초과 구글링
+# 원래 했던 방식은 3중 for loop으로 n^3 시간 복잡도인데, counter를 사용해서 같은 블럭 높이를
+# 가지는 블럭들끼리 모아서 세고, 그걸 곱해서 forloop을 하나 빼는 방식을 사용하기 시간 초과가 안났다
 # import sys
 # from collections import Counter
 #
@@ -672,7 +672,7 @@
 #         highest = i
 #
 # print(time, highest)
-#백준 1654번 랜선 자르기 이분탐색 매개변수탐색 구글링
+# 백준 1654번 랜선 자르기 이분탐색 매개변수탐색 구글링
 # import sys
 # a, b = map(int, sys.stdin.readline().rstrip().split())
 #
@@ -705,7 +705,7 @@
 #         else:
 #             print(found_height)
 #             break
-#백준 2805번 나무 자르기 이분탐색 매개변수탐색 구글링
+# 백준 2805번 나무 자르기 이분탐색 매개변수탐색 구글링
 # import sys
 # a, b = map(int, sys.stdin.readline().rstrip().split())
 # tree_list = list(map(int, sys.stdin.readline().rstrip().split()))
@@ -731,7 +731,7 @@
 #
 # print(end)
 
-#백준 1463번 1로 만들기 다이나믹 프로그래밍 바텀업
+# 백준 1463번 1로 만들기 다이나믹 프로그래밍 바텀업
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -749,7 +749,7 @@
 #         num_arr[i] = min(min(num_arr[i//3] + 1, num_arr[i//2] + 1) + 1, num_arr[i])
 # print(num_arr[num])
 
-#백준 2579번 계단 오르기 미해결
+# 백준 2579번 계단 오르기 미해결
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -790,7 +790,7 @@
 #
 # print(stairs_point)
 
-#백준 1260번 DFS와 BFS
+# 백준 1260번 DFS와 BFS
 #
 # import sys
 # from collections import deque
@@ -841,7 +841,7 @@
 # print()
 # bfs(start)
 
-#백준 1003번 피보나치 함수
+# 백준 1003번 피보나치 함수
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # num_list = []
@@ -870,7 +870,7 @@
 #     fibonacci(i)
 #     print(fib_list[i][1], fib_list[i][2])
 
-#백준 11279번 최대 힙
+# 백준 11279번 최대 힙
 # import sys, heapq
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -887,7 +887,7 @@
 #         else:
 #             print(-heapq.heappop(max_heap))
 
-#백준 1927번 최소 힙
+# 백준 1927번 최소 힙
 # import sys, heapq
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -904,7 +904,7 @@
 #         else:
 #             print(heapq.heappop(max_heap))
 
-#백준 11286번 절댓값 힙
+# 백준 11286번 절댓값 힙
 # import sys, heapq
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -924,7 +924,7 @@
 #         else:
 #             print(heapq.heappop(max_heap)[1])
 
-#백준 1427번 소트인사이드
+# 백준 1427번 소트인사이드
 # import sys
 #
 # num = list(map(int, sys.stdin.readline().rstrip()))
@@ -934,7 +934,7 @@
 # for i in range(len(num)):
 #     print(num[i], end = "")
 
-#백준 17219번 비밀번호 찾기
+# 백준 17219번 비밀번호 찾기
 # import sys
 # num, find = map(int, sys.stdin.readline().rstrip().split())
 # pass_list = {}
@@ -946,7 +946,7 @@
 #     link = sys.stdin.readline().rstrip()
 #     print(pass_list[link])
 
-#백준 9095번 1, 2, 3 더하기
+# 백준 9095번 1, 2, 3 더하기
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -969,7 +969,7 @@
 #     number = int(sys.stdin.readline().rstrip())
 #     print(find(number))
 
-#백준 11659번 구간 합 구하기 4
+# 백준 11659번 구간 합 구하기 4
 # import sys
 # num_size, num = map(int, sys.stdin.readline().rstrip().split())
 #
@@ -987,7 +987,7 @@
 #     total = num_list[b] - num_list[a]
 #     print(total)
 
-#백준 7662번 이중 우선순위 큐 구글링
+# 백준 7662번 이중 우선순위 큐 구글링
 # import sys
 # import heapq
 #
@@ -1041,7 +1041,7 @@
 #     else:
 #         print(-max_heap[0][0], min_heap[0][0])
 
-#백준 1676번 팩토리얼 0의 개수
+# 백준 1676번 팩토리얼 0의 개수
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 #
@@ -1058,7 +1058,7 @@
 #
 # print(count)
 
-#백준 11723번 집합
+# 백준 11723번 집합
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -1089,7 +1089,7 @@
 #             else:
 #                 stack[value] = 0
 
-#백준 1620번 나는야 포켓몬 마스터 이다솜
+# 백준 1620번 나는야 포켓몬 마스터 이다솜
 # import sys
 # pokemon_num, find_num = map(int, sys.stdin.readline().rstrip().split())
 # pokedex_id = {}
@@ -1106,7 +1106,7 @@
 #     else:
 #         print(pokedex_name[temp]+1)
 
-#백준 1764번 듣보잡
+# 백준 1764번 듣보잡
 # import sys
 # heard, seen = map(int, sys.stdin.readline().rstrip().split())
 # people_list = {}
@@ -1161,7 +1161,7 @@
 #         find(x)
 # find(num)
 # print(count)
-#백준 5525번 IOIOI
+# 백준 5525번 IOIOI
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # length = int(sys.stdin.readline().rstrip())
@@ -1184,7 +1184,7 @@
 #     i += 1
 # print(count)
 
-#백준 9461번 파도반 수열
+# 백준 9461번 파도반 수열
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -1200,7 +1200,7 @@
 #     n = int(sys.stdin.readline().rstrip())
 #     print(findTri(n))
 
-#백준 5430번 AC
+# 백준 5430번 AC
 # import sys
 # from collections import deque
 #
@@ -1255,7 +1255,7 @@
 #
 #     except:
 #         print("error")
-#1475번 방번호
+# 1475번 방번호
 # import sys
 #
 # num = list(sys.stdin.readline().rstrip())
@@ -1288,7 +1288,7 @@
 #
 #
 # print(max(single_set))
-#1912번 연속합
+# 1912번 연속합
 #
 # import sys
 #
@@ -1309,7 +1309,7 @@
 #
 # print(max(dp))
 #
-#11728번 배열 합치기
+# 11728번 배열 합치기
 # import sys
 #
 # a, b = map(int, sys.stdin.readline().rstrip().split())
@@ -1327,17 +1327,17 @@
 #
 # total_list.sort()
 # print(*total_list, end=" ")
-#10867 중복 뺴고 정렬하기
+# 10867 중복 뺴고 정렬하기
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # arr = sorted(list(set(list(map(int, sys.stdin.readline().rstrip().split())))))
 # print(*arr, end = " ")
-#11004 k번째 수
+# 11004 k번째 수
 # import sys
 # a, b = map(int, sys.stdin.readline().rstrip().split())
 # num = sorted(list(map(int, sys.stdin.readline().rstrip().split())))[b-1]
 # print(num)
-#10815번 숫자카드
+# 10815번 숫자카드
 # import sys, bisect
 # a_num = int(sys.stdin.readline().rstrip())
 # a_list = list(map(int, sys.stdin.readline().rstrip().split()))
@@ -1352,7 +1352,7 @@
 #     else:
 #         print(1)
 
-#10826 피보나치 수 4
+# 10826 피보나치 수 4
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 #
@@ -1362,3 +1362,85 @@
 #     dp.append(dp[i-1] + dp[i-2])
 #
 # print(dp[num])
+
+# 2178 미로 탐색
+# import sys
+# from collections import deque
+#
+# height, width = map(int, sys.stdin.readline().rstrip().split())
+# maze = []
+# for i in range(height):
+#     maze.append(list(map(int, sys.stdin.readline().rstrip())))
+# #up down left right
+# dx = [0, 0, -1, 1]
+# dy = [-1, 1, 0, 0]
+#
+# queue = deque()
+# visited = [[False] * width for _ in range(height)]
+#
+# def bfs(x, y):
+#     queue.append([y, x])
+#     visited[y][x] = True
+#     while queue:
+#         y, x = queue.popleft()
+#
+#         for i in range(4):
+#             next_y = y + dy[i]
+#             next_x = x + dx[i]
+#             if next_y < 0 or next_x < 0 or next_y >= height or next_x >= width:
+#                 continue
+#             elif maze[next_y][next_x] == 0:
+#                 continue
+#             elif visited[next_y][next_x] == True:
+#                 continue
+#             maze[next_y][next_x] = maze[y][x] + 1
+#             queue.append([next_y, next_x])
+#             visited[next_y][next_x] = True
+#     return maze[height-1][width-1]
+# print(bfs(0, 0))
+#2667 단지번호붙이기
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+# maze = []
+#
+# for i in range(num):
+#     maze.append(list(map(int, sys.stdin.readline().rstrip())))
+#
+# #up down left right
+# dx = [0, 0, -1, 1]
+# dy = [-1, 1, 0, 0]
+#
+# queue = deque()
+# visited = [[False] * num for _ in range(num)]
+# count = []
+#
+# def bfs(y, x):
+#     count = 1
+#     queue.append([y, x])
+#     visited[y][x] = True
+#     while queue:
+#         y, x = queue.popleft()
+#         for i in range(4):
+#             next_y = y + dy[i]
+#             next_x = x + dx[i]
+#             if next_y < 0 or next_x < 0 or next_y >= num or next_x >= num:
+#                 continue
+#             elif maze[next_y][next_x] == 0:
+#                 continue
+#             elif visited[next_y][next_x] == True:
+#                 continue
+#             queue.append([next_y, next_x])
+#             count += 1
+#             visited[next_y][next_x] = True
+#     return count
+#
+# for j in range(num):
+#     for i in range(num):
+#         if maze[j][i] == 1 and visited[j][i] == False:
+#             count.append(bfs(j, i))
+# print(len(count))
+# count.sort()
+# for i in range(len(count)):
+#     print(count[i])
