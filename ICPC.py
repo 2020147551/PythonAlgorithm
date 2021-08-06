@@ -655,7 +655,7 @@
 # else:
 #     print(-1)
 
-#ICPC 신촌 캠프 Lecture 4 출석 문제 및 연습 문제.
+# ICPC 신촌 캠프 Lecture 4 출석 문제 및 연습 문제.
 # 1932 The Triangle
 # import sys
 #
@@ -691,7 +691,7 @@
 #
 # print(max(dp[num-1]))
 
-#11048 이동하기
+# 11048 이동하기
 # import sys
 #
 # y,x = map(int, sys.stdin.readline().rstrip().split())
@@ -719,7 +719,7 @@
 #     i += 1
 #
 # print(dp[y-1][x-1])
-#11568 민균이의 계략
+# 11568 민균이의 계략
 # import sys, bisect
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -736,7 +736,7 @@
 #
 # print(len(dp))
 # ICPC 신촌 캠프 Lecture 5 출석 문제 및 연습 문제.
-#13305번 주유소
+# 13305번 주유소
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -761,21 +761,138 @@
 #
 # total_cost += temp_dist * current_node
 # print(total_cost)
-#2180 소방서의 고민
-#
+
+# 2180 소방서의 고민 구글링
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
 # arr = []
 # for _ in range(num):
 #     a, b = map(int, sys.stdin.readline().rstrip().split())
-#     arr.append([a, b])
+#     if a == 0:
+#         arr.append([99999999, a, b])
+#     else:
+#         arr.append([b/a, a, b])
 #
-# arr.sort()
+# arr.sort(key=lambda x : x[0])
 #
-# print(*arr)
+# t = 0
+# i = 0
+# total = 0
+# while i < num:
+#     total += arr[i][1] * t + arr[i][2]
+#     total %= 40000
+#     t = total
+#     i += 1
+#
+# print(total)
+#
+# 2873 LUNAPARK 미해결
+# import sys
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# cell = []
+#
+# for i in range(a):
+#     cell.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+# x, y = 0, 0
+# a -= 1
+# b -= 1
+# move = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+# while x != a and y != b:
+#     max = 0
+#     for i in move:
+#
+# print(*cell)
 
+# 2450 모양정돈 미해결
+# import sys
+# from itertools import permutations
+# num = int(sys.stdin.readline().rstrip())
+#
+# arr = list(map(int, sys.stdin.readline().rstrip().split()))
 
+# 2457 공주님의 정원 구글링 ############################################
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# arr = []
+# for i in range(num):
+#     start_month, start_date, end_month, end_date = \
+#         map(int, sys.stdin.readline().rstrip().split())
+#     arr.append([start_month*100 + start_date, end_month*100 + end_date])
+#
+# arr.sort(key = lambda x:x[0])
+#
+# index = -1
+# temp = 0
+# result = 0
+#
+# i = 301
+# while i <= 1130 and index < num:
+#
+#     flag = False
+#     index += 1
+#
+#     j = index
+#     while j < len(arr):
+#
+#         if arr[j][0] > i:
+#             break
+#
+#         if temp < arr[j][1]:
+#             temp = arr[j][1]
+#             index = j
+#             flag = True
+#
+#         j += 1
+#
+#     if flag:
+#         result += 1
+#     else:
+#         result = 0
+#         break
+#
+#     i = temp
+#
+# print(result)
 
-
-
+# 10165 버스노선
+# import sys
+#
+# n = int(sys.stdin.readline().rstrip())
+# m = int(sys.stdin.readline().rstrip())
+# infos1 = []
+# infos2 = []
+# for i in range(m):
+#     start, end = map(int, sys.stdin.readline().rstrip().split())
+#     if start > end:
+#         infos1.append([start - n, end, i + 1])
+#         infos2.append([start, end + n, i + 1])
+#     else:
+#         infos1.append([start, end, i + 1])
+#         infos2.append([start, end, i + 1])
+#
+# infos1 = sorted(infos1, key=lambda x: (x[0], -x[1]))
+# infos2 = sorted(infos2, key=lambda x: (x[0], -x[1]))
+# exceptList = []
+# check = [1] * (m + 1)
+# state = infos1[0]
+# for i in range(1, m):
+#     if state[1] >= infos1[i][1]:
+#         exceptList.append(infos1[i][2])
+#         check[infos1[i][2]] = 0
+#     elif state[1] < infos1[i][1]:
+#         state = infos1[i]
+# state = infos2[0]
+# for i in range(1, m):
+#     if state[1] >= infos2[i][1]:
+#         exceptList.append(infos2[i][2])
+#         check[infos2[i][2]] = 0
+#     elif state[1] < infos2[i][1]:
+#         state = infos2[i]
+#
+# for i in range(1, m + 1):
+#     if check[i] > 0:
+#         print(i, end=" ")
