@@ -1444,3 +1444,37 @@
 # count.sort()
 # for i in range(len(count)):
 #     print(count[i])
+
+#11724 연결 요소의 개수
+# import sys
+# from collections import deque
+# node, edge = map(int, sys.stdin.readline().rstrip().split())
+# connected = [[] for _ in range(node+1)]
+# visited = [False] * (node+1)
+# count = 0
+# for i in range(edge):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     #since it's undirected graph, add both to each list to show that they are both connected
+#     #to each other
+#     connected[a].append(b)
+#     connected[b].append(a)
+#
+# def bfs(start):
+#     global count
+#     if visited[start]: return #if it's visited, there's no need to check it again
+#     else: count += 1 #if it's not visited, it means it's part of another connected component
+#     queue = deque()
+#     queue.append(start)
+#     while queue:
+#         cur = queue.popleft()
+#         if not visited[cur]:
+#             visited[cur] = True
+#             for i in connected[cur]:
+#                 queue.append(i)
+#         else:
+#             continue
+# # print(connected)
+# for i in range(1, node+1):
+#     bfs(i)
+#
+# print(count)
