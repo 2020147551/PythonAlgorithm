@@ -897,4 +897,68 @@
 #     if check[i] > 0:
 #         print(i, end=" ")
 #18113 그르다 김가놈
+# import sys
+# n, k, m = map(int, sys.stdin.readline().rstrip().split())
+# object_list = []
+# for _ in range(n):
+#     object = int(sys.stdin.readline().rstrip())
+#     if object <= k: continue
+#     elif object < 2*k: object -= k
+#     elif object == 2*k: continue
+#     else: object -= 2*k
+#     object_list.append(object)
+# if object_list:
+#     count = 0
+#     start = 1
+#     end = max(object_list)
+#     ans = 0
+#     while start <= end:
+#         count = 0
+#         temp = (end + start) // 2
+#
+#         for i in object_list:
+#             count += i//temp
+#         if count >= m:
+#             ans = temp
+#             start = temp+1
+#         else:
+#             end = temp-1
+#     print(ans if ans else -1)
+# else:
+#     print(-1)
+
+#2343 기타레슨
+# import sys
+
+#1477 휴게소 세우기
 import sys
+num, more, length = map(int, sys.stdin.readline().rstrip().split())
+
+list = list(map(int, sys.stdin.readline().rstrip().split()))
+list.append(0)
+list.append(length)
+list.sort()
+
+distance = []
+
+for i in range(len(list)-1):
+    distance.append(list[i+1] - list[i])
+
+
+print(*list, end = " ")
+print()
+print(*distance, end = " ")
+print()
+
+for _ in range(more):
+    max_index = distance.index(max(distance))
+    temp = distance[max_index]
+    distance[max_index] = distance[max_index]//2
+    distance.insert(max_index + 1, temp - distance[max_index])
+    list.insert(max_index+1, (list[max_index]+list[max_index+1])//2)
+
+
+    print(*list, end = " ")
+    print()
+    print(*distance, end = " ")
+    print()
