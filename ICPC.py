@@ -927,38 +927,96 @@
 # else:
 #     print(-1)
 
-#2343 기타레슨
+#2343 기타레슨 미해결
+# N, M = map(int, input().split())
+# arr = list(map(int, input().split()))
+#
+# lesson_total = sum(arr)
+# left, right = lesson_total // M, sum(arr)
+# answer = right
+# while left <= right:
+#     mid = (left + right) // 2
+#     if mid < max(arr):
+#         left = mid + 1
+#         continue
+#     count, temp = 0, 0
+#     for i in range(len(arr)):
+#         if arr[i] > mid:
+#             break
+#         elif temp + arr[i] <= mid:
+#             temp += arr[i]
+#         else:
+#             temp = arr[i]
+#             count += 1
+#
+#     if count <= M - 1:
+#         right = mid - 1
+#         answer = min(answer, mid)
+#     else:
+#         left = mid + 1
+#
+# print(answer)
+
+#1477 휴게소 세우기 미해결
 # import sys
-
-#1477 휴게소 세우기
-import sys
-num, more, length = map(int, sys.stdin.readline().rstrip().split())
-
-list = list(map(int, sys.stdin.readline().rstrip().split()))
-list.append(0)
-list.append(length)
-list.sort()
-
-distance = []
-
-for i in range(len(list)-1):
-    distance.append(list[i+1] - list[i])
-
-
-print(*list, end = " ")
-print()
-print(*distance, end = " ")
-print()
-
-for _ in range(more):
-    max_index = distance.index(max(distance))
-    temp = distance[max_index]
-    distance[max_index] = distance[max_index]//2
-    distance.insert(max_index + 1, temp - distance[max_index])
-    list.insert(max_index+1, (list[max_index]+list[max_index+1])//2)
-
-
-    print(*list, end = " ")
-    print()
-    print(*distance, end = " ")
-    print()
+# input = sys.stdin.readline
+#
+# N, M, L = map(int, input().split())
+# stations = list(map(int, input().split()))
+# stations.append(0)
+# stations.append(L-1)
+# stations = sorted(stations)
+#
+# left = 0
+# right = L-1
+# while left <= right:
+#     mid = (left+right) // 2
+#     count = 0 # 설치한 휴게소의 수
+#     for i in range(1, len(stations)):
+#         if stations[i] - stations[i-1] > mid:
+#             count += (stations[i] - stations[i-1] -1)//mid
+#
+#     if count > M:
+#         left = mid + 1
+#     else:
+#         answer = mid
+#         right = mid - 1
+#
+# print(answer)
+#1074 Z 구글링
+# n, r, c = map(int, input().split())
+#
+# num = 0
+#
+# while n > 1:
+#     # 4등분 중 몇번째인가
+#     ran = 2 ** (n - 1)
+#     if r >= ran:
+#         if c >= ran:  # 4번째
+#             num += (4 ** (n - 1)) * 3
+#             r -= ran
+#             c -= ran
+#         else:  # 3번째
+#             num += (4 ** (n - 1)) * 2
+#             r -= ran
+#
+#     else:
+#         if c >= ran:  # 2번째
+#             num += (4 ** (n - 1)) * 1
+#             c -= ran
+#         else:  # 1번째
+#             pass
+#
+#     # print(num, r, c)
+#     n -= 1
+#
+# if r == 0:
+#     if c == 0:
+#         print(num)
+#     else:
+#         print(num + 1)
+# else:
+#     if c == 0:
+#         print(num + 2)
+#     else:
+#         print(num + 3)
