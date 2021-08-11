@@ -1042,3 +1042,38 @@
 #                 one = True
 #     if three and two and one:
 #         print(connected.index(i))
+#9372 상근이의 여행
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# def bfs(start):
+#     queue = deque()
+#     queue.append(start)
+#     count = 0
+#     while queue:
+#         cur = queue.popleft()
+#         if visited[cur]:
+#             continue
+#         visited[cur] = True
+#         for i in connected[cur]:
+#             queue.append(i)
+#
+#         count += 1
+#
+#     return count-1
+#
+# for i in range(num):
+#     num_city, num_pilot = map(int, sys.stdin.readline().rstrip().split())
+#
+#     connected = [[] for i in range(num_city+1)]
+#     visited = [False] * (num_city+1)
+#
+#     for j in range(num_pilot):
+#         a, b = map(int, sys.stdin.readline().rstrip().split())
+#         connected[a].append(b)
+#         connected[b].append(a)
+#
+#     print(bfs(1))
+
