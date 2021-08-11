@@ -1020,3 +1020,25 @@
 #         print(num + 2)
 #     else:
 #         print(num + 3)
+#
+#21316 SPICA
+# import sys
+# connected = [[] for i in range(13)]
+#
+# for i in range(12):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     connected[a].append(b)
+#     connected[b].append(a)
+#
+# for i in connected:
+#     one, two, three = False, False, False
+#     if len(i) == 3:
+#         for j in i:
+#             if len(connected[j]) == 3:
+#                 three = True
+#             if len(connected[j]) == 2:
+#                 two = True
+#             if len(connected[j]) == 1:
+#                 one = True
+#     if three and two and one:
+#         print(connected.index(i))
