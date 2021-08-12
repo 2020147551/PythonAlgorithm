@@ -1077,17 +1077,34 @@
 #
 #     print(bfs(1))
 #17471 게리맨더링
+# import sys
+# num_city = int(sys.stdin.readline().rstrip())
+#
+# city = [[] for i in range(num_city+1)]
+#
+# city_size = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# for i in range(1, num_city+1):
+#     arr = list(map(int, sys.stdin.readline().rstrip().split()))
+#     size = arr[0]
+#     for j in range(1, size+1):
+#         city[i].append(arr[j])
+#
+#
+#
+# print(*city)
+
+#2263 트리의 순회
 import sys
-num_city = int(sys.stdin.readline().rstrip())
+num = int(sys.stdin.readline().rstrip())
 
-city = [[] for i in range(num_city+1)]
+in_order = list(map(int, sys.stdin.readline().rstrip().split()))
+post_order = list(map(int, sys.stdin.readline().rstrip().split()))
 
-city_size = list(map(int, sys.stdin.readline().rstrip().split()))
+node = post_order[-1]
 
-for i in range(1, num_city+1):
-    arr = list(map(int, sys.stdin.readline().rstrip().split()))
-    size = arr[0]
-    for j in range(1, size+1):
-        city[i].append(arr[j])
+node_index_in = in_order.index(node)
 
-print(*city)
+tree_left_in = in_order[:node_index_in]
+tree_right_in = in_order[node_index_in+1:]
+
