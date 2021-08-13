@@ -896,7 +896,7 @@
 # for i in range(1, m + 1):
 #     if check[i] > 0:
 #         print(i, end=" ")
-#18113 그르다 김가놈
+# 18113 그르다 김가놈
 # import sys
 # n, k, m = map(int, sys.stdin.readline().rstrip().split())
 # object_list = []
@@ -927,7 +927,7 @@
 # else:
 #     print(-1)
 
-#2343 기타레슨 미해결
+# 2343 기타레슨 미해결
 # N, M = map(int, input().split())
 # arr = list(map(int, input().split()))
 #
@@ -957,7 +957,7 @@
 #
 # print(answer)
 
-#1477 휴게소 세우기 미해결
+# 1477 휴게소 세우기 미해결
 # import sys
 # input = sys.stdin.readline
 #
@@ -983,7 +983,7 @@
 #         right = mid - 1
 #
 # print(answer)
-#1074 Z 구글링
+# 1074 Z 구글링
 # n, r, c = map(int, input().split())
 #
 # num = 0
@@ -1021,7 +1021,7 @@
 #     else:
 #         print(num + 3)
 #
-#21316 SPICA
+# 21316 SPICA
 # import sys
 # connected = [[] for i in range(13)]
 #
@@ -1042,7 +1042,7 @@
 #                 one = True
 #     if three and two and one:
 #         print(connected.index(i))
-#9372 상근이의 여행
+# 9372 상근이의 여행
 # import sys
 # from collections import deque
 #
@@ -1076,35 +1076,105 @@
 #         connected[b].append(a)
 #
 #     print(bfs(1))
-#17471 게리맨더링
+
+# 17471 게리맨더링
 # import sys
+# from itertools import combinations
+# from collections import deque
+#
 # num_city = int(sys.stdin.readline().rstrip())
 #
-# city = [[] for i in range(num_city+1)]
-#
+# city = [[] for i in range(num_city + 1)]
+# total_city = [i for i in range(1, num_city + 1)]
 # city_size = list(map(int, sys.stdin.readline().rstrip().split()))
 #
-# for i in range(1, num_city+1):
+# for i in range(1, num_city + 1):
 #     arr = list(map(int, sys.stdin.readline().rstrip().split()))
 #     size = arr[0]
-#     for j in range(1, size+1):
+#     for j in range(1, size + 1):
 #         city[i].append(arr[j])
 #
+# # print(*city)
+# # print(*city_size)
+# # print(*total_city)
 #
 #
-# print(*city)
+# def check(list):
+#     visited = [False] * (num_city+1)
+#     queue = deque()
+#     queue.append(list[0])
+#     while queue:
+#         cur = queue.popleft()
+#         if visited[cur]:
+#             continue
+#         if cur not in list:
+#             continue
+#         visited[cur] = True
+#         for i in city[cur]:
+#             queue.append(i)
+#     connected = True
+#     for i in list:
+#         if visited[i]:
+#             continue
+#         connected = False
+#
+#     return connected
+#
+#
+# ans = 9999999999
+# for i in range(1, num_city):
+#     possible = list(combinations(total_city, i))
+#     for j in possible:
+#         possible_extra = list(set(total_city) - set(j))
+#         if check(j) and check(possible_extra):
+#             add1 = 0
+#             add2 = 0
+#             for k in j:
+#                 add1 += city_size[k-1]
+#             for k in possible_extra:
+#                 add2 += city_size[k-1]
+#             temp = abs(add1 - add2)
+#             if temp <= ans:
+#                 ans = temp
+#
+# if ans == 9999999999:
+#     print(-1)
+# else:
+#     print(ans)
 
-#2263 트리의 순회
-import sys
-num = int(sys.stdin.readline().rstrip())
-
-in_order = list(map(int, sys.stdin.readline().rstrip().split()))
-post_order = list(map(int, sys.stdin.readline().rstrip().split()))
-
-node = post_order[-1]
-
-node_index_in = in_order.index(node)
-
-tree_left_in = in_order[:node_index_in]
-tree_right_in = in_order[node_index_in+1:]
-
+# 2263 트리의 순회
+# import sys
+# sys.setrecursionlimit(10**6)
+# num = int(sys.stdin.readline().rstrip())
+#
+# in_order = list(map(int, sys.stdin.readline().rstrip().split()))
+# post_order = list(map(int, sys.stdin.readline().rstrip().split()))
+# position = [0] * (num + 1)
+# for i in range(num):
+#     position[in_order[i]] = i
+# node = post_order[-1]
+# node_index_in = in_order.index(node)
+#
+# tree_left_in = in_order[:node_index_in]
+# tree_right_in = in_order[node_index_in + 1:]
+#
+# # print(node_index_in)
+# # print(tree_left_in)
+# # print(tree_right_in)
+#
+#
+# def preorder(in_start, in_end, post_start, post_end):
+#     if in_start > in_end or post_start > post_end:
+#         return
+#
+#     root = post_order[post_end]
+#     p = position[root]
+#     left = p - in_start
+#
+#     print(root, end = " ")
+#
+#     preorder(in_start, p-1, post_start, post_start + left - 1)
+#     preorder(p+1, in_end, post_start+left, post_end-1)
+#
+#
+# preorder(0, num-1, 0, num-1)
