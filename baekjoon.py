@@ -1478,3 +1478,13 @@
 #     bfs(i)
 #
 # print(count)
+#11931번 수 정렬하기 4
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# arr = []
+# for i in range(num):
+#     arr.append(int(sys.stdin.readline().rstrip()))
+#
+# arr.sort(reverse = True)
+# for i in arr:
+#     print(i)
