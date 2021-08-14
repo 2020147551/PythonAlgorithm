@@ -1209,3 +1209,59 @@
 #
 # total = set(total)
 # print(len(total))
+#14940 쉬운 최단거리
+# import sys
+# from collections import deque
+#
+# mapY, mapX = map(int, sys.stdin.readline().rstrip().split())
+# finalY = 0
+# finalX = 0
+# final = [[999999999] * mapX for i in range(mapY)]
+# total = []
+# for i in range(mapY):
+#     temp = list(sys.stdin.readline().rstrip().split())
+#     temp = list(map(int, temp))
+#     if 2 in temp:
+#         finalY = i
+#         finalX = temp.index(2)
+#     total.append(temp)
+#
+# final[finalY][finalX] = 0
+#
+# moveY = [-1, 1, 0, 0]
+# moveX = [0, 0, -1, 1]
+#
+#
+# def bfs(y, x):
+#     queue = deque()
+#     queue.append([y, x])
+#     while queue:
+#         cur = queue.popleft()
+#         for a in range(4):
+#             tempY = cur[0] + moveY[a]
+#             tempX = cur[1] + moveX[a]
+#             if 0 <= tempY < mapY and 0 <= tempX < mapX:
+#                 if total[tempY][tempX] != 0:
+#                     if final[tempY][tempX] == 999999999:
+#                         queue.append([tempY, tempX])
+#                         final[tempY][tempX] = final[cur[0]][cur[1]] + 1
+#                 else:
+#                     final[tempY][tempX] = 0
+#
+#
+# bfs(finalY, finalX)
+# # print(*total)
+# for i in range(mapY):
+#     for j in range(mapX):
+#         ans = final[i][j]
+#         original = total[i][j]
+#         if ans != 999999999:
+#             print(final[i][j], end = " ")
+#         else:
+#             if original == 0:
+#                 print(0, end = " ")
+#             else:
+#                 print(-1, end = " ")
+#     print()
+# # print(*final)
+# # print(finalX, finalY)
