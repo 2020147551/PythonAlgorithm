@@ -1398,7 +1398,7 @@
 #             visited[next_y][next_x] = True
 #     return maze[height-1][width-1]
 # print(bfs(0, 0))
-#2667 단지번호붙이기
+# 2667 단지번호붙이기
 # import sys
 # from collections import deque
 #
@@ -1445,7 +1445,7 @@
 # for i in range(len(count)):
 #     print(count[i])
 
-#11724 연결 요소의 개수
+# 11724 연결 요소의 개수
 # import sys
 # from collections import deque
 # node, edge = map(int, sys.stdin.readline().rstrip().split())
@@ -1478,7 +1478,7 @@
 #     bfs(i)
 #
 # print(count)
-#11931번 수 정렬하기 4
+# 11931번 수 정렬하기 4
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # arr = []
@@ -1488,3 +1488,129 @@
 # arr.sort(reverse = True)
 # for i in arr:
 #     print(i)
+# 2606 바이러스
+# import sys
+# from collections import deque
+#
+# num_comp = int(sys.stdin.readline().rstrip())
+# num_conn = int(sys.stdin.readline().rstrip())
+#
+# arr = [[] for i in range(num_comp + 1)]
+# visited = [False] * (num_comp + 1)
+# for i in range(num_conn):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     arr[a].append(b)
+#     arr[b].append(a)
+#
+#
+# def bfs(start):
+#     queue = deque()
+#     queue.append(start)
+#
+#     while queue:
+#         cur = queue.popleft()
+#         visited[cur] = True
+#         for i in arr[cur]:
+#             if not visited[i]:
+#                 queue.append(i)
+#
+#
+#
+# bfs(1)
+#
+# count = 0
+#
+# for i in visited:
+#     if i:
+#         count += 1
+#
+# print(count-1)
+
+#7576번 토마토
+# import sys
+# from collections import deque
+#
+# x, y = map(int, sys.stdin.readline().rstrip().split())
+#
+# world = []
+# for i in range(y):
+#     world.append(list(map(int, sys.stdin.readline().rstrip().split())))
+# startY = []
+# startX = []
+# for i in range(y):
+#     for j in range(x):
+#         if world[i][j] == 1:
+#             startY.append(i)
+#             startX.append(j)
+#
+# moveY = [-1, 1, 0, 0]
+# moveX = [0, 0, -1, 1]
+# count = 0
+# def bfs():
+#     queue = deque()
+#     for i in range(len(startY)):
+#         queue.append([startY[i], startX[i]])
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moveY[i]
+#             tempX = cur[1] + moveX[i]
+#             if 0 <= tempX < x and 0 <= tempY < y:
+#                 if world[tempY][tempX] != -1 and world[tempY][tempX] == 0:
+#                     queue.append([tempY, tempX])
+#                     world[tempY][tempX] = world[cur[0]][cur[1]] + 1
+#
+# bfs()
+#
+# maxnum = 0
+# for i in range(y):
+#     temp_max = max(world[i])
+#     maxnum = max(temp_max, maxnum)
+#     if 0 in world[i]:
+#         maxnum = 999999999
+# if maxnum == 999999999:
+#     print(-1)
+# else:
+#     print(maxnum-1)
+#
+#1012 유기농 배추
+# import sys
+# from collections import deque
+# num = int(sys.stdin.readline().rstrip())
+#
+# def bfs(y, x):
+#     global count
+#     queue = deque()
+#     if visited[y][x]:
+#         return
+#     queue.append([y, x])
+#     count += 1
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moveY[i]
+#             tempX = cur[1] + moveX[i]
+#             if 0 <= tempY < ySize and 0 <= tempX < xSize:
+#                 if not visited[tempY][tempX]:
+#                     if world[tempY][tempX] == 1:
+#                         visited[tempY][tempX] = True
+#                         queue.append([tempY, tempX])
+#
+# for i in range(num):
+#     xSize, ySize, worm_count = map(int, sys.stdin.readline().rstrip().split())
+#     world = [[0] * xSize for j in range(ySize)]
+#     visited = [[False] * xSize for j in range(ySize)]
+#
+#     for k in range(worm_count):
+#         a, b = map(int, sys.stdin.readline().rstrip().split())
+#         world[b][a] = 1
+#
+#     moveY = [-1, 1, 0, 0]
+#     moveX = [0, 0, -1, 1]
+#     count = 0
+#
+#     for j in range(ySize):
+#         for k in range(xSize):
+#             if world[j][k] == 1:
+#                 bfs(j, k)
+#     print(count)
