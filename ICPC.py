@@ -1178,22 +1178,34 @@
 #
 #
 # preorder(0, num-1, 0, num-1)
-#2210 숫자판 점프
-import sys
-from collections import deque
-map = []
-total = []
-for i in range(5):
-    temp = list(sys.stdin.readline().rstrip().split())
-    map.append(temp)
-
-def bfs(x, y):
-    queue = deque()
-    
-
-for i in range(5):
-    for j in range(5):
-        bfs(i, j)
-
-total = set(total)
-print(len(total))
+# 2210 숫자판 점프
+# import sys
+#
+# map = []
+# visited = []
+# total = []
+# for i in range(5):
+#     temp = list(sys.stdin.readline().rstrip().split())
+#     map.append(temp)
+#
+# moveX = [0, 0, -1, 1]
+# moveY = [-1, 1, 0, 0]
+#
+#
+# def dfs(y, x, string):
+#     if len(string) == 6:
+#         total.append(string)
+#         return
+#     for k in range(4):
+#         tempY = y + moveY[k]
+#         tempX = x + moveX[k]
+#         if 0 <= tempX < 5 and 0 <= tempY < 5:
+#             dfs(tempY, tempX, string + map[tempY][tempX])
+#
+#
+# for i in range(5):
+#     for j in range(5):
+#         dfs(j, i, map[j][i])
+#
+# total = set(total)
+# print(len(total))
