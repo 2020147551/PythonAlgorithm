@@ -1178,3 +1178,22 @@
 #
 #
 # preorder(0, num-1, 0, num-1)
+#2210 숫자판 점프
+import sys
+from collections import deque
+map = []
+total = []
+for i in range(5):
+    temp = list(sys.stdin.readline().rstrip().split())
+    map.append(temp)
+
+def bfs(x, y):
+    queue = deque()
+    
+
+for i in range(5):
+    for j in range(5):
+        bfs(i, j)
+
+total = set(total)
+print(len(total))
