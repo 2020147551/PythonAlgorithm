@@ -1614,3 +1614,27 @@
 #             if world[j][k] == 1:
 #                 bfs(j, k)
 #     print(count)
+#18870 좌표 압축
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# arr = list(map(int, sys.stdin.readline().rstrip().split()))
+# sorted_arr = sorted(list(set(arr)))
+# indices = {}
+# for i in range(len(sorted_arr)):
+#     indices[sorted_arr[i]] = i
+#
+# for i in arr:
+#     print(indices[i], end = " ")
+#11726 2xn 타일링
+import sys
+num = int(sys.stdin.readline().rstrip())
+dp = [0] * 1001
+dp[1] = 1
+dp[2] = 2
+
+def dp(x):
+    if x == 2:
+        return dp[2]
+    if x == 1:
+        return dp[1]
+    return dp(x-2)
