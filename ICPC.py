@@ -1178,6 +1178,7 @@
 #
 #
 # preorder(0, num-1, 0, num-1)
+# ICPC 신촌 캠프 Lecture 9 출석 문제 및 연습 문제.
 # 2210 숫자판 점프
 # import sys
 #
@@ -1209,7 +1210,7 @@
 #
 # total = set(total)
 # print(len(total))
-#14940 쉬운 최단거리
+# 14940 쉬운 최단거리
 # import sys
 # from collections import deque
 #
@@ -1265,3 +1266,81 @@
 #     print()
 # # print(*final)
 # # print(finalX, finalY)
+
+# 1697 술래잡기
+# import sys
+# from collections import deque
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# count = 1
+#
+# arr = [999999999] * (100001)
+# def bfs(start):
+#
+#     queue = deque()
+#     queue.append(start)
+#     arr[start] = 0
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(3):
+#             temp = 0
+#             if i == 0:
+#                 temp = cur + 1
+#             if i == 1:
+#                 temp = cur - 1
+#             if i == 2:
+#                 temp = cur * 2
+#
+#             if temp == b:
+#                 print(arr[cur] + 1)
+#                 return
+#
+#             if 0 <= temp < (100000001):
+#                 if arr[temp] == 999999999:
+#                     queue.append(temp)
+#                     arr[temp] = arr[cur] + 1
+#
+# if a == b:
+#     print(0)
+# else:
+#     bfs(a)
+#
+
+# 1987 Letters
+# 이래저래 계속 시간 초과가 나서 질문글 찾아보면서 겨우겨우 줄였는데도 안되길래 처음부터 아스키 코드로 받으면 되려나 싶어서 해봤는데 됐다...
+# 근데 신기한건 승재한테 도움을 받아서 알게된건데, visited배열은 애초에 필요가 없었다. 이유는 어차피 alpha배열이랑 같은 작업을 반복하기 때문에
+# 없어도 똑같이 실행이 된다는 점. 그리고, 있는지 없는지를 확인할때는 0과 1로 비교를 하는 것이 아닌, bool 값으로 비교를 하면,
+# int 는 32비트, bool 은 1비트 이기 때문에 나중에 어려운 문제 할때는 메모리 초과가 날수가 있다. 너무 어렵다 백준....
+# import sys
+#
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# alpha = [0] * 26
+# world = [list(map(lambda x: ord(x)-65, sys.stdin.readline().rstrip())) for i in range(a)]
+# # visited = []
+# count = 1
+# # for i in range(a):
+# #     visited.append([False] * b)
+#
+# moveY = [-1, 1, 0, 0]
+# moveX = [0, 0, -1, 1]
+#
+#
+# def dfs(y, x, curcount):
+#     global count
+#     if 0 > y or y >= a or 0 > x or x >= b: return
+#     # if visited[y][x]: return
+#     if alpha[world[y][x]] != 0: return
+#     if curcount > count:
+#         count = curcount
+#     alpha[world[y][x]] += 1
+#     # visited[y][x] = True
+#     for i in range(4):
+#         dfs(y + moveY[i], x + moveX[i], curcount+1)
+#
+#     # visited[y][x] = False
+#     alpha[world[y][x]] -= 1
+#     curcount -= 1
+#
+#
+# dfs(0, 0, count)
+#
+# print(count)
