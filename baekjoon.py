@@ -1526,7 +1526,7 @@
 #
 # print(count-1)
 
-#7576번 토마토
+# 7576번 토마토
 # import sys
 # from collections import deque
 #
@@ -1573,7 +1573,7 @@
 # else:
 #     print(maxnum-1)
 #
-#1012 유기농 배추
+# 1012 유기농 배추
 # import sys
 # from collections import deque
 # num = int(sys.stdin.readline().rstrip())
@@ -1614,7 +1614,7 @@
 #             if world[j][k] == 1:
 #                 bfs(j, k)
 #     print(count)
-#18870 좌표 압축
+# 18870 좌표 압축
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # arr = list(map(int, sys.stdin.readline().rstrip().split()))
@@ -1625,16 +1625,201 @@
 #
 # for i in arr:
 #     print(indices[i], end = " ")
-#11726 2xn 타일링
-import sys
-num = int(sys.stdin.readline().rstrip())
-dp = [0] * 1001
-dp[1] = 1
-dp[2] = 2
+# 11726 2xn 타일링
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# dp = [0] * 1001
+# dp[1] = 1
+# dp[2] = 2
+#
+#
+# def find(x):
+#     if dp[x] != 0:
+#         return dp[x]
+#     dp[x] = find(x - 2) + find(x - 1)
+#     return dp[x]
+#
+#
+# print(find(num)%10007)
+#
+# 2630 색종이 만들기
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# blue = 0
+# white = 0
+#
+# paper = []
+# for i in range(num):
+#     temp = list(map(int, sys.stdin.readline().rstrip().split()))
+#     paper.append(temp)
+#
+#
+# def divide(world):
+#     global blue, white
+#     half = len(world[0]) // 2
+#     part1 = []
+#     part2 = []
+#     part3 = []
+#     part4 = []
+#     for i in range(half):
+#         part1.append(world[i][:half])
+#         part2.append(world[i][half:])
+#         part3.append(world[half + i][:half])
+#         part4.append(world[half + i][half:])
+#     if part1 == part2 == part3 == part4 and check(part1):
+#         color = part1[0][0]
+#         if color == 1:
+#             blue += 1
+#         else:
+#             white += 1
+#     elif len(part1) == 1:
+#         if part1[0][0] == 1:
+#             blue += 1
+#         else:
+#             white += 1
+#         if part2[0][0] == 1:
+#             blue += 1
+#         else:
+#             white += 1
+#         if part3[0][0] == 1:
+#             blue += 1
+#         else:
+#             white += 1
+#         if part4[0][0] == 1:
+#             blue += 1
+#         else:
+#             white += 1
+#     else:
+#         divide(part1)
+#         divide(part2)
+#         divide(part3)
+#         divide(part4)
+#
+#
+# def check(world):
+#     temp = []
+#     if len(world[0]) == 2:
+#         if world[0][0] == world[0][1] == world[1][0] == world[1][1]:
+#             return True
+#         return False
+#     if len(world[0]) == 1:
+#         return True
+#     for i in range(len(world[0])//2):
+#         temp.append(world[i][:len(world[0])//2])
+#     return check(temp)
+#
+#
+# divide(paper)
+#
+# print(white)
+# print(blue)
 
-def dp(x):
-    if x == 2:
-        return dp[2]
-    if x == 1:
-        return dp[1]
-    return dp(x-2)
+# 1931 회의실 배정
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# list_time = []
+# for i in range(num):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     list_time.append([a, b])
+#
+# list_time.sort(key=lambda x: (x[1], x[0]))
+#
+# count = 0
+# end = 0
+#
+# for i in list_time:
+#     if end <= i[0]:
+#         end = i[1]
+#         count += 1
+#
+# print(count)
+#
+# print(*list_time)
+#
+#10026 Cow Art
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# painting = []
+# human_visited = [[False] * num for i in range(num)]
+# cow_visited = [[False] * num for i in range(num)]
+# human_count = 0
+# cow_count = 0
+# for i in range(num):
+#     temp = list(sys.stdin.readline().rstrip())
+#     painting.append(temp)
+#
+# moveY = [-1, 1, 0, 0]
+# moveX = [0, 0, -1, 1]
+#
+# def human_bfs(startY, startX):
+#     global human_count
+#     queue = deque()
+#     queue.append([startY, startX])
+#     human_visited[startY][startX] = True
+#     human_count += 1
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moveY[i]
+#             tempX = cur[1] + moveX[i]
+#
+#             if 0 <= tempY < len(painting) and 0 <= tempX < len(painting):
+#                 if not human_visited[tempY][tempX]:
+#                     if painting[cur[0]][cur[1]] == painting[tempY][tempX]:
+#                         human_visited[tempY][tempX] = True
+#                         queue.append([tempY, tempX])
+#
+# def cow_bfs(startY, startX):
+#     global cow_count
+#     queue = deque()
+#     queue.append([startY, startX])
+#     cow_visited[startY][startX] = True
+#     cow_count += 1
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moveY[i]
+#             tempX = cur[1] + moveX[i]
+#
+#             if 0 <= tempY < len(painting) and 0 <= tempX < len(painting):
+#                 if not cow_visited[tempY][tempX]:
+#                     color = painting[cur[0]][cur[1]]
+#                     if color == "R" or color == "G":
+#                         if painting[tempY][tempX] == 'R' or painting[tempY][tempX] == 'G':
+#                             cow_visited[tempY][tempX] = True
+#                             queue.append([tempY, tempX])
+#                     else:
+#                         if color == painting[tempY][tempX]:
+#                             cow_visited[tempY][tempX] = True
+#                             queue.append([tempY, tempX])
+#
+#
+#
+# for i in range(num): #y
+#     for j in range(num): #x
+#         if not human_visited[i][j]:
+#             human_bfs(i, j)
+#         if not cow_visited[i][j]:
+#             cow_bfs(i, j)
+#
+# print(human_count, cow_count)
+#
+#10211 Maximum subarray
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+# for i in range(num):
+#     length = int(sys.stdin.readline().rstrip())
+#     arr = list(map(int, sys.stdin.readline().rstrip().split()))
+#     max_num = -99999999
+#     for j in range(length):
+#         if j > 0:
+#             if arr[j-1] >= 0:
+#                 arr[j] += arr[j-1]
+#         max_num = max(arr[j], max_num)
+#     print(max_num)
