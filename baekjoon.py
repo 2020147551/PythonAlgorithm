@@ -1739,7 +1739,7 @@
 #
 # print(*list_time)
 #
-#10026 Cow Art
+# 10026 Cow Art
 # import sys
 # from collections import deque
 #
@@ -1810,7 +1810,7 @@
 #
 # print(human_count, cow_count)
 #
-#10211 Maximum subarray
+# 10211 Maximum subarray
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 # for i in range(num):
@@ -1823,3 +1823,4 @@
 #                 arr[j] += arr[j-1]
 #         max_num = max(arr[j], max_num)
 #     print(max_num)
+

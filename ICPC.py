@@ -1344,3 +1344,48 @@
 # dfs(0, 0, count)
 #
 # print(count)
+#ICPC 신촌 캠프 Lecture 10 출석 문제 및 연습 문제.
+# 1922 네트워크 연결
+# import sys
+#
+# node = int(sys.stdin.readline().rstrip())
+# edge = int(sys.stdin.readline().rstrip())
+#
+# conn = []
+# parent = [[0] for i in range(node + 1)]
+# result = 0
+#
+#
+# def find_parent(parent, node):
+#     if parent[node] != node:
+#         parent[node] = find_parent(parent, parent[node])
+#     return parent[node]
+#
+#
+# def union_parent(parent, node1, node2):
+#     a = find_parent(parent, node1)
+#     b = find_parent(parent, node2)
+#     if a < b:
+#         parent[b] = a
+#     else:
+#         parent[a] = b
+#
+#
+# for i in range(node + 1):
+#     parent[i] = i
+#
+# for i in range(edge):
+#     a, b, c = map(int, sys.stdin.readline().rstrip().split())
+#     conn.append([c, a, b])
+#
+# conn.sort()
+#
+# for each in conn:
+#     cost, a, b = each
+#     if find_parent(parent, a) != find_parent(parent, b):
+#         union_parent(parent, a, b)
+#         result += cost
+# #
+# # print(*conn)
+# # print(*parent)
+# print(result)
