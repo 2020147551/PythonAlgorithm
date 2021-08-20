@@ -1344,7 +1344,7 @@
 # dfs(0, 0, count)
 #
 # print(count)
-#ICPC 신촌 캠프 Lecture 10 출석 문제 및 연습 문제.
+# ICPC 신촌 캠프 Lecture 10 출석 문제 및 연습 문제.
 # 1922 네트워크 연결
 # import sys
 #
@@ -1389,3 +1389,200 @@
 # # print(*conn)
 # # print(*parent)
 # print(result)
+
+#13306 트리 구글링
+# import sys
+#
+# sys.setrecursionlimit(200000)
+#
+#
+# def find_root(all_node, c_node_name):
+#     if all_node[c_node_name][1] != c_node_name:
+#         all_node[c_node_name][1] = find_root(all_node, all_node[c_node_name][0])
+#         all_node[c_node_name][0] = all_node[c_node_name][1]
+#     return all_node[c_node_name][1]
+#
+#
+# N, Q = list(map(int, sys.stdin.readline().split()))
+# all_node = [[0, 0] for i in range(N + 1)]
+# all_node[1][1] = 1
+# for i in range(2, N + 1):
+#     tmp = int(sys.stdin.readline())
+#     all_node[i][0] = tmp
+#     all_node[i][1] = i
+#
+# query_list = []
+# for i in range(N + Q - 1):
+#     tmp = list(map(int, sys.stdin.readline().split()))
+#     query_list.append(tmp)
+#
+# result_list = []
+# for i in range(N + Q - 1):
+#     tmp = query_list.pop()
+#     if tmp[0] == 0:
+#         all_node[tmp[1]][1] = all_node[tmp[1]][0]
+#     elif tmp[0] == 1:
+#         root1 = find_root(all_node, tmp[1])
+#         root2 = find_root(all_node, tmp[2])
+#         if root1 == root2:
+#             result_list.append(True)
+#         else:
+#             result_list.append(False)
+#
+# for i in range(Q):
+#     tmp = result_list.pop()
+#     if tmp:
+#         print('YES')
+#     else:
+#         print("NO")
+
+# 18921 Cost of subtree 미해결
+# import sys
+#
+# def union(parent, node1, node2):
+#     node1 = find(parent, node1)
+#     node2 = find(parent, node2)
+#
+#     if node1 < node2:
+#         parents[node2] = node1
+#     else:
+#         parents[node1] = node2
+#
+# def find(parent, node1):
+#     if parent[node1] != node1:
+#         parent[node1] = find(parent, parent[node1])
+#
+#     return parent[node1]
+#
+#
+# node = int(sys.stdin.readline().rstrip())
+# edge = []
+# parents = [0] * (node + 1)
+# result = 0
+# minimumV = [99999999999] * (node + 1)
+# for i in range(node + 1):
+#     parents[i] = i
+#
+# for i in range(node - 1):
+#     a, b, cost = map(int, sys.stdin.readline().rstrip().split())
+#     edge.append([cost, a, b])
+#
+# edge.sort()
+#
+# for i in edge:
+#     cost, a, b = i
+#     if find(parents, a) != find(parents, b):
+#         union(parents, a, b)
+#         result += cost
+#
+# # print(*edge)
+# # print(*parents)
+# print(result)
+
+# 22116 창영이와 퇴근
+# import sys
+# from queue import PriorityQueue
+# num = int(sys.stdin.readline().rstrip())
+# ans = 0
+# world = []
+# visited = []
+#
+# for i in range(num):
+#     world.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#     visited.append([False] * num)
+#
+# moveY = (-1, 1, 0, 0)
+# moveX = (0, 0, -1, 1)
+#
+# def bfs(startY, startX):
+#     global ans
+#     pq = PriorityQueue()
+#     pq.put([0, startY, startX])
+#     visited[startY][startX] = True
+#     while pq:
+#         cur = pq.get()
+#         ans = max(ans, cur[0])
+#         if cur[1] == num-1 and cur[2] == num-1:
+#             return
+#         for i in range(4):
+#             tempY = cur[1] + moveY[i]
+#             tempX = cur[2] + moveX[i]
+#             if 0 <= tempY < num and 0 <= tempX < num:
+#                 if not visited[tempY][tempX]:
+#                     visited[tempY][tempX] = True
+#                     pq.put([abs(world[tempY][tempX]-world[cur[1]][cur[2]]), tempY, tempX])
+#
+# bfs(0, 0)
+# print(ans)
+# 구글링
+# from sys import stdin
+# from heapq import *
+#
+# input = stdin.readline
+# dx, dy = [0, 0, 1, -1], [1, -1, 0, 0]
+#
+# n = int(input())
+# load = [list(map(int, input().split())) for i in range(n)]
+# value_table = [[-1 for i in range(n)] for j in range(n)]
+#
+# v = [[0, 0, 0]]
+#
+# while True:
+#     lean, x, y = heappop(v)
+#     if value_table[y][x] != -1:
+#         continue
+#     if y == n - 1 and x == n - 1:
+#         print(lean)
+#         break
+#     value_table[y][x] = lean
+#     for i in range(4):
+#         nx = x + dx[i]
+#         ny = y + dy[i]
+#         if 0 <= nx < n and 0 <= ny < n:
+#             if value_table[ny][nx] != -1:
+#                 continue
+#             heappush(v, [max(abs(load[y][x] - load[ny][nx]), lean), nx, ny])
+
+# 20303 할로윈의 양아치
+# import sys
+# from collections import deque, defaultdict
+#
+# N, M, K = map(int, sys.stdin.readline().split())
+# child = list(map(int, sys.stdin.readline().split()))
+# child.insert(0, 0)
+# graph = defaultdict(list)
+# hist = [True for _ in range(N + 1)]
+# dp = [[0 for _ in range(K + 1)] for _ in range(2)]
+# table = []
+#
+# for _ in range(M):
+#     a, b = map(int, sys.stdin.readline().split())
+#     graph[a].append(b)
+#     graph[b].append(a)
+#
+# for key in range(1, N + 1):
+#     if hist[key]:
+#         hist[key] = False
+#         que = deque([key])
+#         cnt, result = 0, 0
+#         while que:
+#             from_node = que.popleft()
+#             cnt += 1
+#             result += child[from_node]
+#             for to_node in graph[from_node]:
+#                 if hist[to_node]:
+#                     hist[to_node] = False
+#                     que.append(to_node)
+#         table.append((cnt, result))
+#
+# for cnt, result in table:
+#     for i in range(0, K + 1):
+#         if i >= cnt:
+#             dp[1][i] = max(dp[0][i], dp[0][i - cnt] + result)
+#         else:
+#             dp[1][i] = dp[0][i]
+#
+#     for i in range(0, K + 1):
+#         dp[0][i] = dp[1][i]
+#
+# print(dp[1][K - 1])
