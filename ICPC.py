@@ -1586,3 +1586,42 @@
 #         dp[0][i] = dp[1][i]
 #
 # print(dp[1][K - 1])
+#1655 가운데를 말해요
+# import sys
+# import heapq
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# max_heap = []
+# min_heap = []
+# median = 0
+# for i in range(num):
+#     temp_num = int(sys.stdin.readline().rstrip())
+#     if temp_num > median:
+#         heapq.heappush(min_heap, temp_num)
+#     elif temp_num < median:
+#         heapq.heappush(max_heap, -temp_num)
+#
+#     else:
+#         if len(min_heap) > len(max_heap):
+#             heapq.heappush(max_heap, -temp_num)
+#         elif len(min_heap) < len(max_heap):
+#             heapq.heappush(min_heap, temp_num)
+#         else:
+#             heapq.heappush(max_heap, -temp_num)
+#
+#     if len(min_heap) - len(max_heap) > 1:
+#         temp = heapq.heappop(min_heap)
+#         heapq.heappush(max_heap, -temp)
+#     elif len(max_heap) - len(min_heap) > 1:
+#         temp = -heapq.heappop(max_heap)
+#         heapq.heappush(min_heap, temp)
+#
+#     if len(min_heap) - len(max_heap) == 1:
+#         median = min_heap[0]
+#     elif len(max_heap) - len(min_heap) == 1:
+#         median = -max_heap[0]
+#     elif len(min_heap) == len(max_heap):
+#         median = -max_heap[0]
+#
+#     print(median)
