@@ -1625,3 +1625,125 @@
 #         median = -max_heap[0]
 #
 #     print(median)
+
+
+#ICPC 신촌 캠프 대회
+# 1 AC
+# import sys
+# digit = int(sys.stdin.readline().rstrip())
+# binary = int(sys.stdin.readline().rstrip(), 2)
+# division = int(sys.stdin.readline().rstrip())
+# num = pow(2, division)
+# # print(binary)
+# # print(num)
+# if binary % num == 0:
+#     print("YES")
+# else:
+#     print('NO')
+
+
+# 2 AC
+# import sys
+#
+# num_people, card_num = map(int, sys.stdin.readline().rstrip().split())
+# arr = []
+# final = []
+# final1 = []
+# for i in range(num_people):
+#     arr.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+# for i in range(num_people):
+#     for j in range(card_num):
+#         final.append(arr[i][j])
+#         final1.append(i+1)
+# index = 0
+# while len(final) > 1:
+#
+#     start = final[index]
+#     final.pop(index)
+#     final1.pop(index)
+#     index += start - 1
+#     index %= len(final)
+#
+# ans = final[0]
+# ans1 = final1[0]
+#
+# print(ans1, ans)
+
+
+# 3 미해결
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# arr = []
+# for i in range(1, num+1):
+#     arr.append(i)
+#
+# for i in range(num-1, 0, -1):
+#     if arr[i-1] < arr[i]:
+#         for j in range(num-1, 0, -1):
+#             if arr[i-1] < arr[j]:
+#                 arr[i-1], arr[j] = arr[j], arr[i-1]
+#                 arr = arr[:i] + sorted(arr[i:])
+#     check_arr = []
+#     dp = [0] * num
+#     dp[0] = arr[0]
+#     check_arr.append(dp[0] % num)
+#     for i in range(1, num):
+#         dp[i] = dp[i - 1] + arr[i]
+#         check_arr.append(dp[i] % num)
+#         check_arr = list(set(check_arr))
+#         if len(check_arr) >= ((num / 2) + 1): break
+#
+#     if len(check_arr) < ((num / 2) + 1):
+#         print(*arr)
+#         break
+#
+#     continue
+
+#6 미해결
+# import sys
+# from collections import deque
+# height, width = map(int, sys.stdin.readline().rstrip().split())
+# world = []
+# world_moves = []
+# startY = 0
+# startX = 0
+# endY = 0
+# endX = 0
+# for i in range(height):
+#     temp = list(sys.stdin.readline().rstrip())
+#     world.append(temp)
+#     world_moves.append([0]*len(temp))
+#     if 'E' in temp:
+#         endY = i
+#         endX = temp.index('E')
+#     if 'C' in temp:
+#         startY = i
+#         startX = temp.index('C')
+#
+# moveY = (-1, 1, 0, 0)
+# moveX = (0, 0, -1, 1)
+#
+# def bfs(startY, startX):
+#     queue = deque()
+#     queue.append([startY, startX])
+#     world_moves[startY][startX] = 1
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moveY[i]
+#             tempX = cur[1] + moveX[i]
+#             if 0 <= tempY < height and 0 <= tempX < width:
+#                 if world_moves[tempY][tempX] == 0:
+#                     if world[tempY][tempX] != 'D':
+#                         if world[tempY][tempX] == 'L':
+#                             world_moves[tempY][tempX] = world_moves[cur[0]][cur[1]] + 5
+#                             queue.append([tempY, tempX])
+#                         if world[tempY][tempX] == 'X':
+#
+#
+# bfs(startY, startX)
+#
+# print(world)
