@@ -1824,3 +1824,78 @@
 #         max_num = max(arr[j], max_num)
 #     print(max_num)
 
+#17626 Four Squares 구글링, 도저히 방법을 못떠올림
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# dp = [0] * (num+1)
+# dp[0] = 0
+# dp[1] = 1
+# for i in range(2, num+1):
+#     minVal = 999999999
+#     j = 1
+#     while (j**2) <= i:
+#         minVal = min(minVal, dp[i-(j**2)])
+#         j += 1
+#     dp[i] = minVal + 1
+#
+# print(dp[num])
+
+#7569 토마토
+# import sys
+# from collections import deque
+# sizeX, sizeY, height = map(int, sys.stdin.readline().rstrip().split())
+# days = 0
+# able = True
+# tomatoes = [[] for i in range(height)]
+# cases = []
+# for i in range(sizeY * height):
+#     cur = i // sizeY
+#     line = list(map(int, sys.stdin.readline().rstrip().split()))
+#     tomatoes[cur].append(line)
+#
+# moveY = [-1, 1, 0, 0, 0, 0] #2d 상하
+# moveX = [0, 0, -1, 1, 0, 0] #2d 좌우
+# moveZ = [0, 0, 0, 0, 1, -1] #3d 상하
+#
+#
+# def bfs():
+#     global days
+#     queue = deque()
+#     for i in cases:
+#         queue.append(i) #z, y, x
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(6):
+#             tempY = cur[1] + moveY[i]
+#             tempX = cur[2] + moveX[i]
+#             tempZ = cur[0] + moveZ[i]
+#             if 0 <= tempY < sizeY and 0 <= tempX < sizeX and 0 <= tempZ < height:
+#                 if tomatoes[tempZ][tempY][tempX] == 0:
+#                     queue.append([tempZ, tempY, tempX])
+#                     tomatoes[tempZ][tempY][tempX] = tomatoes[cur[0]][cur[1]][cur[2]] + 1
+#                     days = max(days, tomatoes[cur[0]][cur[1]][cur[2]])
+#
+# for i in range(height):
+#     for j in range(sizeY):
+#         for k in range(sizeX):
+#             if tomatoes[i][j][k] == 1:
+#                 cases.append([i, j, k])
+#
+# bfs()
+#
+# while able:
+#     for i in range(height):
+#         for j in range(sizeY):
+#             if 0 in tomatoes[i][j]:
+#                 able = False
+#                 break
+#         if not able:
+#             break
+#     if able:
+#         break
+#
+# if able:
+#     print(days)
+# else:
+#     print(-1)
