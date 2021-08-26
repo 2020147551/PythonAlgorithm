@@ -749,46 +749,25 @@
 #         num_arr[i] = min(min(num_arr[i//3] + 1, num_arr[i//2] + 1) + 1, num_arr[i])
 # print(num_arr[num])
 
-# 백준 2579번 계단 오르기 미해결
+# 백준 2579번 계단 오르기 구글링
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
 #
-# stairs = [0]
+# stairs = [0] * 301
+# dp = [0] * 301
 #
-# cons = 0
-# for i in range(num):
-#     stairs.append(int(sys.stdin.readline().rstrip()))
+# for i in range(1, num+1):
+#     stairs[i] = int(sys.stdin.readline().rstrip())
 #
-# i = num
-# stairs_point = stairs[num]
+# dp[1] = stairs[1]
+# dp[2] = stairs[1] + stairs[2]
+# dp[3] = max(stairs[1] + stairs[3], stairs[2] + stairs[3])
 #
-# while i != 0:
-#     if i == 1:
-#         i -= 1
-#         break
-#     if i == 2:
-#         if cons == 1:
-#             i -= 2
-#         else:
-#             i -= 2
-#             stairs_point += stairs[i+1]
-#     else:
-#         if cons == 1:
-#             i -= 2
-#             stairs_point += stairs[i+2]
-#             cons = 0
-#         else:
-#             if stairs[i-1] > stairs[i-2]:
-#                 i -= 1
-#                 stairs_point += stairs[i]
-#                 cons = 1
-#             else:
-#                 i -= 2
-#                 stairs_point += stairs[i]
-#                 cons = 0
+# for i in range(4, num+1):
+#     dp[i] = max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])
 #
-# print(stairs_point)
+# print(dp[num])
 
 # 백준 1260번 DFS와 BFS
 #
@@ -1824,7 +1803,7 @@
 #         max_num = max(arr[j], max_num)
 #     print(max_num)
 
-#17626 Four Squares 구글링, 도저히 방법을 못떠올림
+# 17626 Four Squares 구글링, 도저히 방법을 못떠올림
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -1841,7 +1820,7 @@
 #
 # print(dp[num])
 
-#7569 토마토
+# 7569 토마토
 # import sys
 # from collections import deque
 # sizeX, sizeY, height = map(int, sys.stdin.readline().rstrip().split())
@@ -1899,3 +1878,107 @@
 #     print(days)
 # else:
 #     print(-1)
+
+# 16928 뱀과 사다리 게임
+# import sys
+# from collections import deque
+# ladder, snake = map(int, sys.stdin.readline().rstrip().split())
+#
+# ladder_list_start = []
+# ladder_list_end = []
+# snake_list_start = []
+# snake_list_end = []
+# board = [0] * 101
+# visited = [False] * 101
+# turns = 0
+#
+# for i in range(ladder):
+#     start, end = map(int, sys.stdin.readline().rstrip().split())
+#     ladder_list_start.append(start)
+#     ladder_list_end.append(end)
+#
+# for i in range(snake):
+#     start, end = map(int, sys.stdin.readline().rstrip().split())
+#     snake_list_start.append(start)
+#     snake_list_end.append(end)
+# def bfs():
+#     queue = deque()
+#     queue.append(1)
+#     visited[1] = True
+#     while queue:
+#         cur = queue.popleft()
+#         if cur == 100:
+#             return
+#         for i in range(1, 7):
+#             temp = cur + i
+#             if 1 <= temp <= 100:
+#                 if not visited[temp]:
+#                     if temp in ladder_list_start:
+#                         index = ladder_list_start.index(temp)
+#                         temp = ladder_list_end[index]
+#                         if board[temp] == 0:
+#                             board[temp] = board[cur] + 1
+#                         else:
+#                             board[temp] = min(board[cur] + 1, board[temp])
+#                         queue.append(temp)
+#                         visited[temp] = True
+#                     elif temp in snake_list_start:
+#                         index = snake_list_start.index(temp)
+#                         temp = snake_list_end[index]
+#                         if board[temp] == 0:
+#                             board[temp] = board[cur] + 1
+#                         else:
+#                             board[temp] = min(board[cur] + 1, board[temp])
+#                         queue.append(temp)
+#                         visited[temp] = True
+#                     else:
+#                         if board[temp] == 0:
+#                             board[temp] = board[cur] + 1
+#                         else:
+#                             board[temp] = min(board[cur] + 1, board[temp])
+#                         queue.append(temp)
+#                         visited[temp] = True
+#
+# bfs()
+#
+# print(board[100])
+
+# 1389 케빈 베이컨의 6단계 법칙
+# import sys
+# from collections import deque
+# people, connection = map(int, sys.stdin.readline().rstrip().split())
+# conn = [[] for i in range(people + 1)]
+# total_arr = []
+#
+# for i in range(connection):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     conn[a].append(b)
+#     conn[b].append(a)
+#
+#
+# def bfs(start):
+#     visited = [0] * (people + 1)
+#     visited_bool = [False] * (people + 1)
+#     queue = deque()
+#     queue.append(start)
+#     while queue:
+#         cur = queue.popleft()
+#         for j in conn[cur]:
+#             if not visited_bool[j]:
+#                 if j == start:
+#                     continue
+#                 if visited[j] == 0:
+#                     visited[j] = visited[cur] + 1
+#                 else:
+#                     visited[j] = min(visited[cur] + 1, visited[j])
+#                 queue.append(j)
+#                 visited_bool[j] = True
+#     return visited
+#
+#
+# for i in range(1, people + 1):
+#     total_arr.append([sum(bfs(i)), i])
+#
+# total_arr.sort(key=lambda x: x[0])
+#
+# print(total_arr[0][1])
