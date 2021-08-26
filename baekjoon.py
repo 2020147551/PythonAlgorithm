@@ -1982,3 +1982,12 @@
 # total_arr.sort(key=lambda x: x[0])
 #
 # print(total_arr[0][1])
+
+#11403 경로찾기
+import sys
+size = int(sys.stdin.readline().rstrip())
+
+arr = []
+for i in range(size):
+    arr.append(list(map(int, sys.stdin.readline().rstrip().split())))
+
