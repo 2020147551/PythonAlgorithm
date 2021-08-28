@@ -147,4 +147,104 @@ import sys
 #
 # print(count)
 
+#SUAPC B번
+import networkx
+from
 
+#
+# import sys
+#
+# node, edge = map(int, sys.stdin.readline().rstrip().split())
+# edges = []
+#
+# graph = dict([])
+#
+#
+# def find(graph):
+#     if len(graph) == 0:
+#         return []
+#     if len(graph) == 1:
+#         return [list(graph.keys())[0]]
+#     vCurrent = list(graph.keys())[0]
+#     graph2 = dict(graph)
+#
+#     del graph2[vCurrent]
+#
+#     res1 = find(graph2)
+#
+#     for v in graph[vCurrent]:
+#         if v in graph2:
+#             del graph2[v]
+#
+#     res2 = [vCurrent] + find(graph2)
+#
+#     if len(res1) > len(res2):
+#         return res1
+#     return res2
+#
+# for i in range(edge):
+#     a, b = map(int, sys.stdin.readline().rstrip().split())
+#     if a not in graph:
+#         graph[a] = []
+#     if b not in graph:
+#         graph[b] = []
+#
+#     graph[a].append(b)
+#     graph[b].append(a)
+#
+# maxSet = find(graph)
+#
+# print(len(maxSet))
+# maxSet.sort()
+# print(*maxSet)
+
+#SUAPC F번
+# import sys
+# test_case = int(sys.stdin.readline().rstrip())
+#
+# for i in range(test_case):
+#     n, k = map(int, sys.stdin.readline().rstrip().split())
+#     each = 4
+#     start = 0
+#
+#
+#     print(start)
+#
+#
+
+#SUAPC H번
+# import sys
+# import heapq
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# arr = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# heapq.heapify(arr)
+# count = 0
+# i = 0
+# while arr:
+#     x = heapq.heappop(arr)
+#     if x == b:
+#         count += 1
+#         if len(arr) == 0:
+#             break
+#         x = heapq.heappop(arr)
+#     if len(arr) == 0:
+#         break
+#     y = heapq.heappop(arr)
+#     if y == b:
+#         count += 1
+#         if len(arr) == 0:
+#             break
+#         y = heapq.heappop(arr)
+#     temp = x + y
+#     if temp < b:
+#         temp += (b/2)
+#         if temp >= b:
+#             count += 1
+#         else:
+#             heapq.heappush(arr, temp)
+#     else:
+#         count += 1
+#
+# print(count)

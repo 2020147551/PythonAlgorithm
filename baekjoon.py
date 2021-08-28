@@ -1983,11 +1983,33 @@
 #
 # print(total_arr[0][1])
 
-#11403 경로찾기
+#11403 경로찾기 미해결
+# import sys
+# size = int(sys.stdin.readline().rstrip())
+#
+# arr = []
+# for i in range(size):
+#     arr.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+#
+
+#9375 Incognito
 import sys
-size = int(sys.stdin.readline().rstrip())
 
-arr = []
-for i in range(size):
-    arr.append(list(map(int, sys.stdin.readline().rstrip().split())))
+test_case = int(sys.stdin.readline().rstrip())
 
+for i in range(test_case):
+    num = int(sys.stdin.readline().rstrip())
+    dic = {}
+    for j in range(num):
+        name, type = sys.stdin.readline().rstrip().split()
+        if type in dic.keys():
+            dic[type].append(name)
+        else:
+            dic[type] = list()
+            dic[type].append(name)
+    ans = 1
+    for j in dic.keys():
+        ans *= (len(dic[j])+1)
+
+    print(ans-1)
