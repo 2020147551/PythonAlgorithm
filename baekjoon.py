@@ -1994,22 +1994,58 @@
 #
 
 #9375 Incognito
+# import sys
+#
+# test_case = int(sys.stdin.readline().rstrip())
+#
+# for i in range(test_case):
+#     num = int(sys.stdin.readline().rstrip())
+#     dic = {}
+#     for j in range(num):
+#         name, type = sys.stdin.readline().rstrip().split()
+#         if type in dic.keys():
+#             dic[type].append(name)
+#         else:
+#             dic[type] = list()
+#             dic[type].append(name)
+#     ans = 1
+#     for j in dic.keys():
+#         ans *= (len(dic[j])+1)
+#
+#     print(ans-1)
+
+#1780 종이의 개수
 import sys
+num = int(sys.stdin.readline().rstrip())
 
-test_case = int(sys.stdin.readline().rstrip())
+paper = []
 
-for i in range(test_case):
-    num = int(sys.stdin.readline().rstrip())
-    dic = {}
-    for j in range(num):
-        name, type = sys.stdin.readline().rstrip().split()
-        if type in dic.keys():
-            dic[type].append(name)
-        else:
-            dic[type] = list()
-            dic[type].append(name)
-    ans = 1
-    for j in dic.keys():
-        ans *= (len(dic[j])+1)
+for i in range(num):
+    paper.append(list(map(int, sys.stdin.readline().rstrip().split())))
 
-    print(ans-1)
+def divide(paper):
+    divided = [[] for j in range(9)]
+    first = len(paper[0]) // 3
+    second = first * 2
+    for i in range(0, len(paper[0])):
+        divided[0].append(paper[i][:first])
+        divided[1].append(paper[i][first:second])
+        divided[2].append(paper[i][second:])
+        divided[3].append(paper[i+first][:first])
+        divided[4].append(paper[i+first][first:second])
+        divided[5].append(paper[i+first][second:])
+        divided[6].append(paper[i + second][:first])
+        divided[7].append(paper[i + second][first:second])
+        divided[8].append(paper[i + second][second:])
+
+    equal = True
+
+    for i in range(1, len(paper[0])):
+        if divided[0] != divided[i]:
+            equal = False
+
+    if not equal:
+        divide()
+
+
+divide(paper)

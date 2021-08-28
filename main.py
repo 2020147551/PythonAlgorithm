@@ -147,10 +147,6 @@ import sys
 #
 # print(count)
 
-#SUAPC B번
-import networkx
-from
-
 #
 # import sys
 #
