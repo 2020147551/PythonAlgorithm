@@ -2015,37 +2015,75 @@
 #     print(ans-1)
 
 #1780 종이의 개수
-import sys
-num = int(sys.stdin.readline().rstrip())
-
-paper = []
-
-for i in range(num):
-    paper.append(list(map(int, sys.stdin.readline().rstrip().split())))
-
-def divide(paper):
-    divided = [[] for j in range(9)]
-    first = len(paper[0]) // 3
-    second = first * 2
-    for i in range(0, len(paper[0])):
-        divided[0].append(paper[i][:first])
-        divided[1].append(paper[i][first:second])
-        divided[2].append(paper[i][second:])
-        divided[3].append(paper[i+first][:first])
-        divided[4].append(paper[i+first][first:second])
-        divided[5].append(paper[i+first][second:])
-        divided[6].append(paper[i + second][:first])
-        divided[7].append(paper[i + second][first:second])
-        divided[8].append(paper[i + second][second:])
-
-    equal = True
-
-    for i in range(1, len(paper[0])):
-        if divided[0] != divided[i]:
-            equal = False
-
-    if not equal:
-        divide()
-
-
-divide(paper)
+# import sys
+# num = int(sys.stdin.readline().rstrip())
+#
+# paper = []
+# count1 = 0
+# count2 = 0
+# count3 = 0
+#
+# for i in range(num):
+#     paper.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+# def divide(paper):
+#     global count1, count2, count3
+#     divided = [[] for j in range(9)]
+#     first = len(paper[0]) // 3
+#     second = first * 2
+#     for j in range(0, len(paper[0])//3):
+#         divided[0].append(paper[j][:first])
+#         divided[1].append(paper[j][first:second])
+#         divided[2].append(paper[j][second:])
+#         divided[3].append(paper[j+first][:first])
+#         divided[4].append(paper[j+first][first:second])
+#         divided[5].append(paper[j+first][second:])
+#         divided[6].append(paper[j + second][:first])
+#         divided[7].append(paper[j + second][first:second])
+#         divided[8].append(paper[j + second][second:])
+#
+#     equal = True
+#
+#     for j in range(1, len(divided)):
+#         if divided[0] != divided[j]:
+#             equal = False
+#             break
+#
+#     if equal and check(divided):
+#         paper_type = divided[0][0][0]
+#         if paper_type == -1:
+#             count1 += 1
+#         elif paper_type == 0:
+#             count2 += 1
+#         elif paper_type == 1:
+#             count3 += 1
+#
+#
+#     elif len(divided[0]) == 1:
+#         for j in range(9):
+#             if divided[j][0][0] == -1:
+#                 count1 += 1
+#             elif divided[j][0][0] == 0:
+#                 count2 += 1
+#             else:
+#                 count3 += 1
+#
+#     else:
+#         for j in range(len(divided)):
+#             divide(divided[j])
+#
+# def check(paper):
+#     # first = len(paper[0])//3
+#     # second = first * 2
+#     if paper[0] == paper[1] == paper[2]:
+#         for k in range(1, len(paper[0])):
+#             if paper[0][0] != paper[0][k]:
+#                 return False
+#         return True
+#     return False
+#
+#
+# divide(paper)
+# print(count1)
+# print(count2)
+# print(count3)
