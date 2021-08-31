@@ -2087,3 +2087,25 @@
 # print(count1)
 # print(count2)
 # print(count3)
+#
+#11727 2xn 타일링 2
+
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# dp = [0] * 1001
+# dp[1] = 1
+# dp[2] = 3
+#
+# def find(num):
+#     if dp[num] != 0:
+#         return dp[num]
+#     if num == 2:
+#         return dp[2]
+#     if num == 1:
+#         return dp[1]
+#     dp[num] = find(num-1) + 2*find(num-2)
+#     return dp[num]
+#
+# print(find(num)%10007)
