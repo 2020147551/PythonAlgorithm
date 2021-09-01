@@ -2147,3 +2147,62 @@
 #         print(ans_arr[i][j], end = " ")
 #
 #     print()
+
+#6064 cain calendar
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# for i in range(num):
+#     m, n, x, y = map(int, sys.stdin.readline().rstrip().split())
+#     sets = [1, 1]
+#     count = 1
+#     if sets[0] != x:
+#         temp = x - sets[0]
+#         sets[0] += temp
+#         sets[1] += temp
+#         count += temp
+#
+#     if sets[1] > n:
+#         sets[1] = sets[1] % n
+#         if sets[1] == 0:
+#             sets[1] = n
+#
+#     if sets[0] == x and sets[1] == y:
+#         print(count)
+#         continue
+#
+#     temp1 = x
+#     temp2 = m - x
+#     while True:
+#         sets[0] += temp2
+#         sets[1] += temp2
+#         count += temp2
+#         if sets[0] > m:
+#             sets[0] = sets[0] - m
+#
+#         if sets[1] > n:
+#             sets[1] = sets[1] % n
+#             if sets[1] == 0:
+#                 sets[1] = n
+#
+#         if sets[0] == m and sets[1] == n:
+#             print(-1)
+#             break
+#
+#         sets[0] += temp1
+#         sets[1] += temp1
+#         count += temp1
+#         if sets[0] > m:
+#             sets[0] = sets[0] - m
+#
+#         if sets[1] > n:
+#             sets[1] = sets[1] % n
+#             if sets[1] == 0:
+#                 sets[1] = n
+#
+#         if sets[0] == x and sets[1] == y:
+#             print(count)
+#             break
+
+
