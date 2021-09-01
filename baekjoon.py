@@ -1983,7 +1983,7 @@
 #
 # print(total_arr[0][1])
 
-#11403 경로찾기 미해결
+# 11403 경로찾기 미해결
 # import sys
 # size = int(sys.stdin.readline().rstrip())
 #
@@ -1993,7 +1993,7 @@
 #
 #
 
-#9375 Incognito
+# 9375 Incognito
 # import sys
 #
 # test_case = int(sys.stdin.readline().rstrip())
@@ -2014,7 +2014,7 @@
 #
 #     print(ans-1)
 
-#1780 종이의 개수
+# 1780 종이의 개수
 # import sys
 # num = int(sys.stdin.readline().rstrip())
 #
@@ -2088,7 +2088,7 @@
 # print(count2)
 # print(count3)
 #
-#11727 2xn 타일링 2
+# 11727 2xn 타일링 2
 
 # import sys
 #
@@ -2109,3 +2109,41 @@
 #     return dp[num]
 #
 # print(find(num)%10007)
+
+# 11403 경로 찾기
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# arr = []
+# ans_arr = []
+#
+# for i in range(num):
+#     temp = list(map(int, sys.stdin.readline().rstrip().split()))
+#     arr.append(temp)
+#     ans_arr.append([0] * len(temp))
+#
+# # for i in range(num):
+# #     for j in range(num):
+# #         if i != j and arr[i][j] == 0:
+# #             arr[i][j] = 999999999
+#
+# def bfs(start):
+#     queue = deque()
+#     queue.append(start)
+#     while queue:
+#         cur = queue.popleft()
+#         for k in range(len(arr[cur])):
+#             if arr[cur][k] and not ans_arr[start][k]:
+#                 ans_arr[start][k] = 1
+#                 queue.append(k)
+#
+# for i in range(num):
+#     bfs(i)
+#
+# for i in range(num):
+#     for j in range(num):
+#         print(ans_arr[i][j], end = " ")
+#
+#     print()
