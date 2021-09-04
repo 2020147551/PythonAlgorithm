@@ -2205,4 +2205,57 @@
 #             print(count)
 #             break
 
-
+#1992 쿼드트리
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# array = []
+# ans = ''
+# for i in range(num):
+#     array.append(list(map(int, sys.stdin.readline().rstrip())))
+#
+# def check(arr):
+#     global ans
+#     length = len(arr)
+#     part1 = []
+#     part2 = []
+#     part3 = []
+#     part4 = []
+#     for i in range(len(arr)//2):
+#         part1.append(arr[i][:length//2])
+#         part2.append(arr[i][length//2:])
+#         part3.append(arr[length//2 + i][:length//2])
+#         part4.append(arr[length//2 + i][length//2:])
+#
+#     if part1 == part2 == part3 == part4 and verify(part1):
+#         ans += str(part1[0][0])
+#     elif len(part1) == 1:
+#         ans += '('
+#         ans += str(part1[0][0])
+#         ans += str(part2[0][0])
+#         ans += str(part3[0][0])
+#         ans += str(part4[0][0])
+#         ans += ')'
+#     else:
+#         ans += ('(')
+#         check(part1)
+#         check(part2)
+#         check(part3)
+#         check(part4)
+#         ans += (')')
+#
+# def verify(arr):
+#     temp = []
+#     if len(arr[0]) == 1:
+#         return True
+#     elif len(arr[0]) == 2:
+#         if arr[0][0] == arr[0][1] == arr[1][0] == arr[1][1]:
+#             return True
+#         return False
+#     for i in range(len(arr[0])//2):
+#         temp.append(arr[i][:len(arr[0])//2])
+#     return verify(temp)
+#
+# check(array)
+#
+# print(ans)
