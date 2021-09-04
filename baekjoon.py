@@ -2204,6 +2204,103 @@
 #         if sets[0] == x and sets[1] == y:
 #             print(count)
 #             break
+#
+#14500 테트리미노
+# import sys
+#
+# y, x = map(int, sys.stdin.readline().rstrip().split())
+#
+# main_arr = []
+# max_sum = 0
+# for i in range(y):
+#     main_arr.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+#
+# def check(arr):
+#     global max_sum
+#     for i in range(5):
+#         for j in range(y):
+#             for k in range(x):
+#                 if i == 0:
+#                     try:
+#                         temp = 0
+#                         temp += arr[j][k]
+#                         temp += arr[j + 1][k]
+#                         temp += arr[j + 2][k]
+#                         temp += arr[j + 3][k]
+#
+#                         max_sum = max(max_sum, temp)
+#                     except:
+#                         continue
+#                 elif i == 1:
+#                     try:
+#                         temp = 0
+#                         temp += arr[j][k]
+#                         temp += arr[j + 1][k]
+#                         temp += arr[j][k+1]
+#                         temp += arr[j+1][k+1]
+#
+#                         max_sum = max(max_sum, temp)
+#                     except:
+#                         continue
+#                 elif i == 2:
+#                     try:
+#                         temp = 0
+#                         temp += arr[j][k]
+#                         temp += arr[j + 1][k]
+#                         temp += arr[j + 2][k]
+#                         temp += arr[j + 2][k + 1]
+#
+#                         max_sum = max(max_sum, temp)
+#                     except:
+#                         continue
+#                 elif i == 3:
+#                     try:
+#                         temp = 0
+#                         temp += arr[j][k]
+#                         temp += arr[j+1][k]
+#                         temp += arr[j+1][k+1]
+#                         temp += arr[j+2][k+1]
+#
+#                         max_sum = max(max_sum, temp)
+#                     except:
+#                         continue
+#                 else:
+#                     try:
+#                         temp = 0
+#                         temp += arr[j][k]
+#                         temp += arr[j][k+1]
+#                         temp += arr[j][k+2]
+#                         temp += arr[j+1][k+1]
+#
+#                         max_sum = max(max_sum, temp)
+#                     except:
+#                         continue
+#
+# def rotated(array_2d):
+#     list_of_tuples = zip(*array_2d[::-1])
+#     return [list(elem) for elem in list_of_tuples]
+#
+# def flipped(array_2d):
+#     temp = []
+#     for i in array_2d:
+#         temp.append(i[::-1])
+#     return temp
+# for i in range(4):
+#     check(main_arr)
+#     main_arr = rotated(main_arr)
+#     x, y = y, x
+#
+# main_arr = flipped(main_arr)
+#
+# for i in range(4):
+#     check(main_arr)
+#     main_arr = rotated(main_arr)
+#     x, y = y, x
+#
+#
+# print(max_sum)
+
 
 #1992 쿼드트리
 # import sys
