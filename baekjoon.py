@@ -2358,55 +2358,56 @@
 # print(ans)
 
 #1107 리모컨
-import sys
-
-desired_channel = list(map(int, sys.stdin.readline().rstrip()))
-
-disabled_num = int(sys.stdin.readline().rstrip())
-
-disabled = list(map(int, sys.stdin.readline().rstrip().split()))
-enabled = []
-for i in range(10):
-    if i not in disabled:
-        enabled.append(i)
-
-start = 100
-count_press = 0
-res = int(''.join(map(str, desired_channel)))
-count_move = abs(res - start)
-
-cur = []
-
-
-digit = [0] * len(desired_channel)
-digit[0] = 1
-digit = int(''.join(map(str, digit)))
-
-if len(enabled) != 0:
-    for i in desired_channel:
-        if i in enabled:
-            cur.append(i)
-            count_press += 1
-        else:
-            j = i - 1
-            k = i + 1
-            while True:
-                if j in enabled:
-                    cur.append(j)
-                    count_press += 1
-                    count_press += (digit * (i - j))
-                    break
-                elif k in enabled:
-                    cur.append(k)
-                    count_press += 1
-                    count_press += (digit * (k - i))
-                    break
-                else:
-                    j -= 1
-                    k += 1
-        digit //= 10
-else:
-    count_press = 999999999
-#end of for loop
-
-print(count_move if count_move < count_press else count_press)
+# import sys
+#
+#
+# desired_channel = sys.stdin.readline().rstrip()
+# digit = len(desired_channel)
+# disabled_num = int(sys.stdin.readline().rstrip())
+#
+# disabled_list = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# from_begin = abs(100 - int(desired_channel))
+#
+# upper_num = 999999
+# lower_num = -999999
+# num = 0
+#
+# if disabled_num == 10:
+#     print(from_begin)
+#     exit()
+#
+# if disabled_num == 0:
+#     print(min(from_begin, digit))
+#     exit()
+#
+# while num <= int(desired_channel): #find lower bound number
+#     able = True
+#     temp = []
+#     num_list = list(str(num))
+#     for i in num_list:
+#         if int(i) in disabled_list:
+#             able = False
+#             break
+#     if able and num > lower_num:
+#         lower_num = num
+#     num += 1
+#
+# num = 999999
+#
+# while num >= int(desired_channel):
+#     able = True
+#     temp = []
+#     num_list = list(str(num))
+#     for i in num_list:
+#         if int(i) in disabled_list:
+#             able = False
+#             break
+#     if able and num < upper_num:
+#         upper_num = num
+#     num -= 1
+#
+# upper_num_2 = abs(int(desired_channel) - upper_num)
+# lower_num_2 = abs(int(desired_channel) - lower_num)
+#
+# print(min(upper_num_2 + len(str(upper_num)), lower_num_2 + len(str(lower_num)), from_begin))
