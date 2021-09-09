@@ -2457,11 +2457,46 @@
 #
 #16236 아기 상어
 import sys
-
+from collections import deque
 size = int(sys.stdin.readline().rstrip())
 
 array = []
+startY = 0
+startX = 0
 for i in range(size):
     temp = list(map(int, sys.stdin.readline().rstrip().split()))
+    if 9 in temp:
+        startY = i
+        startX = temp.index(9)
     array.append(temp)
 
+moveY = [-1, 0, 1, 0]
+moveX = [0, -1, 0, 1]
+
+def bfs(y, x):
+    queue = deque()
+    queue.append([y, x, 2, 0, 0, 0])
+    while queue:
+        cur = queue.popleft()
+        for i in range(4):
+            tempY = cur[0] + moveY[i]
+            tempX = cur[1] + moveX[i]
+            fish_size = cur[2]
+            eaten = cur[3]
+            time = cur[4]
+            moved = cur[5] + 1
+            if array[tempY][tempX] < fish_size:
+                eaten += 1
+                time += moved
+                moved = 0
+
+                if eaten == fish_size:
+                    eaten = 0
+                    fish_size += 1
+            elif array[tempY][tempX] >= fish_size:
+                continue
+
+
+bfs(startY, startX)
+
+print(step)
