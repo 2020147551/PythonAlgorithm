@@ -2411,3 +2411,53 @@
 # lower_num_2 = abs(int(desired_channel) - lower_num)
 #
 # print(min(upper_num_2 + len(str(upper_num)), lower_num_2 + len(str(lower_num)), from_begin))
+
+#9019 DSLR
+import sys
+from collections import deque
+test_case = int(sys.stdin.readline().rstrip())
+
+
+def bfs(start, end):
+    global temp
+    queue = deque()
+    queue.append([start, ''])
+    while queue:
+        cur = queue.popleft()
+        for i in range(4):
+            string = cur[1]
+            if i == 0:
+                temp = cur[0] * 2
+                if temp > 9999:
+                    temp %= 10000
+                string += 'D'
+            elif i == 1:
+                temp = cur[0] - 1
+                if cur[0] == 0:
+                    temp = 9999
+                string += 'S'
+            elif i == 2:
+                temp = list(str(cur[0]))
+                if len(temp) != 4:
+                    temp = (['0'] * (4-len(temp))) + temp
+                temp1 = temp[1:]
+                temp1.append(temp[0])
+                temp = int(''.join(temp1))
+                string += 'L'
+            elif i == 3:
+                temp = list(str(cur[0]))
+                if len(temp) != 4:
+                    temp = (['0'] * (4-len(temp))) + temp
+                temp1 = deque(temp[:-1])
+                temp1.appendleft(temp[-1])
+                temp = int(''.join(temp1))
+                string += 'R'
+            if temp != end:
+                queue.append([temp, string])
+            else:
+                return string
+
+
+for _ in range(test_case):
+    initial_num, final_num = map(int, sys.stdin.readline().rstrip().split())
+    print(bfs(initial_num, final_num))
