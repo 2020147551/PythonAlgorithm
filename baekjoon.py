@@ -2454,3 +2454,14 @@
 # for _ in range(test_case):
 #     initial_num, final_num = map(int, sys.stdin.readline().rstrip().split())
 #     print(bfs(initial_num, final_num))
+#
+#16236 아기 상어
+import sys
+
+size = int(sys.stdin.readline().rstrip())
+
+array = []
+for i in range(size):
+    temp = list(map(int, sys.stdin.readline().rstrip().split()))
+    array.append(temp)
+
