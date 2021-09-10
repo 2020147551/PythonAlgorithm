@@ -2148,7 +2148,7 @@
 #
 #     print()
 
-#6064 cain calendar
+# 6064 cain calendar
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -2205,7 +2205,7 @@
 #             print(count)
 #             break
 #
-#14500 테트리미노
+# 14500 테트리미노
 # import sys
 #
 # y, x = map(int, sys.stdin.readline().rstrip().split())
@@ -2302,7 +2302,7 @@
 # print(max_sum)
 
 
-#1992 쿼드트리
+# 1992 쿼드트리
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -2357,7 +2357,7 @@
 #
 # print(ans)
 
-#1107 리모컨
+# 1107 리모컨
 # import sys
 #
 #
@@ -2412,7 +2412,7 @@
 #
 # print(min(upper_num_2 + len(str(upper_num)), lower_num_2 + len(str(lower_num)), from_begin))
 
-#9019 DSLR
+# 9019 DSLR
 # import sys
 # from collections import deque
 # test_case = int(sys.stdin.readline().rstrip())
@@ -2455,12 +2455,20 @@
 #     initial_num, final_num = map(int, sys.stdin.readline().rstrip().split())
 #     print(bfs(initial_num, final_num))
 #
-#16236 아기 상어
+# 16236 아기 상어
 import sys
+from copy import deepcopy
 from collections import deque
+
 size = int(sys.stdin.readline().rstrip())
 
 array = []
+visited = []
+time = 0
+eaten = 0
+moved = 0
+fish_size = 0
+edible = 0
 startY = 0
 startX = 0
 for i in range(size):
@@ -2469,13 +2477,18 @@ for i in range(size):
         startY = i
         startX = temp.index(9)
     array.append(temp)
+    visited.append([False] * len(temp))
+new_visited = deepcopy(visited)
+moveY = [-1, 0, 0, 1]
+moveX = [0, -1, 1, 0]
 
-moveY = [-1, 0, 1, 0]
-moveX = [0, -1, 0, 1]
 
-def bfs(y, x):
+def bfs(y, x, a, b, c, d):  # 먹은 위치만 visited 처리해주면 된다
+    global visited, time, eaten, moved, fish_size, edible
     queue = deque()
-    queue.append([y, x, 2, 0, 0, 0])
+    queue.append([y, x, a, b, c, d])
+    visited[y][x] = True
+    edible = []
     while queue:
         cur = queue.popleft()
         for i in range(4):
@@ -2485,18 +2498,34 @@ def bfs(y, x):
             eaten = cur[3]
             time = cur[4]
             moved = cur[5] + 1
-            if array[tempY][tempX] < fish_size:
-                eaten += 1
-                time += moved
-                moved = 0
 
-                if eaten == fish_size:
-                    eaten = 0
-                    fish_size += 1
-            elif array[tempY][tempX] >= fish_size:
-                continue
+            if 0 <= tempY < size and 0 <= tempX < size and not visited[tempY][tempX]:
+                if array[tempY][tempX] < fish_size and array[tempY][tempX] != 0:
+                    edible.append([tempY, tempX, fish_size, eaten, time, moved])
+                elif array[tempY][tempX] == 0 or array[tempY][tempX] == 9 or array[tempY][tempX] == fish_size:
+                    visited[tempY][tempX] = True
+                    if not edible:
+                        queue.append([tempY, tempX, fish_size, eaten, time, moved])
+                else:
+                    visited[tempY][tempX] = True
+    if edible:
+        edible.sort(key=lambda x: (x[0], x[1]))
+        tempY = edible[0][0]
+        tempX = edible[0][1]
+        fish_size = edible[0][2]
+        eaten = edible[0][3] + 1
+        time = edible[0][4] + edible[0][5]
+        moved = 0
+        if eaten == fish_size:
+            eaten = 0
+            fish_size += 1
+        visited = deepcopy(new_visited)
+        array[tempY][tempX] = 0
+        visited[tempY][tempX] = True
+        edible = []
+        bfs(tempY, tempX, fish_size, eaten, time, moved)
+
+    return time
 
 
-bfs(startY, startX)
-
-print(step)
+print(bfs(startY, startX, 2, 0, 0, 0))
