@@ -244,3 +244,41 @@ import sys
 #         count += 1
 #
 # print(count)
+#카카오 코테
+# id_list = ["muzi", "frodo", "apeach", "neo"]
+# report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+# k = 2
+#
+# answer = [0] * len(id_list)
+# report = list(set(report))
+#
+# dict = {}
+# opposite = {}
+#
+# for i in id_list:
+#     dict[i] = 0
+#
+# count = [0] * len(id_list)
+#
+# for i in report:
+#     a, b = i.split()
+#     dict[b] += 1
+#     if b in opposite:
+#         opposite[b].append(a)
+#     else:
+#         opposite[b] = [a]
+#
+# for i in dict.keys():
+#     if dict[i] >= k:
+#         num = id_list.index(i)
+#         count[num] += 1
+#
+# for i in range(len(count)):
+#     if count[i]:
+#         name = id_list[i]
+#         up = opposite[name]
+#         for j in up:
+#             num = id_list.index(j)
+#             answer[num] += 1
+#
+# print(answer)
