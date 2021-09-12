@@ -2456,83 +2456,82 @@
 #     print(bfs(initial_num, final_num))
 #
 # 16236 아기 상어
-import sys
-from copy import deepcopy
-from collections import deque
-import heapq
-
-size = int(sys.stdin.readline().rstrip())
-fish_size = 2
-eaten = 0
-time = 0
-moved = 0
-array = []
-visited = []
-
-startY = 0
-startX = 0
-for i in range(size):
-    temp = list(map(int, sys.stdin.readline().rstrip().split()))
-    if 9 in temp:
-        startY = i
-        startX = temp.index(9)
-    array.append(temp)
-    visited.append([False] * len(temp))
-new_visited = deepcopy(visited)
-moveY = [-1, 0, 0, 1]
-moveX = [0, -1, 1, 0]
-
-
-def bfs(y, x, a, b, c, d):  # 먹은 위치만 visited 처리해주면 된다
-    global visited, time, fish_size, eaten, moved
-    queue = deque()
-    queue.append([y, x, a, b, c, d])
-    while True:
-        edible = []
-        while queue:
-            cur = queue.popleft()
-            for i in range(4):
-                tempY = cur[0] + moveY[i]
-                tempX = cur[1] + moveX[i]
-                fish_size = cur[2]
-                eaten = cur[3]
-                time = cur[4]
-                moved = cur[5] + 1
-                if 0 <= tempY < size and 0 <= tempX < size and not visited[tempY][tempX]:
-                    if array[tempY][tempX] < fish_size and array[tempY][tempX] != 0:
-                        if edible:
-                            if moved == edible[0][5]:
-                                heapq.heappush(edible, [tempY, tempX, fish_size, eaten, time, moved])
-                        else:
-                            heapq.heappush(edible, [tempY, tempX, fish_size, eaten, time, moved])
-                    if not edible:
-                        if array[tempY][tempX] == fish_size or array[tempY][tempX] == 0 or array[tempY][tempX] == 9:
-                            queue.append([tempY, tempX, fish_size, eaten, time, moved])
-                            visited[tempY][tempX] = True
-                        else:
-                            visited[tempY][tempX] = True
-        if edible:
-            return edible[0]
-        else:
-            return False
-
-
-while True:
-    result = bfs(startY, startX, fish_size, eaten, time, moved)
-
-    if result:
-        startY = result[0]
-        startX = result[1]
-        fish_size = result[2]
-        eaten = result[3] + 1
-        time = result[4] + result[5]
-        moved = 0
-        if eaten == fish_size:
-            eaten = 0
-            fish_size += 1
-        array[startY][startX] = 0
-        visited = deepcopy(new_visited)
-    else:
-        break
-
-print(time)
+# import sys
+# from copy import deepcopy
+# from collections import deque
+# import heapq
+#
+# size = int(sys.stdin.readline().rstrip())
+# fish_size = 2
+# eaten = 0
+# time = 0
+# moved = 0
+# array = []
+# visited = []
+#
+# startY = 0
+# startX = 0
+# for i in range(size):
+#     temp = list(map(int, sys.stdin.readline().rstrip().split()))
+#     if 9 in temp:
+#         startY = i
+#         startX = temp.index(9)
+#     array.append(temp)
+#     visited.append([False] * len(temp))
+# new_visited = deepcopy(visited)
+# moveY = [-1, 0, 0, 1]
+# moveX = [0, -1, 1, 0]
+#
+#
+# def bfs(y, x, a, b, c, d):  # 먹은 위치만 visited 처리해주면 된다
+#     global visited, time, fish_size, eaten, moved
+#     queue = deque()
+#     queue.append([y, x, a, b, c, d])
+#     edible = []
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moveY[i]
+#             tempX = cur[1] + moveX[i]
+#             fish_size = cur[2]
+#             eaten = cur[3]
+#             time = cur[4]
+#             moved = cur[5] + 1
+#             if 0 <= tempY < size and 0 <= tempX < size and not visited[tempY][tempX]:
+#                 if array[tempY][tempX] < fish_size and array[tempY][tempX] != 0 and array[tempY][tempX] != 9:
+#                     if edible:
+#                         if moved == edible[0][5]:
+#                             heapq.heappush(edible, [tempY, tempX, fish_size, eaten, time, moved])
+#                     else:
+#                         heapq.heappush(edible, [tempY, tempX, fish_size, eaten, time, moved])
+#                 if not edible:
+#                     if array[tempY][tempX] == fish_size or array[tempY][tempX] == 0 or array[tempY][tempX] == 9:
+#                         queue.append([tempY, tempX, fish_size, eaten, time, moved])
+#                         visited[tempY][tempX] = True
+#                     else:
+#                         visited[tempY][tempX] = True
+#     if edible:
+#         return edible[0]
+#     else:
+#         return False
+#
+#
+# while True:
+#     result = bfs(startY, startX, fish_size, eaten, time, moved)
+#
+#     if result:
+#         startY = result[0]
+#         startX = result[1]
+#         fish_size = result[2]
+#         eaten = result[3] + 1
+#         time = result[4] + result[5]
+#         moved = 0
+#         if eaten == fish_size:
+#             eaten = 0
+#             fish_size += 1
+#         array[startY][startX] = 0
+#         visited = deepcopy(new_visited)
+#     else:
+#         break
+#
+# print(time)
