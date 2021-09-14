@@ -2535,3 +2535,72 @@
 #         break
 #
 # print(time)
+#
+#15650 N과M(2)
+# import sys
+# from itertools import permutations, combinations
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# arr = [i for i in range(1, a+1)]
+#
+# ans = combinations(arr, b)
+#
+# for i in ans:
+#     temp = list(i)
+#     for j in temp:
+#         print(j, end = " ")
+#     print()
+
+#15652 N과M(4)
+# import sys
+# from itertools import combinations_with_replacement
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# arr = [i for i in range(1, a+1)]
+#
+# ans = combinations_with_replacement(arr, b)
+#
+# for i in ans:
+#     temp = list(i)
+#     for j in temp:
+#         print(j, end = " ")
+#     print()
+
+#15654 N과M(5)
+# import sys
+# from itertools import permutations
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# arr = list(map(int, sys.stdin.readline().rstrip().split()))
+# arr.sort()
+# ans = permutations(arr, b)
+#
+# for i in ans:
+#     temp = list(i)
+#     for j in temp:
+#         print(j, end=" ")
+#     print()
+
+#15657 N과M(8)
+# import sys
+# from itertools import combinations_with_replacement
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+# arr = list(map(int, sys.stdin.readline().rstrip().split()))
+# arr.sort()
+# ans = combinations_with_replacement(arr, b)
+#
+# for i in ans:
+#     temp = list(i)
+#     for j in temp:
+#         print(j, end=" ")
+#     print()
+
+#2407 조합
+import sys
+from itertools import combinations
+a, b = map(int, sys.stdin.readline().rstrip().split())
+
+arr = [i for i in range(1, a+1)]
+
+ans = combinations(arr, b)
+
+print(len(list(ans)))
