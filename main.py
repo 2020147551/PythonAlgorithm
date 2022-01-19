@@ -282,3 +282,22 @@ import sys
 #             answer[num] += 1
 #
 # print(answer)
+
+a = str(input())
+
+b = a.find(')')
+c = a.find('-')
+
+local = str(a[1:b])
+digit1 = str(a[b+1:c])
+digit = str(a[c+1:])
+
+if len(local)==2:
+    if local == '02':
+        print("seoul")
+else:
+    if local[0] == '0' and local[2] == '2':
+        print('Mat.')
+
+if digit1 == '2227' or digit1 == '2228':
+    print('yonsei')
