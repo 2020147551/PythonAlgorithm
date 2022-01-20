@@ -1,3 +1,4 @@
+# coding=utf-8
 # 백준 1541번 잃어버린 괄호 (2시간후 구글링)
 # import sys
 #
@@ -2594,13 +2595,74 @@
 #         print(j, end=" ")
 #     print()
 
-#2407 조합
-import sys
-from itertools import combinations
-a, b = map(int, sys.stdin.readline().rstrip().split())
+# #2407 조합
+# import sys
+# from itertools import combinations
+# a, b = map(int, sys.stdin.readline().rstrip().split())
+#
+# arr = [i for i in range(1, a+1)]
+#
+# ans = combinations(arr, b)
+#
+# print(len(list(ans)))
 
-arr = [i for i in range(1, a+1)]
+#16916 부분 문자열
+# import sys
+# string = sys.stdin.readline().rstrip()
+# find = sys.stdin.readline().rstrip()
+# dp = [0] * len(find)
+# dp[0] = 0
+#
+# i = 0
+# j = 1
+# while i < len(find) and j < len(find):
+#     if find[i] != find[j]:
+#         dp[j] = 0
+#         j += 1
+#     else:
+#         dp[j] = dp[j-1] + 1
+#         i += 1
+#         j += 1
+#
+# i = 0
+# j = 0
+# while i < len(string):
+#     if j == len(find):
+#         print(1)
+#         exit()
+#     if string[i] == find[j]:
+#         i += 1
+#         j += 1
+#     else:
+#         if j == 0:
+#             j = dp[j]
+#             i += 1
+#         else:
+#             j = dp[j-1]
+#
+# if j == len(find): print(1)
+# else: print(0)
 
-ans = combinations(arr, b)
-
-print(len(list(ans)))
+#11055 가장 큰 증가 부분 수열
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+# nums = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+# dp = [0] * num
+# dp[0] = nums[0]
+#
+# i = 1
+#
+# while i < len(nums):
+#     j = 0
+#     while j < i:
+#         if nums[i] > nums[j]:
+#             dp[i] = max(dp[i], dp[j] + nums[i])
+#         j += 1
+#     if i == j:
+#         if dp[i] == 0:
+#             dp[i] = nums[i]
+#     i += 1
+#
+# print(max(dp))
