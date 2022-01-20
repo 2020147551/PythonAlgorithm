@@ -2617,10 +2617,14 @@
 # j = 1
 # while i < len(find) and j < len(find):
 #     if find[i] != find[j]:
-#         dp[j] = 0
-#         j += 1
+#         if i == 0:
+#             dp[j] = 0
+#             j += 1
+#         else:
+#             i = 0
+#
 #     else:
-#         dp[j] = dp[j-1] + 1
+#         dp[j] = i + 1
 #         i += 1
 #         j += 1
 #
