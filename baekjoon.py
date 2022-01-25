@@ -2670,3 +2670,51 @@
 #     i += 1
 #
 # print(max(dp))
+
+#9177 Zipper
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# moveY = [1, 0]
+# moveX = [0, 1]
+#
+# def check(word1, word2, word3):
+#     visited = [[False for j in range(len(word1)+1)] for k in range(len(word2)+1)]
+#     len1 = len(word1)
+#     len2 = len(word2)
+#     queue = deque()
+#     queue.append([0, 0, ""])
+#     visited[0][0] = True
+#     while queue:
+#         cur = queue.popleft()
+#         if cur[2] == word3:
+#             return True
+#         for k in range(2):
+#             tempY = cur[0] + moveY[k]
+#             tempX = cur[1] + moveX[k]
+#             if tempY <= len2 and tempX <= len1:
+#                 if not visited[tempY][tempX]:
+#                     if k == 0:
+#                         if word2[tempY-1] == word3[len(cur[2])]:
+#                             visited[tempY][tempX] = True
+#                             queue.append([tempY, tempX, cur[2]+word2[tempY-1]])
+#                     if k == 1:
+#                         if word1[tempX-1] == word3[len(cur[2])]:
+#                             visited[tempY][tempX] = True
+#                             queue.append([tempY, tempX, cur[2]+word1[tempX-1]])
+#     return False
+#
+# for i in range(num):
+#     words = list(sys.stdin.readline().rstrip().split())
+#     word1 = words[0]
+#     word2 = words[1]
+#     word3 = words[2]
+#
+#     if check(word1, word2, word3):
+#         print(f"Data set {i+1}: yes")
+#     else:
+#         print(f"Data set {i+1}: no")
+#
+#
