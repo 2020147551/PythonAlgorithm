@@ -2754,3 +2754,29 @@
 #     print(stack[i], end="")
 #     i+=1
 
+# 1863 스카이라인
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+# x, y = map(int, sys.stdin.readline().rstrip().split())
+# count = 0
+# if y != 0:
+#     stack = deque([y])
+# else:
+#     stack = deque()
+# for i in range(num-1):
+#     x, y = map(int, sys.stdin.readline().rstrip().split())
+#     if len(stack) == 0 or y > stack[-1]:
+#         stack.append(y)
+#     else:
+#         while stack:
+#             if y < stack[-1]:
+#                 count += 1
+#                 stack.pop()
+#             else:
+#                 break
+#         if (len(stack) == 0 or y > stack[-1]) and y != 0:
+#             stack.append(y)
+# count += len(stack)
+# print(count)
