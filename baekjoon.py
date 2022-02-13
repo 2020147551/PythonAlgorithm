@@ -2537,7 +2537,7 @@
 #
 # print(time)
 #
-#15650 N과M(2)
+# 15650 N과M(2)
 # import sys
 # from itertools import permutations, combinations
 # a, b = map(int, sys.stdin.readline().rstrip().split())
@@ -2552,7 +2552,7 @@
 #         print(j, end = " ")
 #     print()
 
-#15652 N과M(4)
+# 15652 N과M(4)
 # import sys
 # from itertools import combinations_with_replacement
 # a, b = map(int, sys.stdin.readline().rstrip().split())
@@ -2567,7 +2567,7 @@
 #         print(j, end = " ")
 #     print()
 
-#15654 N과M(5)
+# 15654 N과M(5)
 # import sys
 # from itertools import permutations
 # a, b = map(int, sys.stdin.readline().rstrip().split())
@@ -2581,7 +2581,7 @@
 #         print(j, end=" ")
 #     print()
 
-#15657 N과M(8)
+# 15657 N과M(8)
 # import sys
 # from itertools import combinations_with_replacement
 # a, b = map(int, sys.stdin.readline().rstrip().split())
@@ -2606,7 +2606,7 @@
 #
 # print(len(list(ans)))
 
-#16916 부분 문자열
+# 16916 부분 문자열
 # import sys
 # string = sys.stdin.readline().rstrip()
 # find = sys.stdin.readline().rstrip()
@@ -2647,7 +2647,7 @@
 # if j == len(find): print(1)
 # else: print(0)
 
-#11055 가장 큰 증가 부분 수열
+# 11055 가장 큰 증가 부분 수열
 # import sys
 #
 # num = int(sys.stdin.readline().rstrip())
@@ -2671,7 +2671,7 @@
 #
 # print(max(dp))
 
-#9177 Zipper
+# 9177 Zipper
 # import sys
 # from collections import deque
 #
@@ -2718,3 +2718,39 @@
 #         print(f"Data set {i+1}: no")
 #
 #
+
+# 2812 KEKS
+# import sys
+# from collections import deque
+#
+# n, k = map(int, sys.stdin.readline().rstrip().split())
+# num = list(sys.stdin.readline().rstrip())
+#
+# stack = deque()
+#
+# i = 0
+# while i < len(num):
+#     cur = int(num[i])
+#     if not stack:
+#         stack.append(cur)
+#     else:
+#         while stack:
+#             if cur <= stack[-1]:
+#                 stack.append(cur)
+#                 break
+#             else:
+#                 if (n-k) - len(stack) <= len(num) - (i+1):
+#                     stack.pop()
+#                 else:
+#                     stack.append(cur)
+#                     break
+#         if not stack:
+#             stack.append(cur)
+#
+#     i += 1
+#
+# i = 0
+# while i < (n-k):
+#     print(stack[i], end="")
+#     i+=1
+
