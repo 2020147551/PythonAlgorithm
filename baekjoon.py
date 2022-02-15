@@ -2780,3 +2780,38 @@
 #             stack.append(y)
 # count += len(stack)
 # print(count)
+
+# 1747 소수 & 팰린드롬
+# import sys
+#
+# n = int(sys.stdin.readline().rstrip())
+# num_list = [0, 1]
+# prime_list = []
+# for i in range(2, 1004001):
+#     num_list.append(i)
+#
+# def find_prime(num_list):
+#     for i in range(2, 1004000):
+#         if num_list[i] == 0:
+#             continue
+#         j = 2*i
+#         while j <= 1004000:
+#             num_list[j] = 0
+#             j += i
+#     for i in range(2, 1004001):
+#         if num_list[i] != 0:
+#             prime_list.append(num_list[i])
+#
+# find_prime(num_list)
+#
+# def check_palin(num):
+#     string_num = str(num)
+#     if string_num == string_num[::-1]:
+#         return True
+#
+# for i in prime_list:
+#     if i >= n:
+#         if check_palin(i):
+#             print(i)
+#             exit()
+#
