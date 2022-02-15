@@ -2815,3 +2815,23 @@
 #             print(i)
 #             exit()
 #
+#15666 N과 M (12)
+# import sys
+# import itertools
+#
+# n, m = map(int, sys.stdin.readline().rstrip().split())
+#
+# nums = list(set(list(map(int, sys.stdin.readline().rstrip().split()))))
+# nums.sort()
+# ans = []
+# for i in list(itertools.combinations_with_replacement(nums, m)):
+#     if i not in ans:
+#         ans.append(i)
+#
+# nums = sorted(ans)
+#
+# for i in nums:
+#     for j in i:
+#         print(j, end=" ")
+#     print()
+#
