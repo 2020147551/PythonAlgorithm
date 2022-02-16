@@ -2889,3 +2889,12 @@
 #     return -1
 #
 # print(bfs(a, b))
+
+# 2407 조합
+# import sys
+# import math
+# n, m = map(int, sys.stdin.readline().rstrip().split())
+#
+# ans = (math.factorial(n) // math.factorial(m)) // math.factorial(n-m)
+#
+# print(ans)
