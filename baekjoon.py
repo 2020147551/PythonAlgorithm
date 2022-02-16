@@ -2835,3 +2835,57 @@
 #         print(j, end=" ")
 #     print()
 #
+#15663 N과 M (8)
+# import sys
+# import itertools
+#
+# n, m = map(int, sys.stdin.readline().rstrip().split())
+#
+# nums = list(map(int, sys.stdin.readline().rstrip().split()))
+# nums.sort()
+# ans = []
+# for i in list(itertools.permutations(nums, m)):
+#     ans.append(i)
+#
+# nums = sorted(list(set(ans)))
+#
+# for i in nums:
+#     print(*i)
+#
+# 16953 A -> B
+
+# import sys
+# from collections import deque
+#
+# a, b = map(int,sys.stdin.readline().rstrip().split())
+#
+# def bfs(start, end):
+#     visited = []
+#     queue = deque()
+#     queue.append([start, 1])
+#     while queue:
+#         cur = queue.popleft()
+#         if cur[0] == end:
+#             return cur[1]
+#         for i in range(2):
+#             if i == 0:
+#                 temp = cur[0] * 2
+#                 if temp not in visited:
+#                     if temp > end:
+#                         continue
+#                     else:
+#                         queue.append([temp, cur[1] + 1])
+#                         visited.append(temp)
+#             else:
+#                 temp = str(cur[0])
+#                 temp += "1"
+#                 temp = int(temp)
+#                 if temp not in visited:
+#                     if temp > end:
+#                         continue
+#                     else:
+#                         queue.append([temp, cur[1] + 1])
+#                         visited.append(temp)
+#     return -1
+#
+# print(bfs(a, b))
