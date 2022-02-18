@@ -2898,3 +2898,24 @@
 # ans = (math.factorial(n) // math.factorial(m)) // math.factorial(n-m)
 #
 # print(ans)
+
+# 9935 EKSPLOZIJA
+# import sys
+#
+# string = list(sys.stdin.readline().rstrip())
+# word = sys.stdin.readline().rstrip()
+# stack = []
+#
+# for i in string:
+#     stack.append(i)
+#     if len(stack) >= len(word):
+#         temp = stack[(len(stack)) - len(word):]
+#         temp2 = list(word)
+#         if temp == temp2:
+#             for j in range(len(word)):
+#                 stack.pop()
+#
+# if stack:
+#     print("".join(stack))
+# else:
+#     print("FRULA")
