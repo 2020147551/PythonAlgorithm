@@ -2919,3 +2919,81 @@
 #     print("".join(stack))
 # else:
 #     print("FRULA")
+
+# 12865 평범한 배낭
+# import sys
+#
+# num, max_weight = map(int, sys.stdin.readline().rstrip().split())
+#
+# items = []
+#
+# for i in range(num):
+#     item_weight, item_sat = map(int, sys.stdin.readline().rstrip().split())
+#     items.append([item_weight, item_sat])
+#
+
+# 1918 후위 표기식
+# import sys
+# from collections import deque
+#
+# string = list(sys.stdin.readline().rstrip())
+# stack = deque()
+# ans = []
+# priority = 0
+# out_priority = []
+# for i, item in enumerate(string):
+#     if 65 <= ord(item) <= 90:
+#         ans.append(item)
+#     else:
+#         if item == "+" or item == "-":
+#             if priority < 1:
+#                 stack.append(item)
+#                 priority = 1
+#             else:
+#                 for j in range(len(stack)):
+#                     temp = stack.pop()
+#                     if temp != "(" and temp != ")":
+#                         ans.append(temp)
+#                     else:
+#                         stack.append(temp)
+#                         break
+#                 priority = 1
+#                 stack.append(item)
+#         elif item == "*" or item == "/":
+#             if priority < 2:
+#                 stack.append(item)
+#                 priority = 2
+#             else:
+#                 for j in range(len(stack)):
+#                     temp = stack.pop()
+#                     if temp == "+" or temp == "-":
+#                         stack.append(temp)
+#                         break
+#                     elif temp == "(":
+#                         stack.append(temp)
+#                         break
+#                     else:
+#                         ans.append(temp)
+#                 priority = 2
+#                 stack.append(item)
+#         elif item == "(":
+#             stack.append("(")
+#             out_priority.append(priority)
+#             priority = 0
+#         else:
+#             while stack:
+#                 temp = stack.pop()
+#                 if temp != "(":
+#                     ans.append(temp)
+#                 else:
+#                     break
+#             priority = out_priority.pop()
+# for i in range(len(stack)):
+#     ans.append(stack.pop())
+#
+# print("".join(ans))
+# 9663 N-Queen
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+
