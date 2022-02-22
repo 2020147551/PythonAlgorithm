@@ -2992,8 +2992,49 @@
 #     ans.append(stack.pop())
 #
 # print("".join(ans))
-# 9663 N-Queen
-# import sys
-#
-# num = int(sys.stdin.readline().rstrip())
 
+# 12851 숨바꼭질 2
+# import sys
+# from collections import deque
+#
+# start, end = map(int, sys.stdin.readline().rstrip().split())
+#
+# def bfs(start, end):
+#     queue = deque()
+#     queue.append([start, 0])
+#     visited = [1234567890] * 100001
+#     visited[start] = 0
+#     ans = []
+#     while queue:
+#         cur, cur_move = queue.popleft()
+#         if cur == end:
+#             ans.append(cur_move)
+#             continue
+#         for i in range(3):
+#             if i == 0:
+#                 temp = cur - 1
+#                 temp_move = cur_move + 1
+#                 if 0 <= temp <= 100000:
+#                     if temp_move <= visited[temp]:
+#                         queue.append([temp, temp_move])
+#                         visited[temp] = temp_move
+#             elif i == 1:
+#                 temp = cur + 1
+#                 temp_move = cur_move + 1
+#                 if 0 <= temp <= 100000:
+#                     if temp_move <= visited[temp]:
+#                         queue.append([temp, temp_move])
+#                         visited[temp] = temp_move
+#             else:
+#                 temp = cur * 2
+#                 temp_move = cur_move + 1
+#                 if 0 <= temp <= 100000:
+#                     if temp_move <= visited[temp]:
+#                         queue.append([temp, temp_move])
+#                         visited[temp] = temp_move
+#
+#     return ans
+# arr = bfs(start, end)
+#
+# print(arr[0])
+# print(len(arr))
