@@ -2899,24 +2899,32 @@
 #
 # print(ans)
 
-# 9251 LCS ***********
-import sys
-
-string1 = list(" " + sys.stdin.readline().rstrip())
-string2 = list(" " + sys.stdin.readline().rstrip())
-
-board = [[0] * len(string1) for i in range(len(string2))]
-
-shorter = min(len(string2), len(string1))
-
-def compare(st1, st2):
-    for i in range(1, shorter):
-        for j in range(i, len(string1)):
-            pass
-        for j in range(i, len(string2)):
-            pass
-
-print()
+# 9251 LCS
+# import sys
+#
+# string1 = list(" " + sys.stdin.readline().rstrip())
+# string2 = list(" " + sys.stdin.readline().rstrip())
+#
+# board = [[0] * len(string1) for i in range(len(string2))]
+#
+# shorter = min(len(string2), len(string1))
+#
+# def compare(st1, st2):
+#     for i in range(1, shorter):
+#         for j in range(i, len(string1)):
+#             if st1[j] == st2[i]:
+#                 board[i][j] = board[i-1][j-1] + 1
+#             else:
+#                 board[i][j] = max(board[i-1][j], board[i][j-1])
+#
+#         for j in range(i, len(string2)):
+#             if st1[i] == st2[j]:
+#                 board[j][i] = board[j-1][i-1] + 1
+#             else:
+#                 board[j][i] = max(board[j][i-1], board[j-1][i])
+#
+# compare(string1, string2)
+# print(board[-1][-1])
 
 # 9935 EKSPLOZIJA
 # import sys
