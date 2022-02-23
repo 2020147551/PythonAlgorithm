@@ -2899,6 +2899,25 @@
 #
 # print(ans)
 
+# 9251 LCS ***********
+import sys
+
+string1 = list(" " + sys.stdin.readline().rstrip())
+string2 = list(" " + sys.stdin.readline().rstrip())
+
+board = [[0] * len(string1) for i in range(len(string2))]
+
+shorter = min(len(string2), len(string1))
+
+def compare(st1, st2):
+    for i in range(1, shorter):
+        for j in range(i, len(string1)):
+            pass
+        for j in range(i, len(string2)):
+            pass
+
+print()
+
 # 9935 EKSPLOZIJA
 # import sys
 #
@@ -2920,7 +2939,7 @@
 # else:
 #     print("FRULA")
 
-# 12865 평범한 배낭
+# 12865 평범한 배낭 ********************8
 # import sys
 #
 # num, max_weight = map(int, sys.stdin.readline().rstrip().split())
