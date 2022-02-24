@@ -3090,3 +3090,40 @@
 #
 # t = f_pow(n)
 # print(t[0][1])
+
+# 1916 최소비용 구하기
+# import sys
+# import heapq
+# INF = int(1e9)
+#
+# node = int(sys.stdin.readline().rstrip())
+# edge = int(sys.stdin.readline().rstrip())
+#
+# edges = [[] for i in range(node+1)]
+#
+# distance = [INF] * (node+1)
+#
+# for i in range(edge):
+#     u, v, w = map(int, sys.stdin.readline().rstrip().split())
+#     edges[u].append([v, w])
+#
+# start, end = map(int, sys.stdin.readline().rstrip().split())
+#
+# def dijkstra(start):
+#     heap = []
+#     heapq.heappush(heap, (0, start))
+#     distance[start] = 0
+#
+#     while heap:
+#         dist, cur = heapq.heappop(heap)
+#         if distance[cur] < dist:
+#             continue
+#         for i in edges[cur]:
+#             cost = dist + i[1]
+#             if cost < distance[i[0]]:
+#                 distance[i[0]] = cost
+#                 heapq.heappush(heap, (cost, i[0]))
+#
+# dijkstra(start)
+#
+# print(distance[end])
