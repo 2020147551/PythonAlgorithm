@@ -3169,3 +3169,49 @@
 #         print("INF")
 #     else:
 #         print(distance[i])
+
+# 12851 숨바꼭질 3
+# import sys
+# import heapq
+#
+# start, end = map(int, sys.stdin.readline().rstrip().split())
+#
+# def bfs(start, end):
+#     queue = []
+#     heapq.heappush(queue, [0, start])
+#     visited = [1234567890] * 100001
+#     visited[start] = 0
+#     ans = []
+#     while queue:
+#         cur_move, cur = heapq.heappop(queue)
+#         if cur == end:
+#             ans.append(cur_move)
+#             break
+#         for i in range(3):
+#             if i == 0:
+#                 temp = cur - 1
+#                 temp_move = cur_move + 1
+#                 if 0 <= temp <= 100000:
+#                     if temp_move < visited[temp]:
+#                         heapq.heappush(queue, [temp_move, temp])
+#                         visited[temp] = temp_move
+#             elif i == 1:
+#                 temp = cur + 1
+#                 temp_move = cur_move + 1
+#                 if 0 <= temp <= 100000:
+#                     if temp_move < visited[temp]:
+#                         heapq.heappush(queue, [temp_move, temp])
+#                         visited[temp] = temp_move
+#             else:
+#                 temp = cur * 2
+#                 temp_move = cur_move
+#                 if 0 <= temp <= 100000:
+#                     if temp_move < visited[temp]:
+#                         heapq.heappush(queue, [temp_move, temp])
+#                         visited[temp] = temp_move
+#
+#     return ans
+#
+# arr = bfs(start, end)
+#
+# print(arr[0])
