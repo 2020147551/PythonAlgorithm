@@ -3127,3 +3127,45 @@
 # dijkstra(start)
 #
 # print(distance[end])
+
+# 1753 최단경로
+
+# import sys
+# import heapq
+# INF = int(1e9)
+#
+# node, edge = map(int, sys.stdin.readline().rstrip().split())
+# start = int(sys.stdin.readline().rstrip())
+#
+# edges = [[] for i in range(node+1)]
+#
+# distance = [INF] * (node+1)
+#
+# for i in range(edge):
+#     u, v, w = map(int, sys.stdin.readline().rstrip().split())
+#     edges[u].append([v, w])
+#
+#
+#
+# def dijkstra(start):
+#     heap = []
+#     heapq.heappush(heap, (0, start))
+#     distance[start] = 0
+#
+#     while heap:
+#         dist, cur = heapq.heappop(heap)
+#         if distance[cur] < dist:
+#             continue
+#         for i in edges[cur]:
+#             cost = dist + i[1]
+#             if cost < distance[i[0]]:
+#                 distance[i[0]] = cost
+#                 heapq.heappush(heap, (cost, i[0]))
+#
+# dijkstra(start)
+#
+# for i in range(1, len(distance)):
+#     if distance[i] == 1e9:
+#         print("INF")
+#     else:
+#         print(distance[i])
