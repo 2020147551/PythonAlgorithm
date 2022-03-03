@@ -3215,3 +3215,47 @@
 # arr = bfs(start, end)
 #
 # print(arr[0])
+
+# 1149 RGB거리 BFS 방식으로 풀어봤지만 시간초과
+# import sys
+# from collections import deque
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# colors = []
+#
+# min_color = []
+#
+# moves = [[1, -2], [1, -1], [1, 1], [1, 2]]
+#
+# for i in range(num):
+#     r, g, b = map(int, sys.stdin.readline().rstrip().split())
+#     colors.append([r, g, b])
+#     min_color.append([99999, 99999, 99999])
+#
+# def bfs():
+#     queue = deque()
+#     queue.append([0, 0, colors[0][0]])
+#     queue.append([0, 1, colors[0][1]])
+#     queue.append([0, 2, colors[0][2]])
+#     min_color[0][0] = colors[0][0]
+#     min_color[0][1] = colors[0][1]
+#     min_color[0][2] = colors[0][2]
+#
+#     while queue:
+#         cur = queue.popleft()
+#         for i in range(4):
+#             tempY = cur[0] + moves[i][0]
+#             tempX = cur[1] + moves[i][1]
+#             if 0 <= tempY < num and 0 <= tempX <= 2:
+#                 tempColor = cur[2] + colors[tempY][tempX]
+#                 if tempColor < min_color[tempY][tempX]:
+#                     min_color[tempY][tempX] = tempColor
+#                     if tempY < num-1:
+#                         queue.append([tempY, tempX, tempColor])
+#
+# bfs()
+# print(min(min_color[num-1]))
+
+# 1149 RGB거리
+import sys
