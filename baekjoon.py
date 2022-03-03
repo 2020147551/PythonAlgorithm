@@ -3258,4 +3258,39 @@
 # print(min(min_color[num-1]))
 
 # 1149 RGB거리
-import sys
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# colors = []
+#
+# min_colors = []
+#
+# for i in range(num):
+#     r, g, b = map(int, sys.stdin.readline().rstrip().split())
+#     colors.append([r, g, b])
+#     min_colors.append([99999, 99999, 99999])
+#
+# min_colors[0][0] = colors[0][0]
+# min_colors[0][1] = colors[0][1]
+# min_colors[0][2] = colors[0][2]
+#
+# for i in range(1, num):
+#     for j in range(3):
+#         if j == 0:
+#             min_colors[i][j] = min(min_colors[i-1][1], min_colors[i-1][2]) + colors[i][j]
+#         if j == 1:
+#             min_colors[i][j] = min(min_colors[i-1][0], min_colors[i-1][2]) + colors[i][j]
+#         if j == 2:
+#             min_colors[i][j] = min(min_colors[i-1][0], min_colors[i-1][1]) + colors[i][j]
+#
+# print(min(min_colors[num-1]))
+
+
+
+
+
+
+
+
+
