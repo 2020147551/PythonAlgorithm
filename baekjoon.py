@@ -3286,11 +3286,36 @@
 #
 # print(min(min_colors[num-1]))
 
-
-
-
-
-
-
+# 2156 포도주 시식
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# drinks = []
+# dp = []
+#
+# for i in range(num):
+#     drinks.append(int(sys.stdin.readline().rstrip()))
+#
+# if num == 1:
+#     print(drinks[0])
+# elif num == 2:
+#     print(drinks[0] + drinks[1])
+# else:
+#     numbers = []
+#     max_num = 0
+#     dp.append([drinks[0], 0])
+#     dp.append([dp[0][0] + drinks[1], dp[0][1] + drinks[1]])
+#     numbers.append(drinks[0])
+#     numbers.append(dp[0][0] + drinks[1])
+#     numbers.append(dp[0][1] + drinks[1])
+#     for i in range(2, num):
+#         if max(dp[i-2][0], dp[i-2][1]) > max_num:
+#             max_num = max(dp[i-2][0], dp[i-2][1])
+#         dp.append([dp[i-1][1] + drinks[i], max_num + drinks[i]])
+#         numbers.append(dp[i-1][1] + drinks[i])
+#         numbers.append(max_num + drinks[i])
+#
+#     print(max(numbers))
 
 
