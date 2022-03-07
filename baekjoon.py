@@ -3352,3 +3352,29 @@
 #         exit()
 #     else:
 #         print(f"w({a}, {b}, {c}) = {w(a, b, c)}")
+
+# 1904 01타일
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# dp = [-1] * 1000100
+#
+# dp[0] = 0
+# dp[1] = 1
+# dp[2] = 2
+#
+# for i in range(3, num+1):
+#     dp[i] = (dp[i-1] + dp[i-2]) % 15746
+#
+#
+# print(dp[num])
+#
+
+
+
+
+
+
+
+
