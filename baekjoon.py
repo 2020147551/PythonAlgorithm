@@ -3371,6 +3371,19 @@
 # print(dp[num])
 #
 
+# 10844 쉬운 계단 수
+import sys
+
+num = int(sys.stdin.readline().rstrip())
+
+dp = [-1] * 200
+
+dp[0] = 0
+dp[1] = 9
+dp[2] = 17
+
+for i in range(3, num + 1):
+
 
 
 
