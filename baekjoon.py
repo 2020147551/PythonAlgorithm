@@ -3371,23 +3371,97 @@
 # print(dp[num])
 #
 
-# 10844 쉬운 계단 수
+# 10844 쉬운 계단 수 ####################################################################
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+# dp = [-1] * 200
+#
+# dp[0] = 0
+# dp[1] = 9
+# dp[2] = 17
+#
+# for i in range(3, num + 1):
+
+
+# # 9663 N-Queen
+# import sys
+#
+# num = int(sys.stdin.readline().rstrip())
+#
+#
+
+# 9465 Stickers Recursive Method
+# import sys
+# sys.setrecursionlimit(1000000)
+#
+# tries = int(sys.stdin.readline().rstrip())
+#
+# def find(top, bot):
+#     i = 0
+#     j = 0
+#     if top < 0 or bot < 0:
+#         return 0
+#     if bot == 0:
+#         return arr1[n - top]
+#     if top == 0:
+#         return arr2[n - bot]
+#     if top == bot:
+#         i = find(top-2, bot-1) + arr1[n - top]
+#         j = find(top-1, bot-2) + arr2[n - bot]
+#     elif top > bot:
+#         i = find(top-2, bot) + arr1[n - top]
+#         j = find(top-3, bot-1) + arr1[n - top+1]
+#     elif bot > top:
+#         i = find(top, bot-2) + arr2[n - bot]
+#         j = find(top-1, bot-3) + arr2[n - bot+1]
+#
+#     return max(i, j)
+#
+# for i in range(tries):
+#     n = int(sys.stdin.readline().rstrip())
+#
+#     arr1 = list(map(int, sys.stdin.readline().rstrip().split()))
+#     arr2 = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+#     print(find(n, n))
+
+# 9465 Stickers
+
 import sys
 
-num = int(sys.stdin.readline().rstrip())
+tries = int(sys.stdin.readline().rstrip())
 
-dp = [-1] * 200
+for _ in range(tries):
 
-dp[0] = 0
-dp[1] = 9
-dp[2] = 17
+    n = int(sys.stdin.readline().rstrip())
 
-for i in range(3, num + 1):
+    dp = [[0 for _ in range(n+1)] for _ in range(n+1)]
+
+    arr1 = list(map(int, sys.stdin.readline().rstrip().split()))
+    arr2 = list(map(int, sys.stdin.readline().rstrip().split()))
+
+    for i in range(1, n+1):
+        if i == 1:
+            dp[0][1] = arr1[n-i]
+        dp[0][i] = max(dp[0][i-2] + arr1[n-i], dp[0][i-1])
+
+    for i in range(1, n+1):
+        if i == 1:
+            dp[1][0] = arr2[n-i]
+        dp[i][0] = max(dp[i-2][0] + arr2[n-i], dp[i-1][0])
+
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            if j == 1:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+            elif i == j:
+                dp[i][j] = max(dp[i - 1][j - 2] + arr1[n - j], dp[i][j - 1])
+            else:
+                dp[i][j] = max(dp[i][j - 2] + arr1[n-j], dp[i][j - 1])
 
 
 
 
-
-
-
-
+    print(dp[n][n])
