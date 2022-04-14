@@ -3427,41 +3427,64 @@
 #
 #     print(find(n, n))
 
+# 9465 Stickers O(n^2) 시간 복잡도지만 메모리 초과
+#
+# import sys
+#
+# tries = int(sys.stdin.readline().rstrip())
+#
+# for _ in range(tries):
+#
+#     n = int(sys.stdin.readline().rstrip())
+#
+#     dp = [[0 for _ in range(n+1)] for _ in range(n+1)]
+#
+#     arr1 = list(map(int, sys.stdin.readline().rstrip().split()))
+#     arr2 = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+#     dp[0][1] = arr1[n-1]
+#     dp[1][0] = arr2[n-1]
+#     dp[1][1] = max(dp[0][1], dp[1][0])
+#
+#     arr1.reverse()
+#     arr2.reverse()
+#
+#     for i in range(1, n+1):
+#         dp[i][i] = max(dp[i - 1][i], dp[i][i - 1])
+#         if i == n:
+#             break
+#         dp[i + 1][i] = max(dp[i - 1][i] + arr2[i], dp[i][i])
+#         dp[i][i+1] = max(dp[i][i - 1] + arr1[i], dp[i][i])
+#
+#
+#     print(dp[n][n])
+
 # 9465 Stickers
 
-import sys
-
-tries = int(sys.stdin.readline().rstrip())
-
-for _ in range(tries):
-
-    n = int(sys.stdin.readline().rstrip())
-
-    dp = [[0 for _ in range(n+1)] for _ in range(n+1)]
-
-    arr1 = list(map(int, sys.stdin.readline().rstrip().split()))
-    arr2 = list(map(int, sys.stdin.readline().rstrip().split()))
-
-    for i in range(1, n+1):
-        if i == 1:
-            dp[0][1] = arr1[n-i]
-        dp[0][i] = max(dp[0][i-2] + arr1[n-i], dp[0][i-1])
-
-    for i in range(1, n+1):
-        if i == 1:
-            dp[1][0] = arr2[n-i]
-        dp[i][0] = max(dp[i-2][0] + arr2[n-i], dp[i-1][0])
-
-    for i in range(1, n+1):
-        for j in range(1, n+1):
-            if j == 1:
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-            elif i == j:
-                dp[i][j] = max(dp[i - 1][j - 2] + arr1[n - j], dp[i][j - 1])
-            else:
-                dp[i][j] = max(dp[i][j - 2] + arr1[n-j], dp[i][j - 1])
-
-
-
-
-    print(dp[n][n])
+# import sys
+#
+# tries = int(sys.stdin.readline().rstrip())
+#
+# for _ in range(tries):
+#
+#     n = int(sys.stdin.readline().rstrip())
+#
+#     dp = [[0 for _ in range(3)] for _ in range(n+1)]
+#
+#     arr1 = list(map(int, sys.stdin.readline().rstrip().split()))
+#     arr2 = list(map(int, sys.stdin.readline().rstrip().split()))
+#
+#     arr1.reverse()
+#     arr2.reverse()
+#
+#     dp[0][1] = arr1[0]
+#     dp[0][2] = arr2[0]
+#
+#     for i in range(1, n+1):
+#         dp[i][0] = max(dp[i-1][1], dp[i-1][2])
+#         if i == n:
+#             break
+#         dp[i][1] = max(dp[i-1][2] + arr1[i], dp[i][0])
+#         dp[i][2] = max(dp[i-1][1] + arr2[i], dp[i][0])
+#
+#     print(dp[n][0])
