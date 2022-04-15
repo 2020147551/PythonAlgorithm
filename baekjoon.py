@@ -3490,26 +3490,63 @@
 #     print(dp[n][0])
 
 #11660 구간 합 구하기 5
+#
+# import sys
+#
+# n, tries = map(int, sys.stdin.readline().rstrip().split())
+#
+# board = []
+# for i in range(n):
+#     board.append(list(map(int, sys.stdin.readline().rstrip().split())))
+#
+# dp = [[0 for i in range(n+1)] for j in range(n+1)]
+#
+# for i in range(1, n+1):
+#     for j in range(1, n+1):
+#         dp[i][j] = dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] + board[i-1][j-1]
+#
+#
+# for _ in range(tries):
+#     y1, x1, y2, x2 = map(int, sys.stdin.readline().rstrip().split())
+#     total = dp[y2][x2]
+#     total -= dp[y1-1][x2]
+#     total -= dp[y2][x1-1]
+#     total += dp[y1-1][x1-1]
+#     print(total)
 
-import sys
 
-n, tries = map(int, sys.stdin.readline().rstrip().split())
+# 12865 평범한 배낭 재귀방식 O(2^n)
+#
+# import sys
+#
+# item_num, max_weight = map(int, sys.stdin.readline().rstrip().split())
+#
+# items = []
+#
+# for i in range(item_num):
+#     weight, priority = map(int, sys.stdin.readline().rstrip().split())
+#     items.append([weight, priority])
+#
+# def find(available_weight, n):
+#     if n <= 0 or available_weight <= 0:
+#         return 0
+#     if items[n-1][0] > available_weight:
+#         return find(available_weight, n-1)
+#
+#     cur_item_weight = items[n-1][0]
+#     cur_item_priority = items[n-1][1]
+#     carry = find(available_weight-cur_item_weight, n-1) + cur_item_priority
+#     leave = find(available_weight, n-1)
+#
+#     return max(carry, leave)
+#
+# print(find(max_weight, item_num))
+#
 
-board = []
-for i in range(n):
-    board.append(list(map(int, sys.stdin.readline().rstrip().split())))
-
-dp = [[0 for i in range(n+1)] for j in range(n+1)]
-
-for i in range(1, n+1):
-    for j in range(1, n+1):
-        dp[i][j] = dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] + board[i-1][j-1]
 
 
-for _ in range(tries):
-    y1, x1, y2, x2 = map(int, sys.stdin.readline().rstrip().split())
-    total = dp[y2][x2]
-    total -= dp[y1-1][x2]
-    total -= dp[y2][x1-1]
-    total += dp[y1-1][x1-1]
-    print(total)
+
+
+
+
+
